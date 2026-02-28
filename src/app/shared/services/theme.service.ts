@@ -12,6 +12,7 @@ export class ThemeService {
     effect(() => {
       const theme = this._theme();
       document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.documentElement.classList.toggle('light', theme === 'light');
       localStorage.setItem('angular-portal-theme', theme);
     });
   }
