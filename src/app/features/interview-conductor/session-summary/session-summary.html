@@ -17,27 +17,35 @@
     @if (stats(); as s) {
       <div class="grid grid-cols-4 gap-4 mb-6">
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-4 text-center">
-            <div class="text-2xl font-bold">{{ s.total }}</div>
-            <div class="text-xs text-gray-400">Питань задано</div>
+          <mat-card-content>
+            <div class="p-4 text-center">
+              <div class="text-2xl font-bold">{{ s.total }}</div>
+              <div class="text-xs text-gray-400">Питань задано</div>
+            </div>
           </mat-card-content>
         </mat-card>
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-4 text-center">
-            <div class="text-2xl font-bold text-success">{{ s.strong }}</div>
-            <div class="text-xs text-gray-400">Сильних</div>
+          <mat-card-content>
+            <div class="p-4 text-center">
+              <div class="text-2xl font-bold text-success">{{ s.strong }}</div>
+              <div class="text-xs text-gray-400">Сильних</div>
+            </div>
           </mat-card-content>
         </mat-card>
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-4 text-center">
-            <div class="text-2xl font-bold text-warning">{{ s.partial }}</div>
-            <div class="text-xs text-gray-400">Часткових</div>
+          <mat-card-content>
+            <div class="p-4 text-center">
+              <div class="text-2xl font-bold text-warning">{{ s.partial }}</div>
+              <div class="text-xs text-gray-400">Часткових</div>
+            </div>
           </mat-card-content>
         </mat-card>
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-4 text-center">
-            <div class="text-2xl font-bold text-danger">{{ s.weak }}</div>
-            <div class="text-xs text-gray-400">Слабких</div>
+          <mat-card-content>
+            <div class="p-4 text-center">
+              <div class="text-2xl font-bold text-danger">{{ s.weak }}</div>
+              <div class="text-xs text-gray-400">Слабких</div>
+            </div>
           </mat-card-content>
         </mat-card>
       </div>
@@ -48,21 +56,23 @@
     <div class="flex flex-col gap-2 mb-8">
       @for (answer of sess.answers; track answer.questionId) {
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-3 flex items-start gap-3">
-            <div class="flex-1 min-w-0">
-              <div class="text-xs text-gray-500 mb-0.5">{{ getQuestionLevel(answer.questionId) }}</div>
-              <p class="text-sm">{{ getQuestionText(answer.questionId) }}</p>
-              @if (answer.notes) {
-                <p class="text-xs text-gray-400 mt-1 italic">{{ answer.notes }}</p>
-              }
-            </div>
-            <div class="flex flex-col items-end gap-1 flex-shrink-0">
-              <span class="text-xs text-gray-500">{{ answer.candidateLevel }}</span>
-              <mat-chip [class]="
-                answer.quality === 'strong' ? 'bg-success text-white text-xs' :
-                answer.quality === 'partial' ? 'bg-warning text-white text-xs' :
-                'bg-danger text-white text-xs'
-              ">{{ answer.quality }}</mat-chip>
+          <mat-card-content>
+            <div class="p-3 flex items-start gap-3">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs text-gray-500 mb-0.5">{{ getQuestionLevel(answer.questionId) }}</div>
+                <p class="text-sm">{{ getQuestionText(answer.questionId) }}</p>
+                @if (answer.notes) {
+                  <p class="text-xs text-gray-400 mt-1 italic">{{ answer.notes }}</p>
+                }
+              </div>
+              <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                <span class="text-xs text-gray-500">{{ answer.candidateLevel }}</span>
+                <mat-chip [class]="
+                  answer.quality === 'strong' ? 'bg-success text-white text-xs' :
+                  answer.quality === 'partial' ? 'bg-warning text-white text-xs' :
+                  'bg-danger text-white text-xs'
+                ">{{ answer.quality }}</mat-chip>
+              </div>
             </div>
           </mat-card-content>
         </mat-card>
@@ -71,27 +81,29 @@
 
     <!-- AI Prompt Generator -->
     <mat-card class="bg-surface-light mb-6">
-      <mat-card-content class="p-6">
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-semibold text-gray-300">Generate AI Prompt</h2>
-          <div class="flex gap-2">
-            <button mat-stroked-button (click)="generatePrompt()">
-              <mat-icon>auto_awesome</mat-icon>
-              Генерувати
-            </button>
-            @if (aiPrompt()) {
-              <button mat-raised-button color="primary" (click)="copyPrompt()">
-                <mat-icon>{{ copied() ? 'check' : 'content_copy' }}</mat-icon>
-                {{ copied() ? 'Скопійовано!' : 'Копіювати' }}
+      <mat-card-content>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-semibold text-gray-300">Generate AI Prompt</h2>
+            <div class="flex gap-2">
+              <button mat-stroked-button (click)="generatePrompt()">
+                <mat-icon>auto_awesome</mat-icon>
+                Генерувати
               </button>
-            }
+              @if (aiPrompt()) {
+                <button mat-raised-button color="primary" (click)="copyPrompt()">
+                  <mat-icon>{{ copied() ? 'check' : 'content_copy' }}</mat-icon>
+                  {{ copied() ? 'Скопійовано!' : 'Копіювати' }}
+                </button>
+              }
+            </div>
           </div>
+          @if (aiPrompt()) {
+            <pre class="text-xs bg-surface-lighter p-4 rounded overflow-auto max-h-64 whitespace-pre-wrap">{{ aiPrompt() }}</pre>
+          } @else {
+            <p class="text-sm text-gray-500">Натисніть "Генерувати" щоб створити промпт для ChatGPT / Claude</p>
+          }
         </div>
-        @if (aiPrompt()) {
-          <pre class="text-xs bg-surface-lighter p-4 rounded overflow-auto max-h-64 whitespace-pre-wrap">{{ aiPrompt() }}</pre>
-        } @else {
-          <p class="text-sm text-gray-500">Натисніть "Генерувати" щоб створити промпт для ChatGPT / Claude</p>
-        }
       </mat-card-content>
     </mat-card>
 

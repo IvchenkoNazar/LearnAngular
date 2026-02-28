@@ -7,21 +7,27 @@
 
     <div class="grid grid-cols-3 gap-4 mb-8">
       <mat-card class="bg-surface-light">
-        <mat-card-content class="p-4 text-center">
-          <div class="text-2xl font-bold text-success">{{ sessionStats().knew }}</div>
-          <div class="text-xs text-gray-400">Знав</div>
+        <mat-card-content>
+          <div class="p-4 text-center">
+            <div class="text-2xl font-bold text-success">{{ sessionStats().knew }}</div>
+            <div class="text-xs text-gray-400">Знав</div>
+          </div>
         </mat-card-content>
       </mat-card>
       <mat-card class="bg-surface-light">
-        <mat-card-content class="p-4 text-center">
-          <div class="text-2xl font-bold text-warning">{{ sessionStats().partial }}</div>
-          <div class="text-xs text-gray-400">Частково</div>
+        <mat-card-content>
+          <div class="p-4 text-center">
+            <div class="text-2xl font-bold text-warning">{{ sessionStats().partial }}</div>
+            <div class="text-xs text-gray-400">Частково</div>
+          </div>
         </mat-card-content>
       </mat-card>
       <mat-card class="bg-surface-light">
-        <mat-card-content class="p-4 text-center">
-          <div class="text-2xl font-bold text-danger">{{ sessionStats().didnt }}</div>
-          <div class="text-xs text-gray-400">Не знав</div>
+        <mat-card-content>
+          <div class="p-4 text-center">
+            <div class="text-2xl font-bold text-danger">{{ sessionStats().didnt }}</div>
+            <div class="text-xs text-gray-400">Не знав</div>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
@@ -64,15 +70,17 @@
 
     <!-- Question Card -->
     <mat-card class="bg-surface-light mb-4">
-      <mat-card-content class="p-6">
-        <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
-          <span class="text-accent font-mono">{{ q.level }}</span>
-          <span>•</span>
-          <span>{{ q.blockTitle }}</span>
-          <span>•</span>
-          <span>{{ q.topicTitle }}</span>
+      <mat-card-content>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+            <span class="text-accent font-mono">{{ q.level }}</span>
+            <span>•</span>
+            <span>{{ q.blockTitle }}</span>
+            <span>•</span>
+            <span>{{ q.topicTitle }}</span>
+          </div>
+          <p class="text-lg font-medium leading-relaxed">{{ q.question }}</p>
         </div>
-        <p class="text-lg font-medium leading-relaxed">{{ q.question }}</p>
       </mat-card-content>
     </mat-card>
 
@@ -100,9 +108,11 @@
 
       <!-- Reference Answer -->
       <mat-card class="bg-surface-lighter mb-4">
-        <mat-card-content class="p-4">
-          <div class="text-xs text-gray-500 mb-2">Еталонна відповідь ({{ selectedLevel() }})</div>
-          <p class="text-sm leading-relaxed">{{ getAnswerForLevel(q) }}</p>
+        <mat-card-content>
+          <div class="p-4">
+            <div class="text-xs text-gray-500 mb-2">Еталонна відповідь ({{ selectedLevel() }})</div>
+            <p class="text-sm leading-relaxed">{{ getAnswerForLevel(q) }}</p>
+          </div>
         </mat-card-content>
       </mat-card>
 

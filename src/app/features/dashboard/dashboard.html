@@ -6,79 +6,107 @@
   </div>
 
   <!-- Overall Progress -->
-  <mat-card class="mb-6 bg-surface-light">
-    <mat-card-content class="flex items-center gap-6 p-6">
-      <div class="relative w-24 h-24 flex-shrink-0">
-        <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#363650" stroke-width="8" />
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#a29bfe" stroke-width="8"
-            [attr.stroke-dasharray]="283"
-            [attr.stroke-dashoffset]="283 - (283 * completionPercentage() / 100)"
-            stroke-linecap="round" />
-        </svg>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="text-2xl font-bold text-accent">{{ completionPercentage() }}%</span>
+  <mat-card class="mb-6">
+    <mat-card-content>
+      <div class="flex items-center gap-6 p-5 flex-wrap">
+        <div class="relative w-20 h-20 flex-shrink-0">
+          <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="var(--color-surface-lighter)" stroke-width="10" />
+            <circle cx="50" cy="50" r="42" fill="none" stroke="var(--color-accent)" stroke-width="10"
+              [attr.stroke-dasharray]="264"
+              [attr.stroke-dashoffset]="264 - (264 * completionPercentage() / 100)"
+              stroke-linecap="round" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-lg font-bold text-accent">{{ completionPercentage() }}%</span>
+          </div>
         </div>
+        <div class="flex-1 min-w-0">
+          <h2 class="text-lg font-semibold mb-1">Загальний прогрес</h2>
+          <p class="text-gray-400 text-sm mb-2">{{ completedTopics() }} з {{ totalTopics() }} тем завершено</p>
+          <mat-progress-bar mode="determinate" [value]="completionPercentage()" />
+        </div>
+        <a mat-raised-button color="primary" routerLink="/blocks" class="flex-shrink-0">
+          <mat-icon>school</mat-icon>
+          Навчання
+        </a>
       </div>
-      <div class="flex-1">
-        <h2 class="text-xl font-semibold mb-1">Загальний прогрес</h2>
-        <p class="text-gray-400 text-sm">{{ completedTopics() }} з {{ totalTopics() }} тем завершено</p>
-        <mat-progress-bar mode="determinate" [value]="completionPercentage()" class="mt-2" />
-      </div>
-      <a mat-raised-button color="primary" routerLink="/blocks" class="flex-shrink-0">
-        <mat-icon>school</mat-icon>
-        Продовжити навчання
-      </a>
     </mat-card-content>
   </mat-card>
 
   <!-- Stats Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-    <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <mat-icon class="text-4xl text-accent mb-2">menu_book</mat-icon>
-        <div class="text-2xl font-bold">{{ totalTopics() }}</div>
-        <div class="text-sm text-gray-400">Всього тем</div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <mat-card>
+      <mat-card-content class="p-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-surface-lighter flex items-center justify-center flex-shrink-0">
+            <mat-icon class="text-2xl text-accent">menu_book</mat-icon>
+          </div>
+          <div>
+            <div class="text-2xl font-bold leading-tight">{{ totalTopics() }}</div>
+            <div class="text-xs text-gray-400 mt-0.5">Тем всього</div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <mat-icon class="text-4xl text-success mb-2">check_circle</mat-icon>
-        <div class="text-2xl font-bold">{{ completedTopics() }}</div>
-        <div class="text-sm text-gray-400">Завершено</div>
+    <mat-card>
+      <mat-card-content class="p-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-surface-lighter flex items-center justify-center flex-shrink-0">
+            <mat-icon class="text-2xl text-success">check_circle</mat-icon>
+          </div>
+          <div>
+            <div class="text-2xl font-bold leading-tight">{{ completedTopics() }}</div>
+            <div class="text-xs text-gray-400 mt-0.5">Завершено</div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <mat-icon class="text-4xl text-cyan mb-2">quiz</mat-icon>
-        <div class="text-2xl font-bold">{{ totalQuestions() }}</div>
-        <div class="text-sm text-gray-400">Питань для інтерв'ю</div>
+    <mat-card>
+      <mat-card-content class="p-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-surface-lighter flex items-center justify-center flex-shrink-0">
+            <mat-icon class="text-2xl text-cyan">quiz</mat-icon>
+          </div>
+          <div>
+            <div class="text-2xl font-bold leading-tight">{{ totalQuestions() }}</div>
+            <div class="text-xs text-gray-400 mt-0.5">Питань</div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <mat-icon class="text-4xl text-warning mb-2">trending_up</mat-icon>
-        <div class="text-2xl font-bold">{{ quizAttempts() }}</div>
-        <div class="text-sm text-gray-400">Спроб квізу</div>
+    <mat-card>
+      <mat-card-content class="p-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-surface-lighter flex items-center justify-center flex-shrink-0">
+            <mat-icon class="text-2xl text-warning">trending_up</mat-icon>
+          </div>
+          <div>
+            <div class="text-2xl font-bold leading-tight">{{ quizAttempts() }}</div>
+            <div class="text-xs text-gray-400 mt-0.5">Спроб квізу</div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
 
   <!-- Weak Zones Alert -->
   @if (weakQuestions().length > 0) {
-    <mat-card class="mb-6 border-l-4 border-warning bg-surface-light">
-      <mat-card-content class="p-4 flex items-center gap-3">
-        <mat-icon class="text-warning">warning</mat-icon>
-        <div>
-          <strong>{{ weakQuestions().length }} питань потребують повторення</strong>
-          <p class="text-sm text-gray-400">Час повторити теми, де ви відповіли "Не знав"</p>
+    <mat-card class="mb-6 border-l-4 border-warning">
+      <mat-card-content>
+        <div class="p-4 flex items-center gap-3">
+          <mat-icon class="text-warning flex-shrink-0">warning</mat-icon>
+          <div class="flex-1 min-w-0">
+            <strong>{{ weakQuestions().length }} питань потребують повторення</strong>
+            <p class="text-sm text-gray-400 mt-0.5">Час повторити теми, де ви відповіли "Не знав"</p>
+          </div>
+          <a mat-button routerLink="/interview/quiz" class="flex-shrink-0 text-warning">
+            Повторити
+          </a>
         </div>
-        <a mat-button routerLink="/interview/quiz" class="ml-auto text-warning">
-          Повторити
-        </a>
       </mat-card-content>
     </mat-card>
   }
@@ -87,43 +115,45 @@
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- Quick Links -->
     <div>
-      <h3 class="text-lg font-semibold mb-3 text-gray-300">Швидкі посилання</h3>
-      <div class="flex flex-col gap-2">
-        <a mat-stroked-button routerLink="/blocks" class="justify-start">
-          <mat-icon>school</mat-icon> Curriculum
-        </a>
-        <a mat-stroked-button routerLink="/interview" class="justify-start">
-          <mat-icon>quiz</mat-icon> Self-Study Quiz
-        </a>
-        <a mat-stroked-button routerLink="/conduct" class="justify-start">
-          <mat-icon>assignment</mat-icon> Conduct Interview
-        </a>
-        <a mat-stroked-button routerLink="/cheatsheets" class="justify-start">
-          <mat-icon>description</mat-icon> Cheatsheets
-        </a>
-        <a mat-stroked-button routerLink="/progress" class="justify-start">
-          <mat-icon>bar_chart</mat-icon> Progress Analytics
-        </a>
-      </div>
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">Навігація</h3>
+      <mat-card>
+        <mat-card-content>
+          <div class="flex flex-col py-1">
+            <a mat-button routerLink="/blocks" class="w-full justify-start">
+              <mat-icon>school</mat-icon> Curriculum
+            </a>
+            <a mat-button routerLink="/interview" class="w-full justify-start">
+              <mat-icon>quiz</mat-icon> Self-Study Quiz
+            </a>
+            <a mat-button routerLink="/conduct" class="w-full justify-start">
+              <mat-icon>assignment</mat-icon> Conduct Interview
+            </a>
+            <a mat-button routerLink="/cheatsheets" class="w-full justify-start">
+              <mat-icon>description</mat-icon> Cheatsheets
+            </a>
+            <a mat-button routerLink="/progress" class="w-full justify-start">
+              <mat-icon>bar_chart</mat-icon> Progress
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
 
     <!-- Blocks Overview -->
     <div class="lg:col-span-2">
-      <h3 class="text-lg font-semibold mb-3 text-gray-300">Блоки навчання</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">Блоки навчання</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         @for (block of blocks(); track block.id) {
           <a [routerLink]="['/blocks', block.slug]"
-             class="block p-3 rounded-lg bg-surface-light hover:bg-surface-lighter transition-colors no-underline">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-medium text-sm">{{ block.title }}</span>
-              <mat-chip-set>
-                <mat-chip class="text-xs">{{ block.topicCount }} тем</mat-chip>
-              </mat-chip-set>
+             class="flex items-center gap-3 p-3 rounded-lg bg-surface-light hover:bg-surface-lighter transition-colors no-underline group">
+            <div class="w-8 h-8 rounded-lg bg-surface-lighter flex items-center justify-center flex-shrink-0 text-xs font-mono font-bold text-accent">
+              {{ block.id }}
             </div>
-            <mat-progress-bar
-              mode="determinate"
-              [value]="0"
-              class="mt-1" />
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-medium truncate">{{ block.title }}</div>
+              <div class="text-xs text-gray-500">{{ block.topicCount }} тем</div>
+            </div>
+            <mat-icon class="text-base text-gray-600 group-hover:text-gray-400 transition-colors flex-shrink-0">chevron_right</mat-icon>
           </a>
         }
       </div>

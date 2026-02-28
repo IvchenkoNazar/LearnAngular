@@ -8,54 +8,58 @@
   <h1 class="text-2xl font-bold text-accent mb-6">Профіль кандидата</h1>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-card class="bg-surface-light mb-4">
-      <mat-card-content class="p-6 flex flex-col gap-4">
-        <h2 class="font-semibold text-gray-300">Основна інформація</h2>
+    <mat-card class="mb-4">
+      <mat-card-content>
+        <div class="p-6 flex flex-col gap-4">
+          <h2 class="font-semibold text-gray-300">Основна інформація</h2>
 
-        <mat-form-field>
-          <mat-label>Ім'я кандидата *</mat-label>
-          <input matInput formControlName="name" placeholder="Ім'я Прізвище">
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Ім'я кандидата *</mat-label>
+            <input matInput formControlName="name" placeholder="Ім'я Прізвище">
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Роль</mat-label>
-          <input matInput formControlName="role">
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Роль</mat-label>
+            <input matInput formControlName="role">
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Роки досвіду</mat-label>
-          <input matInput type="number" formControlName="yearsOfExperience" min="0">
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Роки досвіду</mat-label>
+            <input matInput type="number" formControlName="yearsOfExperience" min="0">
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Angular версії</mat-label>
-          <mat-select formControlName="angularVersions" multiple>
-            @for (v of angularVersionOptions; track v) {
-              <mat-option [value]="v">{{ v }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Angular версії</mat-label>
+            <mat-select formControlName="angularVersions" multiple>
+              @for (v of angularVersionOptions; track v) {
+                <mat-option [value]="v">{{ v }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="bg-surface-light mb-6">
-      <mat-card-content class="p-6 flex flex-col gap-4">
-        <h2 class="font-semibold text-gray-300">Додатково</h2>
+    <mat-card class="mb-6">
+      <mat-card-content>
+        <div class="p-6 flex flex-col gap-4">
+          <h2 class="font-semibold text-gray-300">Додатково</h2>
 
-        <mat-form-field>
-          <mat-label>Основні обов'язки</mat-label>
-          <textarea matInput formControlName="mainResponsibilities" rows="2"></textarea>
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Основні обов'язки</mat-label>
+            <textarea matInput formControlName="mainResponsibilities" rows="2"></textarea>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Найцікавіший проект</mat-label>
-          <textarea matInput formControlName="proudestWork" rows="2"></textarea>
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Найцікавіший проект</mat-label>
+            <textarea matInput formControlName="proudestWork" rows="2"></textarea>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Що хоче покращити</mat-label>
-          <textarea matInput formControlName="wantsToImprove" rows="2"></textarea>
-        </mat-form-field>
+          <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Що хоче покращити</mat-label>
+            <textarea matInput formControlName="wantsToImprove" rows="2"></textarea>
+          </mat-form-field>
+        </div>
       </mat-card-content>
     </mat-card>
 

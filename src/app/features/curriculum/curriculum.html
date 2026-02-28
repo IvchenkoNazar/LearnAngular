@@ -8,31 +8,33 @@
     @for (block of blocks(); track block.id) {
       <a [routerLink]="['/blocks', block.slug]"
          class="block no-underline">
-        <mat-card class="h-full bg-surface-light hover:bg-surface-lighter transition-colors cursor-pointer"
+        <mat-card class="h-full hover:bg-surface-lighter transition-colors cursor-pointer"
                   [class.border-l-4]="isPriority(block.id)"
                   [class.border-warning]="isPriority(block.id)">
-          <mat-card-content class="p-4">
-            <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono text-gray-500">{{ block.id }}</span>
-                <h3 class="font-semibold text-sm leading-tight">{{ block.title }}</h3>
+          <mat-card-content>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono text-gray-500">{{ block.id }}</span>
+                  <h3 class="font-semibold text-sm leading-tight">{{ block.title }}</h3>
+                </div>
+                @if (isPriority(block.id)) {
+                  <mat-chip class="text-xs">Priority</mat-chip>
+                }
               </div>
-              @if (isPriority(block.id)) {
-                <mat-chip class="text-xs">Priority</mat-chip>
-              }
+
+              <p class="text-xs text-gray-400 mb-3 line-clamp-2">{{ block.description }}</p>
+
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+                <span>{{ block.topicCount }} тем</span>
+                <span>{{ getProgress(block.id).completed }}/{{ block.topicCount }} завершено</span>
+              </div>
+
+              <mat-progress-bar
+                mode="determinate"
+                [value]="getProgress(block.id).percentage"
+                class="mt-1" />
             </div>
-
-            <p class="text-xs text-gray-400 mb-3 line-clamp-2">{{ block.description }}</p>
-
-            <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
-              <span>{{ block.topicCount }} тем</span>
-              <span>{{ getProgress(block.id).completed }}/{{ block.topicCount }} завершено</span>
-            </div>
-
-            <mat-progress-bar
-              mode="determinate"
-              [value]="getProgress(block.id).percentage"
-              class="mt-1" />
           </mat-card-content>
         </mat-card>
       </a>

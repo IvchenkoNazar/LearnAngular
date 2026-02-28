@@ -59,75 +59,77 @@
     <div class="flex flex-col gap-2">
       @for (row of rows(); track row.question.id) {
         <mat-card [class]="'bg-surface-light ' + getRowClass(row)">
-          <mat-card-content class="p-3">
-            <!-- Collapsed row -->
-            <div class="flex items-start gap-3">
-              <span [class]="'text-xs font-mono flex-shrink-0 mt-0.5 ' + getLevelColor(row.question.level)">
-                {{ row.question.level }}
-              </span>
-              <div class="flex-1 min-w-0">
-                <div class="text-xs text-gray-500 mb-0.5">
-                  {{ row.question.blockTitle }} › {{ row.question.topicTitle }}
+          <mat-card-content>
+            <div class="p-3">
+              <!-- Collapsed row -->
+              <div class="flex items-start gap-3">
+                <span [class]="'text-xs font-mono flex-shrink-0 mt-0.5 ' + getLevelColor(row.question.level)">
+                  {{ row.question.level }}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <div class="text-xs text-gray-500 mb-0.5">
+                    {{ row.question.blockTitle }} › {{ row.question.topicTitle }}
+                  </div>
+                  <p class="text-sm">{{ row.question.question }}</p>
                 </div>
-                <p class="text-sm">{{ row.question.question }}</p>
-              </div>
-              <div class="flex items-center gap-2 flex-shrink-0">
-                @if (row.isAsked) {
-                  <mat-icon class="text-success text-base">check_circle</mat-icon>
-                }
-                <button mat-stroked-button class="text-xs"
-                        (click)="toggleExpand(row.question.id)">
-                  {{ expandedQuestionId() === row.question.id ? 'Закрити' : 'Запитати' }}
-                </button>
-              </div>
-            </div>
-
-            <!-- Expanded: reference answers + grading -->
-            @if (expandedQuestionId() === row.question.id) {
-              <div class="mt-4 border-t border-surface-lighter pt-4">
-                <h4 class="text-sm font-semibold mb-2">Еталонні відповіді</h4>
-                <mat-tab-group animationDuration="150ms" class="mb-4">
-                  @for (level of levels; track level) {
-                    <mat-tab [label]="level">
-                      <div class="p-2 text-sm text-gray-300">
-                        {{ row.question.referenceAnswers[level] }}
-                      </div>
-                    </mat-tab>
+                <div class="flex items-center gap-2 flex-shrink-0">
+                  @if (row.isAsked) {
+                    <mat-icon class="text-success text-base">check_circle</mat-icon>
                   }
-                </mat-tab-group>
-
-                <form [formGroup]="gradeForm" class="flex flex-wrap gap-3 items-end">
-                  <mat-form-field class="min-w-36">
-                    <mat-label>Рівень кандидата</mat-label>
-                    <mat-select formControlName="candidateLevel">
-                      @for (level of levels; track level) {
-                        <mat-option [value]="level">{{ level }}</mat-option>
-                      }
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field class="min-w-36">
-                    <mat-label>Якість</mat-label>
-                    <mat-select formControlName="quality">
-                      @for (q of qualities; track q.value) {
-                        <mat-option [value]="q.value">{{ q.label }}</mat-option>
-                      }
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field class="flex-1 min-w-48">
-                    <mat-label>Нотатки</mat-label>
-                    <input matInput formControlName="notes">
-                  </mat-form-field>
-
-                  <button mat-raised-button color="primary"
-                          (click)="saveGrade(row.question.id)">
-                    <mat-icon>save</mat-icon>
-                    Зберегти
+                  <button mat-stroked-button class="text-xs"
+                          (click)="toggleExpand(row.question.id)">
+                    {{ expandedQuestionId() === row.question.id ? 'Закрити' : 'Запитати' }}
                   </button>
-                </form>
+                </div>
               </div>
-            }
+
+              <!-- Expanded: reference answers + grading -->
+              @if (expandedQuestionId() === row.question.id) {
+                <div class="mt-4 border-t border-surface-lighter pt-4">
+                  <h4 class="text-sm font-semibold mb-2">Еталонні відповіді</h4>
+                  <mat-tab-group animationDuration="150ms" class="mb-4">
+                    @for (level of levels; track level) {
+                      <mat-tab [label]="level">
+                        <div class="p-2 text-sm text-gray-300">
+                          {{ row.question.referenceAnswers[level] }}
+                        </div>
+                      </mat-tab>
+                    }
+                  </mat-tab-group>
+
+                  <form [formGroup]="gradeForm" class="flex flex-wrap gap-3 items-end">
+                    <mat-form-field class="min-w-36">
+                      <mat-label>Рівень кандидата</mat-label>
+                      <mat-select formControlName="candidateLevel">
+                        @for (level of levels; track level) {
+                          <mat-option [value]="level">{{ level }}</mat-option>
+                        }
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="min-w-36">
+                      <mat-label>Якість</mat-label>
+                      <mat-select formControlName="quality">
+                        @for (q of qualities; track q.value) {
+                          <mat-option [value]="q.value">{{ q.label }}</mat-option>
+                        }
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="flex-1 min-w-48">
+                      <mat-label>Нотатки</mat-label>
+                      <input matInput formControlName="notes">
+                    </mat-form-field>
+
+                    <button mat-raised-button color="primary"
+                            (click)="saveGrade(row.question.id)">
+                      <mat-icon>save</mat-icon>
+                      Зберегти
+                    </button>
+                  </form>
+                </div>
+              }
+            </div>
           </mat-card-content>
         </mat-card>
       }

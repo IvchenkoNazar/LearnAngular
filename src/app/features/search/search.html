@@ -13,19 +13,21 @@
       @for (result of results(); track result.topicId) {
         <a [routerLink]="['/blocks', result.blockSlug, result.topicSlug]" class="block no-underline">
           <mat-card class="bg-surface-light hover:bg-surface-lighter transition-colors cursor-pointer">
-            <mat-card-content class="p-4">
-              <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                <mat-icon class="text-base">folder</mat-icon>
-                {{ result.blockTitle }}
-              </div>
-              <h3 class="font-semibold text-sm mb-2">{{ result.title }}</h3>
-              @if (result.matchedTerms.length > 0) {
-                <div class="flex flex-wrap gap-1">
-                  @for (term of result.matchedTerms; track term) {
-                    <mat-chip class="text-xs">{{ term }}</mat-chip>
-                  }
+            <mat-card-content>
+              <div class="p-4">
+                <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                  <mat-icon class="text-base">folder</mat-icon>
+                  {{ result.blockTitle }}
                 </div>
-              }
+                <h3 class="font-semibold text-sm mb-2">{{ result.title }}</h3>
+                @if (result.matchedTerms.length > 0) {
+                  <div class="flex flex-wrap gap-1">
+                    @for (term of result.matchedTerms; track term) {
+                      <mat-chip class="text-xs">{{ term }}</mat-chip>
+                    }
+                  </div>
+                }
+              </div>
             </mat-card-content>
           </mat-card>
         </a>

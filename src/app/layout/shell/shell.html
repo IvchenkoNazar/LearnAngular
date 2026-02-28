@@ -3,11 +3,11 @@
     #sidenav
     [mode]="sidenavMode()"
     [opened]="effectiveSidenavOpen"
-    class="w-72 bg-surface border-r border-surface-lighter">
+    class="w-72 border-r border-surface-lighter">
     <app-sidenav (navigated)="onMobileNavigate(sidenav)" />
   </mat-sidenav>
 
-  <mat-sidenav-content class="flex flex-col bg-surface">
+  <mat-sidenav-content class="flex flex-col">
     <app-toolbar
       (toggleSidenav)="toggleSidenav()"
       [sidenavOpen]="sidenavOpen()" />

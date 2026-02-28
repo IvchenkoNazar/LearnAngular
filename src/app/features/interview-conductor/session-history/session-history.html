@@ -19,31 +19,33 @@
     <div class="flex flex-col gap-3">
       @for (session of sessions(); track session.id; let i = $index) {
         <mat-card class="bg-surface-light">
-          <mat-card-content class="p-4 flex items-center gap-4">
-            <div class="flex-1 min-w-0">
-              <div class="font-medium">{{ session.candidate.name }}</div>
-              <div class="text-sm text-gray-400">
-                {{ session.candidate.role }} • {{ formatDate(session.createdAt) }}
+          <mat-card-content>
+            <div class="p-4 flex items-center gap-4">
+              <div class="flex-1 min-w-0">
+                <div class="font-medium">{{ session.candidate.name }}</div>
+                <div class="text-sm text-gray-400">
+                  {{ session.candidate.role }} • {{ formatDate(session.createdAt) }}
+                </div>
+                <div class="text-xs text-gray-500 mt-0.5">
+                  {{ session.answers.length }} питань • {{ getScoreLabel(session) }}
+                </div>
               </div>
-              <div class="text-xs text-gray-500 mt-0.5">
-                {{ session.answers.length }} питань • {{ getScoreLabel(session) }}
-              </div>
-            </div>
-            <span [class]="session.status === 'completed' ? 'text-success text-xs' : 'text-warning text-xs'">
-              {{ session.status === 'completed' ? 'Завершено' : 'Активне' }}
-            </span>
-            <div class="flex gap-1">
-              @if (session.status === 'active') {
-                <a mat-icon-button [routerLink]="['/conduct/session', session.id]" title="Продовжити">
-                  <mat-icon>play_arrow</mat-icon>
+              <span [class]="session.status === 'completed' ? 'text-success text-xs' : 'text-warning text-xs'">
+                {{ session.status === 'completed' ? 'Завершено' : 'Активне' }}
+              </span>
+              <div class="flex gap-1">
+                @if (session.status === 'active') {
+                  <a mat-icon-button [routerLink]="['/conduct/session', session.id]" title="Продовжити">
+                    <mat-icon>play_arrow</mat-icon>
+                  </a>
+                }
+                <a mat-icon-button [routerLink]="['/conduct/session', session.id, 'summary']" title="Результати">
+                  <mat-icon>assessment</mat-icon>
                 </a>
-              }
-              <a mat-icon-button [routerLink]="['/conduct/session', session.id, 'summary']" title="Результати">
-                <mat-icon>assessment</mat-icon>
-              </a>
-              <button mat-icon-button (click)="deleteSession(session.id)" title="Видалити">
-                <mat-icon class="text-danger">delete</mat-icon>
-              </button>
+                <button mat-icon-button (click)="deleteSession(session.id)" title="Видалити">
+                  <mat-icon class="text-danger">delete</mat-icon>
+                </button>
+              </div>
             </div>
           </mat-card-content>
         </mat-card>

@@ -7,36 +7,44 @@
   <!-- Stats -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
     <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <div class="text-2xl font-bold text-accent">{{ questions().length }}</div>
-        <div class="text-sm text-gray-400">Питань всього</div>
+      <mat-card-content>
+        <div class="p-4 text-center">
+          <div class="text-2xl font-bold text-accent">{{ questions().length }}</div>
+          <div class="text-sm text-gray-400">Питань всього</div>
+        </div>
       </mat-card-content>
     </mat-card>
     <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <div class="text-2xl font-bold text-success">{{ practicedCount() }}</div>
-        <div class="text-sm text-gray-400">Відпрацьовано</div>
+      <mat-card-content>
+        <div class="p-4 text-center">
+          <div class="text-2xl font-bold text-success">{{ practicedCount() }}</div>
+          <div class="text-sm text-gray-400">Відпрацьовано</div>
+        </div>
       </mat-card-content>
     </mat-card>
     <mat-card class="bg-surface-light">
-      <mat-card-content class="p-4 text-center">
-        <div class="text-2xl font-bold text-cyan">{{ accuracyRate() }}%</div>
-        <div class="text-sm text-gray-400">Правильних відповідей</div>
+      <mat-card-content>
+        <div class="p-4 text-center">
+          <div class="text-2xl font-bold text-cyan">{{ accuracyRate() }}%</div>
+          <div class="text-sm text-gray-400">Правильних відповідей</div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
 
   <!-- Start Quiz CTA -->
   <mat-card class="mb-6 bg-surface-light border-l-4 border-accent">
-    <mat-card-content class="p-4 flex items-center justify-between">
-      <div>
-        <h3 class="font-semibold mb-1">Розпочати квіз</h3>
-        <p class="text-sm text-gray-400">Флешкарти з питань для інтерв'ю — оціни себе самостійно</p>
+    <mat-card-content>
+      <div class="p-4 flex items-center justify-between">
+        <div>
+          <h3 class="font-semibold mb-1">Розпочати квіз</h3>
+          <p class="text-sm text-gray-400">Флешкарти з питань для інтерв'ю — оціни себе самостійно</p>
+        </div>
+        <a mat-raised-button color="primary" routerLink="/interview/quiz">
+          <mat-icon>play_arrow</mat-icon>
+          Почати
+        </a>
       </div>
-      <a mat-raised-button color="primary" routerLink="/interview/quiz">
-        <mat-icon>play_arrow</mat-icon>
-        Почати
-      </a>
     </mat-card-content>
   </mat-card>
 
@@ -68,14 +76,16 @@
   <div class="flex flex-col gap-2">
     @for (q of filteredQuestions(); track q.id) {
       <mat-card class="bg-surface-light">
-        <mat-card-content class="p-3">
-          <div class="flex items-start gap-3">
-            <span [class]="'text-xs font-mono mt-0.5 flex-shrink-0 ' + getLevelColor(q.level)">
-              {{ q.level }}
-            </span>
-            <div class="flex-1 min-w-0">
-              <div class="text-xs text-gray-500 mb-1">{{ q.blockTitle }} › {{ q.topicTitle }}</div>
-              <p class="text-sm">{{ q.question }}</p>
+        <mat-card-content>
+          <div class="p-3">
+            <div class="flex items-start gap-3">
+              <span [class]="'text-xs font-mono mt-0.5 flex-shrink-0 ' + getLevelColor(q.level)">
+                {{ q.level }}
+              </span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs text-gray-500 mb-1">{{ q.blockTitle }} › {{ q.topicTitle }}</div>
+                <p class="text-sm">{{ q.question }}</p>
+              </div>
             </div>
           </div>
         </mat-card-content>

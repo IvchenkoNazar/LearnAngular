@@ -1,0 +1,220 @@
+// =============================================================
+// Angular Material 3 (MDC) — Global overrides
+// Maps Material's internal CSS variables to our Tailwind theme
+// variables so the two systems coexist cleanly.
+// =============================================================
+
+// ---------------------------------------------------------------
+// GLOBAL CSS VARIABLE MAPPINGS
+// ---------------------------------------------------------------
+// Angular Material's un-layered CSS has higher cascade priority
+// than Tailwind's @layer utilities. Map Material's CSS variables
+// directly to our custom theme tokens so everything inherits properly.
+:root {
+  // Cards
+  --mdc-elevated-card-container-color: var(--color-surface-light);
+  --mdc-outlined-card-container-color: var(--color-surface-light);
+  --mat-card-subtitle-text-color: rgb(156 163 175); // gray-400
+
+  // Sidenav / shell
+  --mat-sidenav-container-background-color: var(--color-surface);
+  --mat-sidenav-container-divider-color: var(--color-surface-lighter);
+  --mat-sidenav-content-background-color: var(--color-surface);
+
+  // Toolbar
+  --mat-toolbar-container-background-color: var(--color-surface-light);
+
+  // Progress bar
+  --mdc-linear-progress-track-color: var(--color-surface-lighter);
+  --mdc-linear-progress-active-indicator-color: var(--color-accent);
+
+  // Chips
+  --mdc-chip-container-height: 24px;
+  --mdc-chip-label-text-size: 0.75rem;
+  --mdc-chip-label-text-line-height: 1.5;
+}
+
+// Remove default card-content padding — templates use Tailwind p-* instead
+.mat-mdc-card-content {
+  padding: 0 !important;
+  &:first-child { padding-top: 0 !important; }
+  &:last-child  { padding-bottom: 0 !important; }
+}
+
+// ---------------------------------------------------------------
+// TOOLBAR
+// ---------------------------------------------------------------
+.mat-toolbar {
+  // Remove excessive horizontal padding from Material default
+  padding-left: 8px !important;
+  padding-right: 12px !important;
+  gap: 4px;
+}
+
+// Search field inside toolbar — remove subscript space so field fits toolbar height
+.search-field {
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+  }
+  // Tighten wrapper margins
+  .mat-mdc-text-field-wrapper {
+    margin-bottom: 0 !important;
+  }
+}
+
+// ---------------------------------------------------------------
+// SIDENAV — expansion panels
+// ---------------------------------------------------------------
+mat-sidenav {
+  .mat-expansion-panel {
+    --mat-expansion-container-background-color: transparent;
+    --mat-expansion-header-hover-state-layer-color: rgba(255, 255, 255, 0.06);
+    --mat-expansion-header-focus-state-layer-color: rgba(255, 255, 255, 0.06);
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    .mat-expansion-panel-header {
+      height: 42px !important;
+      min-height: 42px !important;
+      padding: 0 8px !important;
+      border-radius: 4px !important;
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0 !important;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+// BUTTONS — w-full + justify-start alignment
+// ---------------------------------------------------------------
+// Material buttons set justify-content: center internally.
+// When we add justify-start class, we need to override this.
+.mat-mdc-button.justify-start,
+.mat-mdc-outlined-button.justify-start,
+.mat-mdc-raised-button.justify-start {
+  justify-content: flex-start !important;
+
+  .mdc-button__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+// Ensure w-full buttons actually span full width
+.mat-mdc-button.w-full,
+.mat-mdc-outlined-button.w-full,
+.mat-mdc-raised-button.w-full {
+  width: 100% !important;
+}
+
+// ---------------------------------------------------------------
+// ICONS — explicit size overrides
+// ---------------------------------------------------------------
+// mat-icon has fixed 24×24px width/height that ignores Tailwind text-* classes.
+// These overrides let text-* work as expected.
+.mat-icon {
+  &.text-xs   { font-size: 0.75rem !important; width: 0.75rem !important; height: 0.75rem !important; line-height: 0.75rem !important; }
+  &.text-sm   { font-size: 0.875rem !important; width: 0.875rem !important; height: 0.875rem !important; line-height: 0.875rem !important; }
+  &.text-base { font-size: 1rem !important; width: 1rem !important; height: 1rem !important; line-height: 1rem !important; }
+  &.text-lg   { font-size: 1.125rem !important; width: 1.125rem !important; height: 1.125rem !important; line-height: 1.125rem !important; }
+  &.text-xl   { font-size: 1.25rem !important; width: 1.25rem !important; height: 1.25rem !important; line-height: 1.25rem !important; }
+  &.text-2xl  { font-size: 1.5rem !important; width: 1.5rem !important; height: 1.5rem !important; line-height: 1.5rem !important; }
+  &.text-3xl  { font-size: 1.875rem !important; width: 1.875rem !important; height: 1.875rem !important; line-height: 1.875rem !important; }
+  &.text-4xl  { font-size: 2.25rem !important; width: 2.25rem !important; height: 2.25rem !important; line-height: 2.25rem !important; }
+  &.text-5xl  { font-size: 3rem !important; width: 3rem !important; height: 3rem !important; line-height: 3rem !important; }
+  &.text-6xl  { font-size: 3.75rem !important; width: 3.75rem !important; height: 3.75rem !important; line-height: 3.75rem !important; }
+}
+
+// ---------------------------------------------------------------
+// PROGRESS BAR
+// ---------------------------------------------------------------
+.mat-mdc-progress-bar {
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+// ---------------------------------------------------------------
+// FORM FIELDS
+// ---------------------------------------------------------------
+// Default form fields full-width (most common usage)
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+// ---------------------------------------------------------------
+// TABS
+// ---------------------------------------------------------------
+// Tab body content has default padding — let content control it
+.mat-mdc-tab-body-content {
+  padding: 0 !important;
+}
+
+// ---------------------------------------------------------------
+// PROSE (markdown rendered content in topic-viewer)
+// ---------------------------------------------------------------
+.prose {
+  // Headings
+  h1, h2, h3, h4 { color: var(--color-accent-light, #b8b3ff); }
+  h2 { margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.375rem; border-bottom: 1px solid var(--color-surface-lighter, #363650); padding-bottom: 0.5rem; }
+  h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.125rem; }
+
+  // Paragraphs & lists
+  p { line-height: 1.75; margin-bottom: 1rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.25rem; line-height: 1.7; }
+  ul > li { list-style-type: disc; }
+  ol > li { list-style-type: decimal; }
+
+  // Code blocks
+  pre {
+    background-color: #1a1a2e !important;
+    border: 1px solid var(--color-surface-lighter, #363650);
+    border-radius: 8px;
+    padding: 1rem !important;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  code:not(pre code) {
+    background-color: var(--color-surface-lighter, #363650);
+    color: var(--color-cyan, #56cfe1);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.875em;
+  }
+
+  // Blockquotes
+  blockquote {
+    border-left: 3px solid var(--color-accent, #a29bfe);
+    padding-left: 1rem;
+    margin-left: 0;
+    color: rgb(156 163 175);
+    font-style: italic;
+  }
+
+  // Tables
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th { background-color: var(--color-surface-lighter, #363650); padding: 0.5rem 0.75rem; text-align: left; font-size: 0.875rem; font-weight: 600; }
+  td { padding: 0.5rem 0.75rem; border-top: 1px solid var(--color-surface-lighter, #363650); font-size: 0.875rem; }
+
+  // Links
+  a { color: var(--color-accent, #a29bfe); text-decoration: underline; }
+  a:hover { color: var(--color-accent-light, #b8b3ff); }
+
+  // Strong / em
+  strong { color: #f0f0f0; font-weight: 700; }
+  em { font-style: italic; }
+}
+
+// Light theme prose overrides
+html.light .prose {
+  h1, h2, h3, h4 { color: var(--color-accent, #6c63ff); }
+  h2 { border-bottom-color: var(--color-surface-lighter, #e8e8f0); }
+  code:not(pre code) { background-color: var(--color-surface-lighter, #e8e8f0); color: #0070f3; }
+  blockquote { color: #555; }
+  strong { color: #111; }
+}

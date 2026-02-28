@@ -17,8 +17,9 @@
       @for (topic of topics(); track topic.id; let i = $index) {
         <a [routerLink]="['/blocks', blockSlug(), topic.slug]"
            class="block no-underline">
-          <mat-card class="bg-surface-light hover:bg-surface-lighter transition-colors cursor-pointer">
-            <mat-card-content class="p-4 flex items-center gap-4">
+          <mat-card class="hover:bg-surface-lighter transition-colors cursor-pointer">
+            <mat-card-content>
+            <div class="p-4 flex items-center gap-4">
               <!-- Status icon -->
               <mat-icon [class]="getStatusClass(topic.id)">
                 {{ getStatusIcon(topic.id) }}
@@ -47,7 +48,8 @@
               </div>
 
               <mat-icon class="text-gray-500">chevron_right</mat-icon>
-            </mat-card-content>
+            </div>
+          </mat-card-content>
           </mat-card>
         </a>
       }
