@@ -34,7 +34,8 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/tailwind.css", "src/styles.scss"]
+            "styles": ["src/tailwind.css", "src/styles.scss"],
+            "allowedCommonJsDependencies": ["lunr"]
           },
           "configurations": {
             "production": {

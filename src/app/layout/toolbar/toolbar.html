@@ -12,7 +12,8 @@
         placeholder="Search topics... ( / )"
         [(ngModel)]="searchQuery"
         (keyup.enter)="onSearch()"
-        (keyup.escape)="searchQuery = ''" />
+        (keyup.escape)="searchQuery = ''"
+        data-search-input />
       @if (searchQuery) {
         <button matSuffix mat-icon-button (click)="searchQuery = ''">
           <mat-icon>close</mat-icon>
