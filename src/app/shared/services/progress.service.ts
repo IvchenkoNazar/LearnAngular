@@ -17,10 +17,16 @@ export class ProgressService {
     Object.values(this._progress().topics).filter(t => t.status === 'in-progress').length
   );
 
+  private _totalTopics = signal(99); // updated from content index at startup
+
   readonly completionPercentage = computed(() => {
-    const total = 75; // total subtopics
-    return Math.round((this.completedTopics() / total) * 100);
+    const total = this._totalTopics();
+    return total > 0 ? Math.round((this.completedTopics() / total) * 100) : 0;
   });
+
+  setTotalTopics(total: number): void {
+    this._totalTopics.set(total);
+  }
 
   readonly weakQuestions = computed(() =>
     this._progress().quizAttempts

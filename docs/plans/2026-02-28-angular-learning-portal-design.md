@@ -22,9 +22,14 @@ A self-contained Angular 21 learning portal with premium UI/UX for studying Angu
 
 ## Content Structure
 
+> **v2 — Restructured** after curriculum audit (2026-02-28).
+> Changes: dissolved Block 15 (Modern Angular) — deduplicated topics moved to relevant blocks.
+> Added 5 new blocks critical for Senior/Staff interviews: Architecture, Security, SSR/PWA, Accessibility/i18n, Animations.
+> Expanded Testing and priority blocks. Merged thin topics. Kept Tailwind per preference.
+
 ```
 content/
-  block-00-general-engineering/
+  block-00-general-engineering/            # 8 topics (was 7, +CWV)
     01-oop-principles.md
     02-solid-principles.md
     03-design-patterns.md
@@ -32,100 +37,125 @@ content/
     05-general-cs.md
     06-typescript-advanced.md
     07-git-workflow.md
-  block-01-core-fundamentals/
+    08-core-web-vitals.md                  # moved from Block 11
+  block-01-core-fundamentals/              # 4 topics (unchanged)
     01-bootstrapping.md
     02-ngmodules.md
     03-standalone-components.md
     04-angular-cli.md
-  block-02-components/
+  block-02-components/                     # 6 topics (unchanged)
     01-component-metadata.md
     02-lifecycle-hooks.md
     03-input-output.md
     04-content-projection.md
     05-viewchild-contentchild.md
     06-host-element.md
-  block-03-directives-pipes/
+  block-03-directives-pipes/               # 5 topics (was 6, control flow → Block 4)
     01-attribute-directives.md
     02-structural-directives.md
     03-custom-structural-directives.md
     04-built-in-pipes.md
     05-custom-pipes.md
-    06-new-control-flow.md
-  block-04-templates-data-binding/
+  block-04-templates-data-binding/         # 5 topics (was 4, +control flow)
     01-binding-types.md
     02-event-binding.md
     03-template-reference-variables.md
     04-dynamic-templates.md
-  block-05-dependency-injection/
+    05-control-flow.md                     # @if/@for/@switch/@defer — moved from Block 3
+  block-05-dependency-injection/           # 5 topics (restructured: merged tree-shakable, +new)
     01-di-internals.md
-    02-provider-types.md
-    03-injection-tokens.md
+    02-provider-types.md                   # includes tree-shakable providers (providedIn)
+    03-injection-tokens.md                 # includes multi-providers (multi: true)
     04-inject-function.md
-    05-tree-shakable-providers.md
-  block-06-routing/
+    05-resolution-modifiers.md             # NEW: @Optional, @Self, @SkipSelf, @Host
+  block-06-routing/                        # 7 topics (was 6, +functional router)
     01-router-fundamentals.md
     02-lazy-loading.md
-    03-guards.md
-    04-route-data.md
+    03-guards.md                           # includes functional guards (CanActivateFn)
+    04-route-data.md                       # includes resolvers, withComponentInputBinding
     05-router-events.md
     06-preloading-strategies.md
-  block-07-forms/
+    07-advanced-routing.md                 # NEW: aux routes, named outlets, router architecture
+  block-07-forms/                          # 4 topics (was 5, merged typed forms → reactive)
     01-template-driven-forms.md
-    02-reactive-forms.md
+    02-reactive-forms.md                   # includes Typed Forms (v14+)
     03-custom-validators.md
     04-control-value-accessor.md
-    05-typed-forms.md
-  block-08-http-interceptors/
+  block-08-http-interceptors/              # 3 topics (was 4, merged provideHttpClient → interceptors)
     01-httpclient.md
-    02-http-interceptors.md
+    02-http-interceptors.md                # includes functional interceptors, provideHttpClient, withInterceptors
     03-error-handling.md
-    04-provide-httpclient.md
-  block-09-change-detection/
+  block-09-change-detection/               # 7 topics (was 5, +3 critical) ⚠️ PRIORITY
     01-zonejs.md
     02-cd-mechanism.md
     03-onpush-strategy.md
     04-signals.md
     05-zoneless-angular.md
-  block-10-rxjs/
+    06-expression-changed-error.md         # NEW: ExpressionChangedAfterItHasBeenChecked
+    07-signal-vs-observable.md             # NEW: decision framework, when to use which
+  block-10-rxjs/                           # 7 topics (was 5, +2) ⚠️ PRIORITY
     01-higher-order-operators.md
     02-memory-leaks.md
     03-subject-types.md
     04-reactive-patterns.md
     05-error-handling-rxjs.md
-  block-11-performance/
-    01-lazy-loading-defer.md
+    06-custom-operators.md                 # NEW: writing pipeable operators
+    07-rxjs-signal-interop.md              # NEW: toSignal, toObservable, bridging paradigms
+  block-11-performance/                    # 4 topics (renamed for clarity) ⚠️ PRIORITY
+    01-deferrable-views.md                 # renamed: @defer, lazy components (not route lazy loading)
     02-bundle-optimization.md
-    03-runtime-optimization.md
-    04-core-web-vitals.md
-  block-12-state-management/
+    03-runtime-optimization.md             # OnPush, trackBy, pure pipes, etc.
+    04-angular-devtools-profiling.md       # renamed: profiling, measuring perf (CWV moved to Block 0)
+  block-12-state-management/               # 4 topics (was 5, merged lightweight stores) ⚠️ PRIORITY
     01-service-behaviorsubject.md
     02-ngrx.md
-    03-ngrx-component-store.md
-    04-ngrx-signals-store.md
-    05-comparison.md
-  block-13-angular-material/
-    01-setup-theming.md
+    03-ngrx-lightweight-stores.md          # merged: Component Store + Signal Store
+    04-comparison.md
+  block-13-angular-material/               # 3 topics (was 4, merged custom theme → setup)
+    01-setup-theming.md                    # includes custom theming
     02-key-components.md
-    03-cdk.md
-    04-custom-theme.md
-  block-14-tailwind/
+    03-cdk.md                              # CDK: a11y, overlay, drag-drop, virtual scroll
+  block-14-tailwind/                       # 4 topics (unchanged)
     01-setup.md
     02-tailwind-angular-components.md
     03-material-tailwind-together.md
     04-component-driven-approach.md
-  block-15-modern-angular/
-    01-new-control-flow.md
-    02-signal-based-apis.md
-    03-ssr-hydration.md
-    04-angular-roadmap.md
-  block-16-testing/
-    01-unit-testing.md
+  block-15-architecture/                   # 4 topics (NEW — replaced Modern Angular)
+    01-project-structure.md                # feature/shared/core module patterns, barrel exports
+    02-monorepo-nx.md                      # Nx workspace, library boundaries, affected commands
+    03-microfrontends.md                   # Module Federation, Angular Elements, web components
+    04-design-system.md                    # component library architecture, Storybook
+  block-16-security/                       # 4 topics (NEW)
+    01-xss-sanitization.md                 # DomSanitizer, SafeValue, Trusted Types, innerHTML
+    02-auth-patterns.md                    # JWT, OAuth2, route guard auth, token interceptors
+    03-csp-csrf.md                         # Content Security Policy, CSRF protection
+    04-secure-coding.md                    # dependency auditing, OWASP Angular checklist
+  block-17-ssr-pwa/                        # 4 topics (NEW — expanded from 1 bullet in old Block 15)
+    01-angular-universal.md                # SSR architecture, TransferState
+    02-hydration.md                        # full + incremental hydration (v17+), afterRender
+    03-prerendering.md                     # SSG, prerender routes, platform detection
+    04-service-workers-pwa.md              # @angular/service-worker, offline strategies
+  block-18-testing/                        # 7 topics (was 4, significantly expanded)
+    01-unit-testing.md                     # TestBed, ComponentFixture, shallow vs deep
     02-testing-services.md
-    03-testing-signals-rxjs.md
-    04-e2e.md
+    03-testing-components.md               # NEW: inputs/outputs, DOM interaction, harnesses
+    04-testing-http.md                     # NEW: HttpClientTestingModule, provideHttpClientTesting
+    05-testing-signals-rxjs.md
+    06-mocking-strategies.md               # NEW: provider overrides, spy services, dependency mocking
+    07-e2e.md                              # Playwright / Cypress, CI integration
+  block-19-accessibility-i18n/             # 4 topics (NEW)
+    01-aria-angular.md                     # ARIA attributes in templates, semantic HTML
+    02-cdk-a11y.md                         # FocusTrap, LiveAnnouncer, FocusMonitor
+    03-i18n.md                             # compile-time i18n, runtime (Transloco), locale pipes
+    04-keyboard-navigation.md              # focus management, skip links, roving tabindex
+  block-20-animations-observability/       # 4 topics (NEW)
+    01-angular-animations.md               # trigger, state, transition, animate, route animations
+    02-animation-builder.md                # programmatic animations, performance implications
+    03-error-handling-observability.md      # global ErrorHandler, Sentry/Datadog patterns
+    04-logging-monitoring.md               # structured logging, performance monitoring, Angular DevTools
 ```
 
-**Total: 17 blocks, 75 subtopics (7 general + 68 Angular)**
+**Total: 21 blocks, 99 subtopics (8 general + 91 Angular)**
 
 ### Markdown File Format
 
@@ -183,7 +213,7 @@ interviewQuestions:
 | Route | Page | Description |
 |-------|------|-------------|
 | `/` | Dashboard | Overall progress, weak zones, recent activity, quick stats |
-| `/blocks` | Curriculum | All 17 blocks as cards with progress bars |
+| `/blocks` | Curriculum | All 21 blocks as cards with progress bars |
 | `/blocks/:blockId` | Block Detail | Topics list, progress per topic |
 | `/blocks/:blockId/:topicSlug` | Topic View | Full material with tabbed sections |
 | `/interview` | Interview Center | Self-study: quiz mode, flashcards for self-assessment |
@@ -360,7 +390,7 @@ You are a senior Angular technical interviewer. Analyze this candidate's intervi
 ## Features Summary
 
 ### Core
-- Full curriculum browser (17 blocks, 75 subtopics)
+- Full curriculum browser (21 blocks, 99 subtopics)
 - Rich topic viewer with tabbed sections
 - Full-text search (lunr.js)
 - Progress tracking (localStorage)
