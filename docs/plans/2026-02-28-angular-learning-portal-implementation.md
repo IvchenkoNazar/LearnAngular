@@ -1637,6 +1637,8 @@ git commit -m "feat: add sample content and verify build pipeline"
 ## Phase 4B: Generate First 3 Blocks of Content
 
 > **Content is interleaved with feature development.** After the build script works, we generate real content so every subsequent feature can be tested with real data.
+>
+> **REQUIRED SKILL:** Use `generating-learning-content` skill for ALL content generation tasks. It defines the exact frontmatter schema, section structure, quality standards, and Ukrainian+English language format.
 
 ### Task 4B.1: Generate Block 0 — General Software Engineering (7 topics)
 
