@@ -1,8 +1,8 @@
 <mat-sidenav-container class="h-screen">
   <mat-sidenav
     #sidenav
-    mode="side"
-    [opened]="sidenavOpen()"
+    [mode]="sidenavMode()"
+    [opened]="effectiveSidenavOpen"
     class="w-72 bg-surface border-r border-surface-lighter">
     <app-sidenav (navigated)="onMobileNavigate(sidenav)" />
   </mat-sidenav>
@@ -11,7 +11,7 @@
     <app-toolbar
       (toggleSidenav)="toggleSidenav()"
       [sidenavOpen]="sidenavOpen()" />
-    <main class="flex-1 overflow-auto p-6">
+    <main class="flex-1 overflow-auto p-3 md:p-6">
       <router-outlet />
     </main>
   </mat-sidenav-content>

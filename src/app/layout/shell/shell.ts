@@ -1,4 +1,4 @@
-import { Component, signal, inject, OnInit } from '@angular/core';
+import { Component, signal, inject, OnInit, computed, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { Sidenav } from '../sidenav/sidenav';
@@ -13,19 +13,37 @@ import { KeyboardService } from '../../shared/services/keyboard.service';
 })
 export class Shell implements OnInit {
   private keyboardService = inject(KeyboardService);
-  sidenavOpen = signal(true);
+
+  isMobile = signal(window.innerWidth < 768);
+  sidenavOpen = computed(() => !this.isMobile());
+  _sidenavOpen = signal(true);
+
+  get effectiveSidenavOpen() {
+    return this._sidenavOpen();
+  }
+
+  sidenavMode = computed(() => this.isMobile() ? 'over' : 'side');
+
+  @HostListener('window:resize')
+  onResize() {
+    const mobile = window.innerWidth < 768;
+    this.isMobile.set(mobile);
+    if (!mobile) this._sidenavOpen.set(true);
+  }
 
   ngOnInit() {
     this.keyboardService.init();
+    this._sidenavOpen.set(!this.isMobile());
   }
 
   toggleSidenav(): void {
-    this.sidenavOpen.update(v => !v);
+    this._sidenavOpen.update(v => !v);
   }
 
   onMobileNavigate(sidenav: MatSidenav): void {
-    if (window.innerWidth < 768) {
+    if (this.isMobile()) {
       sidenav.close();
+      this._sidenavOpen.set(false);
     }
   }
 }
