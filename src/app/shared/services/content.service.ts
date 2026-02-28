@@ -47,6 +47,10 @@ export class ContentService {
     return this.blocks().find(b => b.id === blockId);
   }
 
+  getBlockBySlug(slug: string): ContentBlock | undefined {
+    return this.blocks().find(b => b.slug === slug);
+  }
+
   getQuestionsByBlock(blockId: number): InterviewQuestion[] {
     return this.questions().filter(q => q.block === blockId);
   }

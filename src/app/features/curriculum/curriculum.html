@@ -1,1 +1,41 @@
-<p>curriculum works!</p>
+<div class="max-w-6xl mx-auto">
+  <div class="mb-6">
+    <h1 class="text-3xl font-bold text-accent mb-2">Curriculum</h1>
+    <p class="text-gray-400">17 блоків навчання — від основ до просунутих тем Angular</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (block of blocks(); track block.id) {
+      <a [routerLink]="['/blocks', block.slug]"
+         class="block no-underline">
+        <mat-card class="h-full bg-surface-light hover:bg-surface-lighter transition-colors cursor-pointer"
+                  [class.border-l-4]="isPriority(block.id)"
+                  [class.border-warning]="isPriority(block.id)">
+          <mat-card-content class="p-4">
+            <div class="flex items-start justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono text-gray-500">{{ block.id }}</span>
+                <h3 class="font-semibold text-sm leading-tight">{{ block.title }}</h3>
+              </div>
+              @if (isPriority(block.id)) {
+                <mat-chip class="text-xs">Priority</mat-chip>
+              }
+            </div>
+
+            <p class="text-xs text-gray-400 mb-3 line-clamp-2">{{ block.description }}</p>
+
+            <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+              <span>{{ block.topicCount }} тем</span>
+              <span>{{ getProgress(block.id).completed }}/{{ block.topicCount }} завершено</span>
+            </div>
+
+            <mat-progress-bar
+              mode="determinate"
+              [value]="getProgress(block.id).percentage"
+              class="mt-1" />
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+</div>
