@@ -36,9 +36,17 @@
                 <span [class]="session.status === 'completed' ? 'text-success text-xs' : 'text-warning text-xs'">
                   {{ session.status === 'completed' ? 'Завершено' : 'Активне' }}
                 </span>
-                <a mat-icon-button [routerLink]="['/conduct/session', session.id, 'summary']">
-                  <mat-icon>open_in_new</mat-icon>
-                </a>
+                @if (session.status === 'completed') {
+                  <a mat-icon-button [routerLink]="['/conduct/session', session.id, 'summary']"
+                     matTooltip="Переглянути результати">
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                } @else {
+                  <a mat-icon-button [routerLink]="['/conduct/session', session.id]"
+                     matTooltip="Продовжити інтерв'ю">
+                    <mat-icon>play_circle</mat-icon>
+                  </a>
+                }
               </div>
             </div>
           </mat-card-content>

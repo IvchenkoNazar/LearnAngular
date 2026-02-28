@@ -29,9 +29,9 @@ export class SessionSetup {
     name: ['', Validators.required],
     role: ['Angular Developer', Validators.required],
     yearsOfExperience: [2, [Validators.required, Validators.min(0)]],
+    techStackRaw: ['Angular, TypeScript, RxJS'],
     angularVersions: [['v17', 'v18']],
     mainResponsibilities: [''],
-    techStack: [['Angular', 'TypeScript', 'RxJS']],
     proudestWork: [''],
     wantsToImprove: [''],
   });
@@ -41,7 +41,14 @@ export class SessionSetup {
 
   submit() {
     if (!this.form.valid) return;
-    const candidate: CandidateProfile = this.form.value;
+    const { techStackRaw, ...rest } = this.form.value;
+    const candidate: CandidateProfile = {
+      ...rest,
+      techStack: (techStackRaw as string)
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s.length > 0),
+    };
     const session = this.interviewService.startSession(candidate);
     this.router.navigate(['/conduct/session', session.id]);
   }

@@ -29,6 +29,11 @@
           </mat-form-field>
 
           <mat-form-field subscriptSizing="dynamic">
+            <mat-label>Tech Stack (через кому)</mat-label>
+            <input matInput formControlName="techStackRaw" placeholder="Angular, TypeScript, RxJS, NgRx">
+          </mat-form-field>
+
+          <mat-form-field subscriptSizing="dynamic">
             <mat-label>Angular версії</mat-label>
             <mat-select formControlName="angularVersions" multiple>
               @for (v of angularVersionOptions; track v) {

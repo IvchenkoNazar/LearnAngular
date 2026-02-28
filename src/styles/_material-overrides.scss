@@ -141,9 +141,16 @@ mat-sidenav {
 // ---------------------------------------------------------------
 // FORM FIELDS
 // ---------------------------------------------------------------
-// Default form fields full-width (most common usage)
+// Form fields inside column-flex containers (cards, forms) should
+// stretch full width. We do NOT use !important so that inline
+// style="width: auto" can override for filter rows.
 .mat-mdc-form-field {
   width: 100%;
+}
+
+// Density -1 for form fields inside filter rows — reduce height
+.filter-row .mat-mdc-form-field {
+  --mat-form-field-container-height: 48px;
 }
 
 // ---------------------------------------------------------------

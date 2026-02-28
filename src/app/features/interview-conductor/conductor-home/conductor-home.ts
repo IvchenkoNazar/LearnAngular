@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { InterviewService } from '../../../shared/services/interview.service';
 
 @Component({
   selector: 'app-conductor-home',
-  imports: [RouterLink, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [RouterLink, MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './conductor-home.html',
   styleUrl: './conductor-home.scss',
 })

@@ -108,8 +108,21 @@ export class SessionActive implements OnInit {
 
   toggleExpand(questionId: string) {
     const current = this.expandedQuestionId();
-    this.expandedQuestionId.set(current === questionId ? null : questionId);
-    this.gradeForm.reset({ candidateLevel: 'mid', quality: 'strong', notes: '' });
+    if (current === questionId) {
+      this.expandedQuestionId.set(null);
+      return;
+    }
+    this.expandedQuestionId.set(questionId);
+    const existing = this.interviewService.activeAnswers().find(a => a.questionId === questionId);
+    if (existing) {
+      this.gradeForm.patchValue({
+        candidateLevel: existing.candidateLevel,
+        quality: existing.quality,
+        notes: existing.notes,
+      });
+    } else {
+      this.gradeForm.reset({ candidateLevel: 'mid', quality: 'strong', notes: '' });
+    }
   }
 
   saveGrade(questionId: string) {

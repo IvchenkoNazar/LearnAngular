@@ -19,8 +19,8 @@
     </div>
 
     <!-- Filters -->
-    <div class="flex flex-wrap gap-3 mb-4">
-      <mat-form-field class="min-w-48">
+    <div class="filter-row flex flex-wrap items-center gap-3 mb-4">
+      <mat-form-field subscriptSizing="dynamic" style="width: auto; min-width: 12rem">
         <mat-label>Блок</mat-label>
         <mat-select [value]="filterBlock()" (valueChange)="filterBlock.set($event)">
           <mat-option [value]="null">Всі блоки</mat-option>
@@ -30,7 +30,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="min-w-36">
+      <mat-form-field subscriptSizing="dynamic" style="width: auto; min-width: 9rem">
         <mat-label>Рівень</mat-label>
         <mat-select [value]="filterLevel()" (valueChange)="filterLevel.set($event)">
           <mat-option [value]="null">Всі</mat-option>
@@ -78,7 +78,13 @@
                   }
                   <button mat-stroked-button class="text-xs"
                           (click)="toggleExpand(row.question.id)">
-                    {{ expandedQuestionId() === row.question.id ? 'Закрити' : 'Запитати' }}
+                    @if (expandedQuestionId() === row.question.id) {
+                      Закрити
+                    } @else if (row.isAsked) {
+                      Переглянути
+                    } @else {
+                      Запитати
+                    }
                   </button>
                 </div>
               </div>
@@ -97,8 +103,8 @@
                     }
                   </mat-tab-group>
 
-                  <form [formGroup]="gradeForm" class="flex flex-wrap gap-3 items-end">
-                    <mat-form-field class="min-w-36">
+                  <form [formGroup]="gradeForm" class="flex flex-wrap gap-3 items-center">
+                    <mat-form-field subscriptSizing="dynamic" style="width: auto; min-width: 9rem">
                       <mat-label>Рівень кандидата</mat-label>
                       <mat-select formControlName="candidateLevel">
                         @for (level of levels; track level) {
@@ -107,7 +113,7 @@
                       </mat-select>
                     </mat-form-field>
 
-                    <mat-form-field class="min-w-36">
+                    <mat-form-field subscriptSizing="dynamic" style="width: auto; min-width: 9rem">
                       <mat-label>Якість</mat-label>
                       <mat-select formControlName="quality">
                         @for (q of qualities; track q.value) {
@@ -116,7 +122,7 @@
                       </mat-select>
                     </mat-form-field>
 
-                    <mat-form-field class="flex-1 min-w-48">
+                    <mat-form-field subscriptSizing="dynamic" style="flex: 1; min-width: 12rem">
                       <mat-label>Нотатки</mat-label>
                       <input matInput formControlName="notes">
                     </mat-form-field>
