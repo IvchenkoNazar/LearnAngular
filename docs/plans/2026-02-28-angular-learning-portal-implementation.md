@@ -235,6 +235,8 @@ export interface TopicMeta {
   topic: number;
   slug: string;
   title: string;
+  difficulty: number;        // 1-5 scale
+  sinceVersion?: string;     // Angular version introduced (omitted for Block 0)
   tags: string[];
   relatedTopics: string[];   // slugs
   questionCount: number;
