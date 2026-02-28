@@ -1,1 +1,35 @@
-<p>cheatsheets works!</p>
+<div class="max-w-5xl mx-auto">
+  <h1 class="text-2xl font-bold text-accent mb-2">Cheatsheets</h1>
+  <p class="text-gray-400 mb-6">Швидкий огляд ключових концепцій кожної теми</p>
+
+  @if (loading()) {
+    <div class="flex items-center justify-center py-20">
+      <mat-icon class="text-4xl text-accent animate-spin">refresh</mat-icon>
+    </div>
+  } @else if (cheatsheets().length === 0) {
+    <div class="text-center py-12 text-gray-400">
+      <mat-icon class="text-6xl mb-4">description</mat-icon>
+      <p>Контент ще не завантажено</p>
+    </div>
+  } @else {
+    @for (sheet of cheatsheets(); track sheet.block.id) {
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold text-gray-300 mb-3">
+          <a [routerLink]="['/blocks', sheet.block.slug]" class="hover:text-accent transition-colors">
+            {{ sheet.block.title }}
+          </a>
+        </h2>
+        <mat-accordion multi>
+          @for (summary of sheet.summaries; track summary.title) {
+            <mat-expansion-panel class="bg-surface-light">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="text-sm">{{ summary.title }}</mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="prose prose-invert prose-sm max-w-none" [innerHTML]="summary.htmlContent"></div>
+            </mat-expansion-panel>
+          }
+        </mat-accordion>
+      </div>
+    }
+  }
+</div>

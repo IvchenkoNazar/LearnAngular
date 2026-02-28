@@ -1,1 +1,40 @@
-<p>search works!</p>
+<div class="max-w-4xl mx-auto">
+  <h1 class="text-2xl font-bold text-accent mb-2">Результати пошуку</h1>
+  <p class="text-gray-400 mb-6">
+    @if (q()) {
+      Запит: <strong class="text-gray-200">{{ q() }}</strong> — {{ results().length }} результатів
+    } @else {
+      Введіть запит у пошуковому рядку
+    }
+  </p>
+
+  @if (results().length > 0) {
+    <div class="flex flex-col gap-3">
+      @for (result of results(); track result.topicId) {
+        <a [routerLink]="['/blocks', result.blockSlug, result.topicSlug]" class="block no-underline">
+          <mat-card class="bg-surface-light hover:bg-surface-lighter transition-colors cursor-pointer">
+            <mat-card-content class="p-4">
+              <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                <mat-icon class="text-base">folder</mat-icon>
+                {{ result.blockTitle }}
+              </div>
+              <h3 class="font-semibold text-sm mb-2">{{ result.title }}</h3>
+              @if (result.matchedTerms.length > 0) {
+                <div class="flex flex-wrap gap-1">
+                  @for (term of result.matchedTerms; track term) {
+                    <mat-chip class="text-xs">{{ term }}</mat-chip>
+                  }
+                </div>
+              }
+            </mat-card-content>
+          </mat-card>
+        </a>
+      }
+    </div>
+  } @else if (q()) {
+    <div class="text-center py-12 text-gray-400">
+      <mat-icon class="text-6xl mb-4">search_off</mat-icon>
+      <p>Нічого не знайдено за запитом "{{ q() }}"</p>
+    </div>
+  }
+</div>

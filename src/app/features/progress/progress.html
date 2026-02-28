@@ -1,1 +1,106 @@
-<p>progress works!</p>
+<div class="max-w-5xl mx-auto">
+  <h1 class="text-2xl font-bold text-accent mb-2">Progress Analytics</h1>
+  <p class="text-gray-400 mb-6">Детальна статистика вашого навчання</p>
+
+  <!-- Overview Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <div class="relative w-20 h-20 mx-auto mb-2">
+          <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#363650" stroke-width="8" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#a29bfe" stroke-width="8"
+              [attr.stroke-dasharray]="283"
+              [attr.stroke-dashoffset]="283 - (283 * completionPercentage() / 100)"
+              stroke-linecap="round" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-lg font-bold text-accent">{{ completionPercentage() }}%</span>
+          </div>
+        </div>
+        <div class="text-sm text-gray-400">Загальний прогрес</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-success mb-2">check_circle</mat-icon>
+        <div class="text-2xl font-bold">{{ completedTopics() }}</div>
+        <div class="text-sm text-gray-400">Завершено тем</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-warning mb-2">pending</mat-icon>
+        <div class="text-2xl font-bold">{{ inProgressTopics() }}</div>
+        <div class="text-sm text-gray-400">В процесі</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-cyan mb-2">replay</mat-icon>
+        <div class="text-2xl font-bold">{{ dueForReview() }}</div>
+        <div class="text-sm text-gray-400">Потребують повторення</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Quiz Stats -->
+  <mat-card class="mb-8 bg-surface-light">
+    <mat-card-content class="p-6">
+      <h2 class="text-lg font-semibold mb-4">Результати квізу</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="text-center">
+          <div class="text-2xl font-bold">{{ quizStats().total }}</div>
+          <div class="text-sm text-gray-400">Всього спроб</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-success">{{ quizStats().knew }}</div>
+          <div class="text-sm text-gray-400">Знав відповідь</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-warning">{{ quizStats().partial }}</div>
+          <div class="text-sm text-gray-400">Частково знав</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-danger">{{ quizStats().didnt }}</div>
+          <div class="text-sm text-gray-400">Не знав</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Per-Block Progress -->
+  <h2 class="text-lg font-semibold mb-4 text-gray-300">Прогрес по блоках</h2>
+  <div class="flex flex-col gap-3 mb-8">
+    @for (block of blockProgress(); track block.id) {
+      <a [routerLink]="['/blocks', block.slug]" class="block no-underline">
+        <mat-card class="bg-surface-light hover:bg-surface-lighter transition-colors">
+          <mat-card-content class="p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-medium">{{ block.title }}</span>
+              <span class="text-xs text-gray-500">{{ block.completed }}/{{ block.topicCount }}</span>
+            </div>
+            <mat-progress-bar mode="determinate" [value]="block.percentage" />
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+
+  <!-- Weak Areas -->
+  @if (weakQuestions().length > 0) {
+    <h2 class="text-lg font-semibold mb-4 text-gray-300">Слабкі зони</h2>
+    <mat-card class="bg-surface-light mb-8">
+      <mat-card-content class="p-4">
+        <p class="text-sm text-gray-400 mb-3">{{ weakQuestions().length }} питань потребують повторення</p>
+        <a mat-raised-button color="primary" routerLink="/interview/quiz">
+          <mat-icon>replay</mat-icon>
+          Почати повторення
+        </a>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>
