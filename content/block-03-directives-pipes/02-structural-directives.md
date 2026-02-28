@@ -1,7 +1,7 @@
 ---
 title: "Structural Directives"
 block: 3
-topic: 3
+topic: 2
 slug: "structural-directives"
 difficulty: 4
 sinceVersion: "2"

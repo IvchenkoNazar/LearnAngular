@@ -1,7 +1,7 @@
 ---
 title: "Attribute Directives (Custom)"
 block: 3
-topic: 2
+topic: 1
 slug: "attribute-directives"
 difficulty: 3
 sinceVersion: "2"
