@@ -1634,6 +1634,55 @@ git commit -m "feat: add sample content and verify build pipeline"
 
 ---
 
+## Phase 4B: Generate First 3 Blocks of Content
+
+> **Content is interleaved with feature development.** After the build script works, we generate real content so every subsequent feature can be tested with real data.
+
+### Task 4B.1: Generate Block 0 — General Software Engineering (7 topics)
+
+Create all markdown files in `content/block-00-general-engineering/`:
+- `01-oop-principles.md`
+- `02-solid-principles.md`
+- `03-design-patterns.md`
+- `04-anti-patterns.md`
+- `05-general-cs.md`
+- `06-typescript-advanced.md`
+- `07-git-workflow.md`
+
+Each file must follow the full format: YAML frontmatter (with 4-5 interview questions at all 4 levels with reference answers, relatedQuestions, tags) + Core Concept + Deep Details + Examples + Code Smells + Interview Block + Summary.
+
+**Content language:** Technical terms in English, explanations in Ukrainian. Senior/Staff level depth.
+
+Run `npm run build:content` after to verify.
+
+**Commit after each block.**
+
+### Task 4B.2: Generate Block 1 — Core Fundamentals (4 topics)
+
+Create all markdown files in `content/block-01-core-fundamentals/`:
+- `01-bootstrapping.md`
+- `02-ngmodules.md`
+- `03-standalone-components.md`
+- `04-angular-cli.md`
+
+Same format. Run build script. Commit.
+
+### Task 4B.3: Generate Block 2 — Components (6 topics)
+
+Create all markdown files in `content/block-02-components/`:
+- `01-component-metadata.md`
+- `02-lifecycle-hooks.md`
+- `03-input-output.md`
+- `04-content-projection.md`
+- `05-viewchild-contentchild.md`
+- `06-host-element.md`
+
+Same format. Run build script. Commit.
+
+> **With 3 blocks (17 topics, ~85 interview questions), we have enough real content to properly test all features as we build them.**
+
+---
+
 ## Phase 5: Feature Components
 
 ### Task 5.1: Dashboard Component
@@ -1840,6 +1889,21 @@ ng generate component features/progress --standalone
 git add -A
 git commit -m "feat: add progress analytics page"
 ```
+
+---
+
+## Phase 5B: Generate Blocks 3-6 (Content Batch 2)
+
+> After the Topic Viewer is working, generate more content so quiz and interview features have rich data to work with.
+
+### Task 5B.1: Generate Block 3 — Directives & Pipes (6 topics)
+### Task 5B.2: Generate Block 4 — Templates & Data Binding (4 topics)
+### Task 5B.3: Generate Block 5 — Dependency Injection (5 topics)
+### Task 5B.4: Generate Block 6 — Routing & Navigation (6 topics)
+
+Same format as Phase 4B. Run build script after each block. Commit after each block.
+
+> **Now we have 7 blocks (38 topics, ~190 interview questions) — enough for a rich quiz and interview experience.**
 
 ---
 
@@ -2181,20 +2245,22 @@ git commit -m "feat: responsive design for mobile devices"
 
 ---
 
-## Phase 9: Content Generation
+## Phase 9: Remaining Content Generation (Blocks 7-16)
 
-### Task 9.1: Generate Block 0 (General Engineering) Content
+> The app is fully functional. Now generate the remaining 10 blocks of content.
 
-Create all 7 markdown files for Block 0 following the topic format with frontmatter.
+### Task 9.1: Generate Block 7 — Forms (5 topics)
+### Task 9.2: Generate Block 8 — HTTP & Interceptors (4 topics)
+### Task 9.3: Generate Block 9 — Change Detection (5 topics) ⚠️ PRIORITY
+### Task 9.4: Generate Block 10 — RxJS (5 topics) ⚠️ PRIORITY
+### Task 9.5: Generate Block 11 — Performance (4 topics) ⚠️ PRIORITY
+### Task 9.6: Generate Block 12 — State Management (5 topics) ⚠️ PRIORITY
+### Task 9.7: Generate Block 13 — Angular Material (4 topics)
+### Task 9.8: Generate Block 14 — Tailwind CSS (4 topics)
+### Task 9.9: Generate Block 15 — Modern Angular v17+ (4 topics)
+### Task 9.10: Generate Block 16 — Testing (4 topics)
 
-### Task 9.2 - 9.17: Generate Blocks 1-16 Content
-
-Create all markdown files for each Angular block following the established format. Each topic needs:
-- Full YAML frontmatter with interview questions and reference answers at all 4 levels
-- Core Concept, Deep Details, Examples, Code Smells, Interview Block, Summary sections
-- relatedQuestions metadata for smart suggestions in conductor mode
-
-**Note:** This is the most time-intensive phase. Can be done incrementally — the app works with whatever content exists.
+Same format. Priority blocks (9-12) should be generated first as they cover weak zones. Run build script + commit after each block.
 
 ---
 
@@ -2206,10 +2272,13 @@ Create all markdown files for each Angular block following the established forma
 | 2 | 2.1-2.6 | Models, services |
 | 3 | 3.1-3.4 | Layout shell, sidenav, toolbar, routes |
 | 4 | 4.1-4.2 | Build script, sample content |
+| **4B** | **4B.1-4B.3** | **Content: Blocks 0-2 (17 topics, ~85 questions)** |
 | 5 | 5.1-5.7 | Feature pages (dashboard through progress) |
+| **5B** | **5B.1-5B.4** | **Content: Blocks 3-6 (21 topics, ~105 questions)** |
 | 6 | 6.1-6.2 | Self-study quiz & flashcards |
 | 7 | 7.1-7.5 | Interview conductor (setup, table, summary, history) |
 | 8 | 8.1-8.4 | Initialization, keyboard nav, themes, responsive |
-| 9 | 9.1-9.17 | Content generation (17 blocks) |
+| **9** | **9.1-9.10** | **Content: Blocks 7-16 (44 topics, ~220 questions)** |
 
-**Total: ~35 implementation tasks + 17 content generation tasks**
+**Total: ~35 implementation tasks + 17 content generation phases**
+**Content is generated incrementally so features are always tested with real data.**
