@@ -1,1 +1,70 @@
-<p>session-setup works!</p>
+<div class="max-w-2xl mx-auto">
+  <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+    <a routerLink="/conduct" class="hover:text-accent transition-colors">Conduct Interview</a>
+    <mat-icon class="text-base">chevron_right</mat-icon>
+    <span class="text-gray-200">Новий кандидат</span>
+  </div>
+
+  <h1 class="text-2xl font-bold text-accent mb-6">Профіль кандидата</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-card class="bg-surface-light mb-4">
+      <mat-card-content class="p-6 flex flex-col gap-4">
+        <h2 class="font-semibold text-gray-300">Основна інформація</h2>
+
+        <mat-form-field>
+          <mat-label>Ім'я кандидата *</mat-label>
+          <input matInput formControlName="name" placeholder="Ім'я Прізвище">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Роль</mat-label>
+          <input matInput formControlName="role">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Роки досвіду</mat-label>
+          <input matInput type="number" formControlName="yearsOfExperience" min="0">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Angular версії</mat-label>
+          <mat-select formControlName="angularVersions" multiple>
+            @for (v of angularVersionOptions; track v) {
+              <mat-option [value]="v">{{ v }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light mb-6">
+      <mat-card-content class="p-6 flex flex-col gap-4">
+        <h2 class="font-semibold text-gray-300">Додатково</h2>
+
+        <mat-form-field>
+          <mat-label>Основні обов'язки</mat-label>
+          <textarea matInput formControlName="mainResponsibilities" rows="2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Найцікавіший проект</mat-label>
+          <textarea matInput formControlName="proudestWork" rows="2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Що хоче покращити</mat-label>
+          <textarea matInput formControlName="wantsToImprove" rows="2"></textarea>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="flex gap-3">
+      <a mat-stroked-button routerLink="/conduct">Скасувати</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+        <mat-icon>play_arrow</mat-icon>
+        Розпочати інтерв'ю
+      </button>
+    </div>
+  </form>
+</div>

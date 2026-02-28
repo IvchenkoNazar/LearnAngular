@@ -1,1 +1,132 @@
-<p>quiz-mode works!</p>
+@if (finished()) {
+  <!-- Results Screen -->
+  <div class="max-w-lg mx-auto text-center py-12">
+    <mat-icon class="text-6xl text-accent mb-4">emoji_events</mat-icon>
+    <h1 class="text-2xl font-bold mb-2">Сесію завершено!</h1>
+    <p class="text-gray-400 mb-6">Ви відповіли на {{ queue().length }} питань</p>
+
+    <div class="grid grid-cols-3 gap-4 mb-8">
+      <mat-card class="bg-surface-light">
+        <mat-card-content class="p-4 text-center">
+          <div class="text-2xl font-bold text-success">{{ sessionStats().knew }}</div>
+          <div class="text-xs text-gray-400">Знав</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="bg-surface-light">
+        <mat-card-content class="p-4 text-center">
+          <div class="text-2xl font-bold text-warning">{{ sessionStats().partial }}</div>
+          <div class="text-xs text-gray-400">Частково</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="bg-surface-light">
+        <mat-card-content class="p-4 text-center">
+          <div class="text-2xl font-bold text-danger">{{ sessionStats().didnt }}</div>
+          <div class="text-xs text-gray-400">Не знав</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="flex gap-3 justify-center">
+      <button mat-raised-button color="primary" (click)="buildQueue()">
+        <mat-icon>replay</mat-icon>
+        Ще раз
+      </button>
+      <a mat-stroked-button routerLink="/progress">
+        <mat-icon>bar_chart</mat-icon>
+        Переглянути прогрес
+      </a>
+    </div>
+  </div>
+
+} @else if (current(); as q) {
+  <div class="max-w-2xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <a mat-icon-button routerLink="/interview">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
+      <div class="flex-1 mx-4">
+        <div class="flex justify-between text-xs text-gray-500 mb-1">
+          <span>{{ currentIndex() + 1 }} / {{ queue().length }}</span>
+          <span>{{ progress() }}%</span>
+        </div>
+        <div class="h-1 bg-surface-lighter rounded-full overflow-hidden">
+          <div class="h-full bg-accent transition-all" [style.width.%]="progress()"></div>
+        </div>
+      </div>
+      <!-- Session Stats -->
+      <div class="flex gap-2 text-xs">
+        <span class="text-success">{{ sessionStats().knew }} ✓</span>
+        <span class="text-warning">{{ sessionStats().partial }} ~</span>
+        <span class="text-danger">{{ sessionStats().didnt }} ✗</span>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <mat-card class="bg-surface-light mb-4">
+      <mat-card-content class="p-6">
+        <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+          <span class="text-accent font-mono">{{ q.level }}</span>
+          <span>•</span>
+          <span>{{ q.blockTitle }}</span>
+          <span>•</span>
+          <span>{{ q.topicTitle }}</span>
+        </div>
+        <p class="text-lg font-medium leading-relaxed">{{ q.question }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Answer Section -->
+    @if (!answerRevealed()) {
+      <div class="text-center">
+        <button mat-raised-button color="primary" (click)="revealAnswer()" class="w-full">
+          <mat-icon>visibility</mat-icon>
+          Показати відповідь
+        </button>
+      </div>
+    } @else {
+      <!-- Level Selector -->
+      <div class="flex gap-2 mb-3 flex-wrap">
+        @for (level of levels; track level) {
+          <button mat-stroked-button
+                  [class.border-accent]="selectedLevel() === level"
+                  [class.text-accent]="selectedLevel() === level"
+                  (click)="selectedLevel.set(level)"
+                  class="text-xs">
+            {{ level }}
+          </button>
+        }
+      </div>
+
+      <!-- Reference Answer -->
+      <mat-card class="bg-surface-lighter mb-4">
+        <mat-card-content class="p-4">
+          <div class="text-xs text-gray-500 mb-2">Еталонна відповідь ({{ selectedLevel() }})</div>
+          <p class="text-sm leading-relaxed">{{ getAnswerForLevel(q) }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Grade Buttons -->
+      <div class="grid grid-cols-3 gap-3">
+        <button mat-raised-button class="bg-danger text-white" (click)="grade('didnt-know')">
+          <mat-icon>close</mat-icon>
+          Не знав
+        </button>
+        <button mat-raised-button class="bg-warning text-white" (click)="grade('partial')">
+          <mat-icon>remove</mat-icon>
+          Частково
+        </button>
+        <button mat-raised-button class="bg-success text-white" (click)="grade('knew-it')">
+          <mat-icon>check</mat-icon>
+          Знав
+        </button>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="text-center py-12 text-gray-400">
+    <mat-icon class="text-6xl mb-4">quiz</mat-icon>
+    <p>Немає питань для квізу</p>
+    <a mat-button routerLink="/interview">Назад</a>
+  </div>
+}
