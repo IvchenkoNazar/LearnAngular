@@ -68,9 +68,9 @@
               <div class="flex flex-col items-end gap-1 flex-shrink-0">
                 <span class="text-xs text-gray-500">{{ answer.candidateLevel }}</span>
                 <mat-chip [class]="
-                  answer.quality === 'strong' ? 'bg-success text-white text-xs' :
-                  answer.quality === 'partial' ? 'bg-warning text-white text-xs' :
-                  'bg-danger text-white text-xs'
+                  answer.quality === 'strong' ? 'bg-success text-gray-900 text-xs' :
+                  answer.quality === 'partial' ? 'bg-warning text-gray-900 text-xs' :
+                  'bg-danger text-gray-900 text-xs'
                 ">{{ answer.quality }}</mat-chip>
               </div>
             </div>

@@ -14,7 +14,7 @@
   // Cards
   --mdc-elevated-card-container-color: var(--color-surface-light);
   --mdc-outlined-card-container-color: var(--color-surface-light);
-  --mat-card-subtitle-text-color: rgb(156 163 175); // gray-400
+  --mat-card-subtitle-text-color: var(--color-gray-400, rgb(156 163 175)); // adapts to theme
 
   // Sidenav / shell
   --mat-sidenav-container-background-color: var(--color-surface);
@@ -70,6 +70,11 @@ mat-sidenav {
     --mat-expansion-container-background-color: transparent;
     --mat-expansion-header-hover-state-layer-color: rgba(255, 255, 255, 0.06);
     --mat-expansion-header-focus-state-layer-color: rgba(255, 255, 255, 0.06);
+
+    html.light & {
+      --mat-expansion-header-hover-state-layer-color: rgba(0, 0, 0, 0.06);
+      --mat-expansion-header-focus-state-layer-color: rgba(0, 0, 0, 0.06);
+    }
     box-shadow: none !important;
     border-radius: 0 !important;
 

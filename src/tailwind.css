@@ -21,4 +21,15 @@ html.light {
   --color-surface-lighter: #e8e8f0;
   --color-accent: #6c63ff;
   --color-accent-light: #8b84ff;
+
+  /* Semantic colors — darker variants for visibility on light backgrounds */
+  --color-success: #047857;   /* emerald-700, ~5.3:1 on white */
+  --color-warning: #b45309;   /* amber-700, ~5.5:1 on white */
+  --color-cyan: #0369a1;      /* sky-700, ~4.7:1 on white */
+  --color-danger: #b91c1c;    /* red-700, ~5.9:1 on white */
+
+  /* Gray scale — light grays inverted to stay visible on light backgrounds */
+  --color-gray-200: #1f2937;  /* ~15:1 on white */
+  --color-gray-300: #374151;  /* ~10:1 on white */
+  --color-gray-400: #4b5563;  /* ~7.5:1 on white */
 }
