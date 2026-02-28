@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+    tertiary: mat.$cyan-palette,
+  ),
+  typography: (
+    brand-family: 'Inter, system-ui, sans-serif',
+    plain-family: 'Inter, system-ui, sans-serif',
+  ),
+));
+
+html {
+  @include mat.all-component-themes($dark-theme);
+  @include mat.typography-hierarchy($dark-theme);
+}
+
+body {
+  margin: 0;
+  background-color: #1e1e2e;
+  color: #e0e0e0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
