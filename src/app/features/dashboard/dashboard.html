@@ -1,1 +1,132 @@
-<p>dashboard works!</p>
+<div class="max-w-6xl mx-auto">
+  <!-- Welcome Section -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-accent mb-2">Angular Academy</h1>
+    <p class="text-gray-400">Вивчай Angular на рівні Senior/Staff. Готуйся до інтерв'ю.</p>
+  </div>
+
+  <!-- Overall Progress -->
+  <mat-card class="mb-6 bg-surface-light">
+    <mat-card-content class="flex items-center gap-6 p-6">
+      <div class="relative w-24 h-24 flex-shrink-0">
+        <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#363650" stroke-width="8" />
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#a29bfe" stroke-width="8"
+            [attr.stroke-dasharray]="283"
+            [attr.stroke-dashoffset]="283 - (283 * completionPercentage() / 100)"
+            stroke-linecap="round" />
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-2xl font-bold text-accent">{{ completionPercentage() }}%</span>
+        </div>
+      </div>
+      <div class="flex-1">
+        <h2 class="text-xl font-semibold mb-1">Загальний прогрес</h2>
+        <p class="text-gray-400 text-sm">{{ completedTopics() }} з {{ totalTopics() }} тем завершено</p>
+        <mat-progress-bar mode="determinate" [value]="completionPercentage()" class="mt-2" />
+      </div>
+      <a mat-raised-button color="primary" routerLink="/blocks" class="flex-shrink-0">
+        <mat-icon>school</mat-icon>
+        Продовжити навчання
+      </a>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-accent mb-2">menu_book</mat-icon>
+        <div class="text-2xl font-bold">{{ totalTopics() }}</div>
+        <div class="text-sm text-gray-400">Всього тем</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-success mb-2">check_circle</mat-icon>
+        <div class="text-2xl font-bold">{{ completedTopics() }}</div>
+        <div class="text-sm text-gray-400">Завершено</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-cyan mb-2">quiz</mat-icon>
+        <div class="text-2xl font-bold">{{ totalQuestions() }}</div>
+        <div class="text-sm text-gray-400">Питань для інтерв'ю</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="bg-surface-light">
+      <mat-card-content class="p-4 text-center">
+        <mat-icon class="text-4xl text-warning mb-2">trending_up</mat-icon>
+        <div class="text-2xl font-bold">{{ quizAttempts() }}</div>
+        <div class="text-sm text-gray-400">Спроб квізу</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Weak Zones Alert -->
+  @if (weakQuestions().length > 0) {
+    <mat-card class="mb-6 border-l-4 border-warning bg-surface-light">
+      <mat-card-content class="p-4 flex items-center gap-3">
+        <mat-icon class="text-warning">warning</mat-icon>
+        <div>
+          <strong>{{ weakQuestions().length }} питань потребують повторення</strong>
+          <p class="text-sm text-gray-400">Час повторити теми, де ви відповіли "Не знав"</p>
+        </div>
+        <a mat-button routerLink="/interview/quiz" class="ml-auto text-warning">
+          Повторити
+        </a>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <!-- Quick Links & Blocks Overview -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3 text-gray-300">Швидкі посилання</h3>
+      <div class="flex flex-col gap-2">
+        <a mat-stroked-button routerLink="/blocks" class="justify-start">
+          <mat-icon>school</mat-icon> Curriculum
+        </a>
+        <a mat-stroked-button routerLink="/interview" class="justify-start">
+          <mat-icon>quiz</mat-icon> Self-Study Quiz
+        </a>
+        <a mat-stroked-button routerLink="/conduct" class="justify-start">
+          <mat-icon>assignment</mat-icon> Conduct Interview
+        </a>
+        <a mat-stroked-button routerLink="/cheatsheets" class="justify-start">
+          <mat-icon>description</mat-icon> Cheatsheets
+        </a>
+        <a mat-stroked-button routerLink="/progress" class="justify-start">
+          <mat-icon>bar_chart</mat-icon> Progress Analytics
+        </a>
+      </div>
+    </div>
+
+    <!-- Blocks Overview -->
+    <div class="lg:col-span-2">
+      <h3 class="text-lg font-semibold mb-3 text-gray-300">Блоки навчання</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        @for (block of blocks(); track block.id) {
+          <a [routerLink]="['/blocks', block.slug]"
+             class="block p-3 rounded-lg bg-surface-light hover:bg-surface-lighter transition-colors no-underline">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-medium text-sm">{{ block.title }}</span>
+              <mat-chip-set>
+                <mat-chip class="text-xs">{{ block.topicCount }} тем</mat-chip>
+              </mat-chip-set>
+            </div>
+            <mat-progress-bar
+              mode="determinate"
+              [value]="0"
+              class="mt-1" />
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</div>
