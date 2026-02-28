@@ -1,0 +1,66 @@
+<div class="flex flex-col h-full">
+  <!-- Logo/Brand -->
+  <div class="p-4 border-b border-surface-lighter">
+    <h1 class="text-lg font-bold text-accent">
+      <mat-icon class="mr-2 align-middle">school</mat-icon>
+      Angular Academy
+    </h1>
+    <div class="mt-2 text-sm text-gray-400">
+      {{ completedTopics() }}/{{ totalTopics() }} topics
+    </div>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="completionPercentage()"
+      class="mt-1" />
+  </div>
+
+  <!-- Quick Links -->
+  <nav class="p-2 border-b border-surface-lighter">
+    <a mat-button routerLink="/" routerLinkActive="text-accent"
+       [routerLinkActiveOptions]="{exact: true}" class="w-full justify-start">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </a>
+    <a mat-button routerLink="/interview" routerLinkActive="text-accent"
+       class="w-full justify-start">
+      <mat-icon>quiz</mat-icon> Self-Study
+    </a>
+    <a mat-button routerLink="/conduct" routerLinkActive="text-accent"
+       class="w-full justify-start">
+      <mat-icon>assignment</mat-icon> Conduct Interview
+    </a>
+    <a mat-button routerLink="/cheatsheets" routerLinkActive="text-accent"
+       class="w-full justify-start">
+      <mat-icon>description</mat-icon> Cheatsheets
+    </a>
+  </nav>
+
+  <!-- Block List -->
+  <div class="flex-1 overflow-auto p-2">
+    <h3 class="text-xs uppercase text-gray-500 px-2 py-1 font-semibold">Curriculum</h3>
+    @for (block of blocks(); track block.id) {
+      <mat-expansion-panel class="bg-transparent shadow-none">
+        <mat-expansion-panel-header>
+          <div class="flex items-center gap-2 w-full">
+            <span class="text-sm font-medium">{{ block.title }}</span>
+            <span class="ml-auto text-xs text-gray-500">
+              {{ getBlockCompletion(block.id) }}/{{ block.topicCount }}
+            </span>
+          </div>
+        </mat-expansion-panel-header>
+        @for (topic of block.topics; track topic.id) {
+          <a
+            mat-button
+            [routerLink]="['/blocks', block.slug, topic.slug]"
+            routerLinkActive="text-cyan"
+            class="w-full justify-start text-sm pl-6"
+            (click)="navigated.emit()">
+            <mat-icon class="text-base mr-1">
+              {{ getTopicIcon(topic.id) }}
+            </mat-icon>
+            {{ topic.title }}
+          </a>
+        }
+      </mat-expansion-panel>
+    }
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<mat-toolbar class="bg-surface-light border-b border-surface-lighter">
+  <button mat-icon-button (click)="toggleSidenav.emit()">
+    <mat-icon>{{ sidenavOpen() ? 'menu_open' : 'menu' }}</mat-icon>
+  </button>
+
+  <!-- Search -->
+  <div class="flex-1 max-w-lg mx-4">
+    <mat-form-field appearance="outline" class="w-full search-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        placeholder="Search topics... ( / )"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearch()"
+        (keyup.escape)="searchQuery = ''" />
+      @if (searchQuery) {
+        <button matSuffix mat-icon-button (click)="searchQuery = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Progress chip -->
+  <mat-chip-set class="mr-4">
+    <mat-chip>{{ completionPercentage() }}% complete</mat-chip>
+  </mat-chip-set>
+
+  <!-- Theme toggle -->
+  <button mat-icon-button (click)="themeService.toggle()" matTooltip="Toggle theme">
+    <mat-icon>{{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+</mat-toolbar>
