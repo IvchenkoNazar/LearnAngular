@@ -7,8 +7,7 @@ difficulty: 2
 tags: ["git", "branching", "merge", "rebase", "monorepo", "conventional-commits", "ci-cd"]
 relatedTopics: ["anti-patterns"]
 interviewQuestions:
-  - id: "b0t7q1"
-    level: "junior"
+  - level: "junior"
     question: "Яка різниця між git merge і git rebase?"
     referenceAnswers:
       junior: "Merge створює новий commit що об'єднує дві гілки. Rebase переміщує коміти однієї гілки на кінець іншої. Merge зберігає історію, rebase робить її лінійною."
@@ -19,8 +18,7 @@ interviewQuestions:
       - "Rebase shared branches — переписують історію для інших розробників"
       - "Не знають про interactive rebase для cleanup комітів"
     relatedQuestions: ["b0t7q2"]
-  - id: "b0t7q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке conventional commits і як вони використовуються в Angular проєктах?"
     referenceAnswers:
       junior: "Conventional commits — це стандарт написання commit messages з префіксами типу feat:, fix:, docs:. Це допомагає зрозуміти що змінилось."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не вказують scope в monorepo — незрозуміло який package змінився"
       - "Ігнорують BREAKING CHANGE footer — major version не бампається автоматично"
     relatedQuestions: ["b0t7q1", "b0t7q3"]
-  - id: "b0t7q3"
-    level: "senior"
+  - level: "senior"
     question: "Як організувати Git workflow для Angular monorepo з Nx?"
     referenceAnswers:
       junior: "Monorepo — це коли весь код в одному репозиторії. Nx допомагає керувати багатьма проєктами в одному repo."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Не використовують CODEOWNERS — PR мержаться без review від team що володіє кодом"
       - "Feature branches живуть тижнями — merge conflicts, stale code"
     relatedQuestions: ["b0t7q2", "b0t7q4"]
-  - id: "b0t7q4"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати CI/CD pipeline для Angular додатку від commit до production?"
     referenceAnswers:
       junior: "CI/CD — це автоматичний процес тестування і деплою. Для Angular: ng test для тестів, ng build для збірки, потім deploy на сервер."

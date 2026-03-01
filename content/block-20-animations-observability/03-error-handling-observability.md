@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ErrorHandler", "global error handling", "Sentry", "error boundaries", "unhandled rejections", "monitoring"]
 relatedTopics: ["logging-monitoring", "angular-animations", "animation-builder"]
 interviewQuestions:
-  - id: "b20t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Як реалізувати кастомний ErrorHandler в Angular? Що робить дефолтний ErrorHandler?"
     referenceAnswers:
       junior: "ErrorHandler — це Angular service для обробки глобальних помилок. Дефолтний виводить помилки в console.error. Кастомний реалізує interface ErrorHandler з методом handleError()."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Re-throw error в handleError() — infinite error loop"
       - "Inject Router в ErrorHandler constructor — може спричинити circular dependency"
     relatedQuestions: ["b20t3q2", "b20t3q3"]
-  - id: "b20t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як Zone.js впливає на error propagation в Angular? Що відбувається з unhandled Promise rejections?"
     referenceAnswers:
       junior: "Zone.js відстежує async операції в Angular. Помилки в промісах без catch потрапляють в ErrorHandler через Zone.js."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Вважають що ErrorHandler ловить ВСІ async errors — ні, тільки ті що в Angular zone"
       - "Додають window.unhandledrejection і ErrorHandler без dedup — одна помилка reported двічі"
     relatedQuestions: ["b20t3q1", "b20t3q3"]
-  - id: "b20t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як інтегрувати Sentry в Angular додаток? Що таке TraceService і як він допомагає?"
     referenceAnswers:
       junior: "Sentry — це error monitoring platform. В Angular інтегрується через @sentry/angular пакет що надає ErrorHandler і інтеграцію з Router."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Sentry.init() після bootstrapApplication — ранні bootstrap errors не captured"
       - "Не фільтрують expected errors (401 Unauthorized, network offline) — noise в dashboard"
     relatedQuestions: ["b20t3q2", "b20t3q4"]
-  - id: "b20t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати error boundary pattern в Angular? Angular не має React-like error boundaries — яка альтернатива?"
     referenceAnswers:
       junior: "Error boundaries в React показують fallback UI при помилці в дочірньому компоненті. В Angular подібного механізму немає, але можна перехоплювати помилки в компонентах."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Вважають що component-level ErrorHandler в providers надійно ізолює errors — ErrorHandler ізоляція в Angular не повна (template expression errors обходять)"
       - "Не implementують retry логіку — users застрягають в error state"
     relatedQuestions: ["b20t3q3", "b20t3q5"]
-  - id: "b20t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати error enrichment і structured error context в Angular додатку перед відправкою в monitoring?"
     referenceAnswers:
       junior: "Error enrichment — це додавання контексту до помилок (user ID, page URL) для кращого debugging."

@@ -7,8 +7,7 @@ difficulty: 3
 tags: ["anti-patterns", "code-smells", "god-class", "spaghetti-code", "premature-optimization", "technical-debt"]
 relatedTopics: ["solid-principles", "design-patterns", "oop-principles"]
 interviewQuestions:
-  - id: "b0t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке code smell і чим він відрізняється від бага?"
     referenceAnswers:
       junior: "Code smell — це ознака поганої структури коду, яка не є помилкою, але може призвести до проблем у майбутньому. На відміну від бага, code smell не ламає функціональність, але ускладнює підтримку коду."
@@ -19,8 +18,7 @@ interviewQuestions:
       - "Вважають, що кожен code smell обов'язково потрібно негайно виправляти"
       - "Плутають code smell з anti-pattern — smell це симптом, anti-pattern це конкретне помилкове рішення"
     relatedQuestions: ["b0t4q2", "b0t4q3"]
-  - id: "b0t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як розпізнати God Component в Angular і які стратегії його декомпозиції?"
     referenceAnswers:
       junior: "God Component — це компонент, який робить занадто багато: має багато методів, великий template і багато залежностей. Щоб виправити, потрібно розбити його на менші компоненти."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Створення занадто дрібних компонентів (Micro Component smell) — компонент з одним div"
       - "Використання ViewChild для комунікації після декомпозиції замість Input/Output"
     relatedQuestions: ["b0t4q1", "b0t4q4"]
-  - id: "b0t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Які найпоширеніші витоки підписок (subscription leaks) в Angular і як їх уникнути?"
     referenceAnswers:
       junior: "Якщо не відписатися від Observable в ngOnDestroy, підписка залишається в пам'яті. Щоб уникнути цього, можна використовувати async pipe або takeUntilDestroyed."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Використовують takeUntil без передачі Subject в notifier"
       - "Забувають що takeUntilDestroyed() вимагає injection context"
     relatedQuestions: ["b0t4q2", "b0t4q4"]
-  - id: "b0t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як NgModule bloat впливає на performance і якими метриками це виміряти? Як standalone-компоненти вирішують цю проблему?"
     referenceAnswers:
       junior: "NgModule bloat — це коли модуль імпортує занадто багато речей. Standalone-компоненти вирішують це, бо не потребують модулів. Це зменшує bundle size."
@@ -58,8 +54,7 @@ interviewQuestions:
       - "Ігнорують barrel file re-exports як джерело bloat"
       - "Не використовують source-map-explorer для аналізу реального bundle composition"
     relatedQuestions: ["b0t4q3", "b0t4q5"]
-  - id: "b0t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як ви побудуєте систему automated detection та prevention anti-patterns на рівні організації з 20+ Angular-проєктами?"
     referenceAnswers:
       junior: "Можна використовувати ESLint для перевірки коду і налаштувати правила в CI/CD, щоб автоматично знаходити проблеми."

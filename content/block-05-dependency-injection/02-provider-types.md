@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["providers", "useClass", "useFactory", "useValue", "useExisting", "providedIn", "tree-shaking"]
 relatedTopics: ["di-internals", "injection-tokens", "inject-function", "resolution-modifiers", "bootstrapping"]
 interviewQuestions:
-  - id: "b5t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Назвіть основні типи провайдерів в Angular і коли кожен використовувати?"
     referenceAnswers:
       junior: "Angular має useClass (підставити клас), useValue (конкретне значення), useFactory (фабрична функція), useExisting (аліас на існуючий). useClass — найчастіший для заміни сервісу. useValue — для конфігурації."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Використовують useFactory без `deps` array — factory отримує нуль аргументів, залежності undefined"
       - "Плутають useExisting і useClass — useExisting не створює новий instance, це аліас"
     relatedQuestions: ["b5t2q2", "b5t2q3"]
-  - id: "b5t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке tree-shakable providers і чим providedIn: 'root' відрізняється від реєстрації в providers: []?"
     referenceAnswers:
       junior: "providedIn: 'root' — сервіс доступний скрізь в app. providers:[] в NgModule/Component — тільки в тому scope."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Реєструють всі сервіси через providers:[] навіть коли providedIn:'root' підходить"
       - "Не розуміють що library services у providers:[] завжди в bundle користувача"
     relatedQuestions: ["b5t2q1", "b5t2q3"]
-  - id: "b5t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати multi: true providers і для чого це потрібно?"
     referenceAnswers:
       junior: "multi:true дозволяє мати кілька providers для одного токена. Використовується для HTTP interceptors де можна додати кілька."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Переоголошують multi token без multi:true — замінюють весь array замість доповнення"
       - "Не враховують порядок HTTP interceptors — порядок providers = порядок виконання"
     relatedQuestions: ["b5t2q2", "b5t2q4"]
-  - id: "b5t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке provideX() pattern і чому він кращий за raw Provider objects для бібліотек?"
     referenceAnswers:
       junior: "provideX() — функція що повертає провайдери. Наприклад provideRouter(routes) замість `{ provide: Router, ... }`."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Повертають Provider[] замість EnvironmentProviders з provideX() — дозволяє неправильне використання в component providers"
       - "Не використовують withX() pattern для optional features — усі features завжди включені в bundle"
     relatedQuestions: ["b5t2q3", "b5t2q5"]
-  - id: "b5t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати систему провайдерів для Angular library що підтримує tree-shaking, testing і versioning?"
     referenceAnswers:
       junior: "Зробити сервіс з providedIn:'root' і дати користувачам импортувати."

@@ -8,8 +8,7 @@ sinceVersion: "4"
 tags: ["AnimationBuilder", "AnimationPlayer", "programmatic animation", "Web Animations API", "performance", "will-change"]
 relatedTopics: ["angular-animations", "error-handling-observability", "logging-monitoring"]
 interviewQuestions:
-  - id: "b20t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке AnimationBuilder і коли його використовувати замість декларативних animations в компоненті?"
     referenceAnswers:
       junior: "AnimationBuilder дозволяє створювати анімації програматично в TypeScript, а не декларативно в @Component animations масиві. Корисний коли анімація залежить від runtime даних."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Не знищують AnimationPlayer в ngOnDestroy — memory leak і potential animation on destroyed element"
       - "Викликають factory.create() без подальшого player.play() — animation не починається автоматично"
     relatedQuestions: ["b20t2q2", "b20t1q5"]
-  - id: "b20t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як управляти lifecycle AnimationPlayer? Які методи доступні і коли їх використовувати?"
     referenceAnswers:
       junior: "AnimationPlayer має методи play(), pause(), reset(), finish(), destroy() для управління станом анімації."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не викликають destroy() після onDone — player тримає reference на element"
       - "Намагаються повторно play() після destroy() — player недійсний"
     relatedQuestions: ["b20t2q1", "b20t2q3"]
-  - id: "b20t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Коли варто використовувати CSS animations замість Angular AnimationBuilder? Які критерії вибору?"
     referenceAnswers:
       junior: "CSS animations простіші і не потребують JavaScript. Angular AnimationBuilder потрібен коли анімація залежить від JS state або потребує programmatic control."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують AnimationBuilder для hover effects — CSS набагато простіше і performant"
       - "Не враховують compositor thread — думають що всі CSS animations автоматично GPU"
     relatedQuestions: ["b20t2q2", "b20t2q4"]
-  - id: "b20t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке will-change і composite properties в контексті Angular animations? Як правильно ними управляти?"
     referenceAnswers:
       junior: "will-change — CSS property що підказує браузеру наперед підготувати GPU layer для елемента перед анімацією, що покращує performance."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Встановлюють `will-change: transform` в static CSS на всі animated elements — надлишкові GPU layers, OOM на mobile"
       - "Анімують `left`/`top` замість `transform: translate()` — layout reflow замість compositing"
     relatedQuestions: ["b20t2q3", "b20t2q5"]
-  - id: "b20t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як відключати Angular animations для тестів і для користувачів з prefers-reduced-motion? Яка правильна стратегія?"
     referenceAnswers:
       junior: "provideNoopAnimations() в TestBed відключає анімації для тестів. prefers-reduced-motion — CSS media query для користувачів з motion sensitivity."

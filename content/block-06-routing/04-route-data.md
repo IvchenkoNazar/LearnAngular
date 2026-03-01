@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["resolve", "route-data", "ResolveFn", "withComponentInputBinding", "ActivatedRoute", "route-params"]
 relatedTopics: ["router-fundamentals", "guards", "lazy-loading", "inject-function", "di-internals"]
 interviewQuestions:
-  - id: "b6t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке route resolver і навіщо він потрібен?"
     referenceAnswers:
       junior: "Resolver завантажує дані для компоненту до його активації. Angular чекає поки resolver завершить роботу і передає результат через ActivatedRoute.data."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Резолвер для всіх даних компоненту — додаткова навігаційна затримка без UX benefit"
       - "Не обробляють resolver failure — navigation cancelled silently"
     relatedQuestions: ["b6t4q2", "b6t4q3"]
-  - id: "b6t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке withComponentInputBinding() і як він змінює доступ до route даних?"
     referenceAnswers:
       junior: "withComponentInputBinding() дозволяє автоматично передавати route params і resolver data в @Input компоненту."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не додають withComponentInputBinding() до provideRouter — inputs не auto-bind"
       - "Expect queryParam та route param conflict resolution — треба знати priority"
     relatedQuestions: ["b6t4q1", "b6t4q3"]
-  - id: "b6t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке статичні route data і як використовувати data inheritance?"
     referenceAnswers:
       junior: "Route data: `{ path: ..., data: { title: 'My Page' } }` — статичні дані що доступні через ActivatedRoute.data."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують data для runtime values — використовувати resolver"
       - "Не знають про paramsInheritanceStrategy — child params не inherited by default"
     relatedQuestions: ["b6t4q2", "b6t4q4"]
-  - id: "b6t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати breadcrumb navigation через route data і ActivatedRoute tree traversal?"
     referenceAnswers:
       junior: "Breadcrumbs показують navigation path. Кожен route має data.breadcrumb і компонент збирає їх через ActivatedRoute."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Using snapshot for breadcrumbs — not reactive to resolver data updates"
       - "Not handling last item differently — last breadcrumb should not be link"
     relatedQuestions: ["b6t4q3", "b6t4q5"]
-  - id: "b6t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як TypeScript TitleStrategy і withComponentInputBinding змінюють архітектуру routing layer в Angular 16+?"
     referenceAnswers:
       junior: "TitleStrategy дозволяє автоматично встановлювати browser tab title на основі route data."

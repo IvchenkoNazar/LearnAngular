@@ -8,8 +8,7 @@ sinceVersion: "17"
 tags: ["input", "output", "model", "signal-inputs", "two-way-binding", "component-api"]
 relatedTopics: ["signals-intro", "input-output", "reactive-forms"]
 interviewQuestions:
-  - id: "b11t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке signal inputs у Angular 17+? Чим відрізняються від @Input() decorator?"
     referenceAnswers:
       junior: "signal inputs — це новий спосіб оголошувати inputs компонента через функцію input(). Вони є Signals, тому можна використовувати у computed() та effect()."
@@ -20,9 +19,8 @@ interviewQuestions:
       - "Думають input() можна записати всередині компонента — InputSignal read-only"
       - "Не знають withComponentInputBinding() для Router integration"
       - "Плутають input.required() і input() з undefined default"
-    relatedQuestions: ["b11t2q2", "b11t2q3"]
-  - id: "b11t2q2"
-    level: "mid"
+    relatedQuestions: ["b2t7q2", "b2t7q3"]
+  - level: "mid"
     question: "Як output() відрізняється від @Output() EventEmitter? Що таке outputFromObservable()?"
     referenceAnswers:
       junior: "output() — нова функція для оголошення outputs замість @Output() EventEmitter. outputFromObservable() дозволяє використати Observable як output."
@@ -33,9 +31,8 @@ interviewQuestions:
       - "subscribe() на output() — OutputEmitterRef не Observable"
       - "Не знають outputFromObservable() і пишуть ручне subscribe з EventEmitter"
       - "Думають output() — те саме що EventEmitter"
-    relatedQuestions: ["b11t2q1", "b11t2q3"]
-  - id: "b11t2q3"
-    level: "senior"
+    relatedQuestions: ["b2t7q1", "b2t7q3"]
+  - level: "senior"
     question: "Що таке model() у Angular і як реалізується two-way binding з сигналами?"
     referenceAnswers:
       junior: "model() — це двостороннє прив'язування через сигнал. Батько передає значення і може отримати назад зміни від дитини."
@@ -46,9 +43,8 @@ interviewQuestions:
       - "model() і @Input + @Output EventEmitter(valueChange) — не знають різниці"
       - "model() для forms (замість ControlValueAccessor) — неправильне застосування"
       - "Не розуміють що model.set() у дочірньому emit до батька"
-    relatedQuestions: ["b11t2q2", "b11t2q4"]
-  - id: "b11t2q4"
-    level: "mid"
+    relatedQuestions: ["b2t7q2", "b2t7q4"]
+  - level: "mid"
     question: "Як використати withComponentInputBinding() для передачі route params як signal inputs?"
     referenceAnswers:
       junior: "withComponentInputBinding() у провайдерах роутера дозволяє передавати параметри маршруту напряму у inputs компонента."
@@ -59,9 +55,8 @@ interviewQuestions:
       - "Забувають withComponentInputBinding() у provideRouter — route params не передаються"
       - "Не знають що resolver results теж map до inputs"
       - "Name mismatch між route param і input name — не map"
-    relatedQuestions: ["b11t2q3", "b11t2q5"]
-  - id: "b11t2q5"
-    level: "staff"
+    relatedQuestions: ["b2t7q3", "b2t7q5"]
+  - level: "staff"
     question: "Як спроєктувати компонентний API використовуючи signal inputs, outputs і model?"
     referenceAnswers:
       junior: "Використати input() для пропсів, output() для подій, model() для двостороннього зв'язку."
@@ -72,7 +67,7 @@ interviewQuestions:
       - "Too many input signals — over-complicated API"
       - "output() for state changes (should be events only)"
       - "Not documenting required vs optional distinction"
-    relatedQuestions: ["b11t2q4", "b11t1q5"]
+    relatedQuestions: ["b2t7q4", "b11t1q5"]
 ---
 
 ## Core Concept

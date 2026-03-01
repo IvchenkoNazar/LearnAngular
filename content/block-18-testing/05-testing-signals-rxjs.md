@@ -8,8 +8,7 @@ sinceVersion: "17"
 tags: ["signal testing", "effect testing", "TestBed.flushEffects", "toSignal", "TestScheduler", "marble testing"]
 relatedTopics: ["testing-services", "testing-components", "unit-testing", "change-detection"]
 interviewQuestions:
-  - id: "b18t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Як тестувати Angular signal — перевіряти його значення в тестах?"
     referenceAnswers:
       junior: "Signal — це функція, тому signal() повертає поточне значення. В тесті просто викликаємо signal() і перевіряємо значення."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Намагаються тестувати effects без TestBed.flushEffects() — effects виконуються асинхронно"
       - "Читають signal поза injection context без runInInjectionContext — може не відстежуватись"
     relatedQuestions: ["b18t5q2", "b18t1q1"]
-  - id: "b18t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати effect() в Angular і навіщо потрібен TestBed.flushEffects()?"
     referenceAnswers:
       junior: "Effects — це side effects що виконуються при зміні signals. TestBed.flushEffects() запускає їх в тестах."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не викликають flushEffects() — ефект scheduled але не executed — assertion проходить помилково"
       - "Testing effect through spy on signal reads замість side effect output"
     relatedQuestions: ["b18t5q1", "b18t5q3"]
-  - id: "b18t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати toSignal() і toObservable() bridge функції?"
     referenceAnswers:
       junior: "toSignal перетворює Observable на Signal. При тестуванні треба мати injection context і Observable що emit'ить значення."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "toSignal() поза injection context — error 'NG0203: toSignal() can only be used within injection context'"
       - "Не тестують initial undefined state — компонент може render з undefined до Observable emit"
     relatedQuestions: ["b18t5q2", "b18t5q4"]
-  - id: "b18t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке marble testing з RxJS TestScheduler і коли його використовувати?"
     referenceAnswers:
       junior: "Marble testing дозволяє описувати Observable sequences через ASCII символи — 'marble diagrams'. Кожен символ = один frame часу."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Тестують schedulerless observables через TestScheduler — marble не спрацьовує"
       - "Не вказують scheduler в operators під тест (debounceTime без scheduler arg) — TestScheduler не контролює timing"
     relatedQuestions: ["b18t5q3", "b18t5q5"]
-  - id: "b18t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати тестову стратегію для Service що поєднує Signals і RxJS?"
     referenceAnswers:
       junior: "Тестувати кожну частину окремо — спочатку RxJS, потім signals."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Validator", "AsyncValidator", "ValidatorFn", "cross-field-validation", "NG_VALIDATORS", "ValidationErrors"]
 relatedTopics: ["reactive-forms", "template-driven-forms", "control-value-accessor", "http-interceptors"]
 interviewQuestions:
-  - id: "b7t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Як створити custom validator для reactive form?"
     referenceAnswers:
       junior: "Custom validator — це функція що приймає AbstractControl і повертає об'єкт з помилками або null якщо валідно. Наприклад: (control) => control.value < 0 ? {negative: true} : null."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Мутують control всередині validator — side effects"
       - "Не включають деталі в error object — складно побудувати error message"
     relatedQuestions: ["b7t3q2", "b7t2q1"]
-  - id: "b7t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати async validator і як він впливає на form status?"
     referenceAnswers:
       junior: "Async validator — функція що повертає Promise або Observable з результатом валідації. Використовується для перевірок що потребують API call, наприклад перевірка унікальності email."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не обробляють PENDING стан в UI — кнопка submit доступна під час validation"
       - "Використовують Promise замість Observable — немає cancellation"
     relatedQuestions: ["b7t3q1", "b7t3q3"]
-  - id: "b7t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати cross-field validation і які є підходи?"
     referenceAnswers:
       junior: "Cross-field validation — перевірка що залежить від кількох полів одночасно, наприклад пароль і підтвердження паролю."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Використовують setErrors без merge з існуючими errors — затирають інші помилки"
       - "Не оновлюють dependent controls при зміні — stale validation state"
     relatedQuestions: ["b7t3q2", "b7t3q4"]
-  - id: "b7t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати custom validator directive для template-driven forms?"
     referenceAnswers:
       junior: "Потрібно створити directive що реалізує Validator interface і зареєструвати її через NG_VALIDATORS provider."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Забувають multi: true — замінюють всі validators замість додавання"
       - "Не викликають registerOnValidatorChange при зміні @Input — stale validation"
     relatedQuestions: ["b7t3q3", "b7t1q3"]
-  - id: "b7t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати централізовану систему валідації з error messages для великого проєкту?"
     referenceAnswers:
       junior: "Створити сервіс що mapить error codes на повідомлення і компонент для показу помилок."

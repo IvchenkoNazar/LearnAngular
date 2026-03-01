@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ARIA", "accessibility", "a11y", "semantic HTML", "role", "aria-label", "aria-describedby", "screen reader"]
 relatedTopics: ["cdk-a11y", "keyboard-navigation", "angular-animations"]
 interviewQuestions:
-  - id: "b19t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ARIA і навіщо воно потрібне в Angular-додатках?"
     referenceAnswers:
       junior: "ARIA (Accessible Rich Internet Applications) — це набір атрибутів HTML, що допомагають screen reader'ам розуміти інтерактивні елементи. В Angular ці атрибути додаються як звичайні HTML атрибути або через attribute binding."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Додають ARIA атрибути до semantic HTML елементів (наприклад aria-role='button' на <button>) — це redundant та може заплутати screen reader"
       - "Плутають aria-label (задає ім'я) і aria-describedby (задає опис) — різна семантика"
     relatedQuestions: ["b19t1q2", "b19t2q1"]
-  - id: "b19t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно прив'язувати ARIA атрибути в Angular шаблонах? Яка різниця між [attr.aria-label] і aria-label?"
     referenceAnswers:
       junior: "В Angular для dynamic ARIA атрибутів використовується `[attr.aria-label]='expression'`. Статичний `aria-label='text'` — просто HTML атрибут."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують property binding [aria-label] замість attribute binding [attr.aria-label] — це не працює бо aria-label не є DOM property"
       - "Не обробляють null/undefined — порожній aria-label гірший ніж відсутній"
     relatedQuestions: ["b19t1q3", "b19t1q1"]
-  - id: "b19t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке aria-live region і коли його використовувати в Angular?"
     referenceAnswers:
       junior: "aria-live — це атрибут, що повідомляє screen reader про динамічні зміни в DOM без перефокусування."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Додають aria-live region з вже заповненим контентом при першому рендері — screen reader'и часто ігнорують початкове значення"
       - "Використовують assertive для всіх сповіщень — це руйнує UX, лише для критичних помилок"
     relatedQuestions: ["b19t2q2", "b19t1q4"]
-  - id: "b19t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати доступний кастомний dropdown компонент в Angular? Які ARIA патерни потрібні?"
     referenceAnswers:
       junior: "Кастомний dropdown потребує role='combobox' або role='listbox', управління клавіатурою, та aria атрибутів для стану відкрито/закрито."
@@ -57,8 +53,7 @@ interviewQuestions:
       - "Забувають повернути focus на trigger при закритті dropdown"
       - "Не реалізують Escape для закриття"
     relatedQuestions: ["b19t2q1", "b19t4q1"]
-  - id: "b19t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як забезпечити WCAG 2.1 AA compliance в великому Angular enterprise-додатку? Як побудувати процес?"
     referenceAnswers:
       junior: "WCAG 2.1 AA — це стандарт доступності. Треба перевіряти кольоровий контраст, додавати alt до зображень, і забезпечити навігацію з клавіатури."

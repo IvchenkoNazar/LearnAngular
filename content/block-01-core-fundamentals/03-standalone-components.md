@@ -8,8 +8,7 @@ sinceVersion: "14"
 tags: ["standalone", "imports", "providers", "migration", "tree-shaking"]
 relatedTopics: ["ngmodules", "bootstrapping", "dependency-injection"]
 interviewQuestions:
-  - id: "b1t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке standalone component і чим він відрізняється від звичайного component в NgModule?"
     referenceAnswers:
       junior: "Standalone component — це компонент з standalone: true (тепер за замовчуванням), який не потребує NgModule. Він сам вказує свої залежності через imports масив."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Забувають імпортувати CommonModule або окремі директиви (NgIf, NgFor)"
       - "Вважають що standalone: true треба явно вказувати в Angular 19+"
     relatedQuestions: ["b1t3q2", "b1t2q1"]
-  - id: "b1t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як standalone component управляє залежностями? Що можна вказати в imports?"
     referenceAnswers:
       junior: "В imports standalone component можна додати інші компоненти, директиви, пайпи, або цілі модулі — все, що потрібно для шаблону."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не розуміють що imports NgModule дає тільки exports, не declarations"
       - "Плутають component imports з TypeScript ES imports"
     relatedQuestions: ["b1t3q1", "b1t3q3"]
-  - id: "b1t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Як надавати сервіси в standalone world? Яка різниця між providedIn, route providers, і component providers?"
     referenceAnswers:
       junior: "Сервіси можна надавати через providedIn: 'root' в @Injectable — це робить сервіс доступним всюди в додатку як singleton."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не використовують providedIn: 'root' і вручну реєструють скрізь"
       - "Не знають про route-level providers як заміну lazy module providers"
     relatedQuestions: ["b1t3q2", "b1t3q4"]
-  - id: "b1t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як мігрувати великий NgModule-based проєкт на standalone components? Яка стратегія та підводні камені?"
     referenceAnswers:
       junior: "Angular має migration schematic — ng generate @angular/core:standalone, який автоматично конвертує компоненти."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Мігрують AppModule першим замість leaf components"
       - "Не перевіряють barrel exports після видалення NgModules"
     relatedQuestions: ["b1t3q3", "b1t2q5"]
-  - id: "b1t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як standalone API впливає на tree-shaking, bundle size та загальну архітектуру Angular додатків?"
     referenceAnswers:
       junior: "Standalone components краще для tree-shaking — невикористані компоненти не потрапляють в bundle."

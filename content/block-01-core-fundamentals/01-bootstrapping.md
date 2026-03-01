@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["bootstrapping", "standalone", "APP_INITIALIZER", "providers", "platformBrowserDynamic"]
 relatedTopics: ["ngmodules", "standalone-components", "dependency-injection"]
 interviewQuestions:
-  - id: "b1t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як Angular-додаток стартує? Що відбувається при виклику bootstrapApplication?"
     referenceAnswers:
       junior: "Angular створює root component і рендерить його в DOM-елемент, вказаний у selector. bootstrapApplication приймає root component і конфігурацію providers."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають bootstrapApplication (standalone) з platformBrowserDynamic().bootstrapModule (NgModule-based)"
       - "Не знають що APP_INITIALIZER блокує рендеринг"
     relatedQuestions: ["b1t1q2", "b1t2q1"]
-  - id: "b1t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між bootstrapModule і bootstrapApplication? Коли використовувати кожен?"
     referenceAnswers:
       junior: "bootstrapModule — для NgModule-based додатків, bootstrapApplication — для standalone. Standalone — це новий підхід."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Вважають що bootstrapModule deprecated — він ні, просто не рекомендований для нових проєктів"
       - "Не розуміють різницю в DI tree structure між підходами"
     relatedQuestions: ["b1t1q1", "b1t2q1"]
-  - id: "b1t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як працює APP_INITIALIZER? Що станеться якщо initializer кине помилку або зависне?"
     referenceAnswers:
       junior: "APP_INITIALIZER — це спеціальний token для функцій, що виконуються перед стартом додатку."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не обробляють помилки в initializer — додаток мовчки не стартує"
       - "Повертають void замість Promise — initializer не чекається"
     relatedQuestions: ["b1t1q1"]
-  - id: "b1t1q4"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроєктували bootstrap процес для micro-frontend Angular додатку?"
     referenceAnswers:
       junior: "Micro-frontends — це коли декілька Angular додатків працюють на одній сторінці."

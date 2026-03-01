@@ -7,8 +7,7 @@ difficulty: 3
 tags: ["design-patterns", "observer", "strategy", "decorator", "factory", "singleton", "facade"]
 relatedTopics: ["oop-principles", "solid-principles", "dependency-injection"]
 interviewQuestions:
-  - id: "b0t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Які design patterns ви бачите в Angular framework? Назвіть хоча б три з прикладами."
     referenceAnswers:
       junior: "В Angular є Observer pattern (RxJS Observable), Singleton (сервіси з providedIn: 'root'), та Decorator (@Component, @Injectable). Ці patterns вбудовані в framework і використовуються щодня."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають TypeScript decorators з GoF Decorator pattern"
       - "Не розуміють що RxJS Observable — це варіація Observer pattern"
     relatedQuestions: ["b0t3q2", "b0t3q3"]
-  - id: "b0t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як Observer pattern реалізований в Angular через RxJS? Порівняйте Observable, Subject, EventEmitter та Signals."
     referenceAnswers:
       junior: "Observable — це потік даних на який можна підписатися. Subject — Observable який також може emit'ити значення. EventEmitter використовується для @Output в компонентах. Signals — це нова reactive примітива в Angular 16+."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Не розуміють що EventEmitter — це Subject під капотом"
       - "Вважають що Signals повністю замінять RxJS"
     relatedQuestions: ["b0t3q1", "b0t3q4"]
-  - id: "b0t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Як Singleton pattern реалізований в Angular DI? Які підводні камені та коли потрібен не-singleton scope?"
     referenceAnswers:
       junior: "В Angular сервіс з providedIn: 'root' створюється як singleton — один екземпляр на весь застосунок. Це зручно для shared state та API сервісів."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не знають про проблему duplicate instances в lazy modules (pre-Ivy)"
       - "Забувають про memory implications root-level singletons"
     relatedQuestions: ["b0t3q1", "b0t3q5"]
-  - id: "b0t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як Strategy та Factory patterns використовуються для побудови extensible Angular-архітектури? Покажіть на прикладі runtime-вибору стратегії."
     referenceAnswers:
       junior: "Strategy pattern дозволяє вибирати алгоритм в runtime. В Angular можна використовувати DI для підстановки різних сервісів. Factory pattern використовується через useFactory в providers."
@@ -59,8 +55,7 @@ interviewQuestions:
       - "Забувають про caching в factory — recreate на кожен inject"
       - "Не використовують DI hierarchy для hierarchical strategy override"
     relatedQuestions: ["b0t3q3", "b0t3q5"]
-  - id: "b0t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Спроектуйте систему dynamic form rendering з використанням design patterns. Як поєднати Strategy, Factory, Observer та Registry patterns?"
     referenceAnswers:
       junior: "Для dynamic form rendering потрібно створити різні компоненти для кожного типу поля та використовувати factory для їх створення на основі конфігурації."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["TestBed", "inject", "spyOn", "service testing", "HttpClientTestingModule", "provideHttpClientTesting"]
 relatedTopics: ["unit-testing", "testing-http", "dependency-injection", "testing-signals-rxjs"]
 interviewQuestions:
-  - id: "b18t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Як протестувати Angular service що не має залежностей?"
     referenceAnswers:
       junior: "Можна просто створити instance сервісу через new ServiceClass() і тестувати методи напряму. Або через TestBed.inject()."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Завжди налаштовують TestBed навіть для простих сервісів без DI — зайвий overhead"
       - "Плутають 'сервіс без залежностей' і 'сервіс без TestBed' — можна мати залежності але тестувати без TestBed через manual injection"
     relatedQuestions: ["b18t2q2", "b18t1q1"]
-  - id: "b18t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати сервіс що має залежності — spy vs stub vs mock?"
     referenceAnswers:
       junior: "Для тестування сервісу з залежностями замінюємо залежності на фейкові через providers в TestBed. Spy дозволяє стежити за викликами."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Тестують що spy.method() викликався (implementation test) замість результату (behavior test)"
       - "createSpyObj з неповним списком методів — TypeError коли service.methodNotInList() викликається"
     relatedQuestions: ["b18t2q1", "b18t2q3"]
-  - id: "b18t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати Observable з сервісу — done callback vs fakeAsync vs first/toPromise?"
     referenceAnswers:
       junior: "Можна підписатись на Observable в тесті через subscribe і перевіряти значення в callback. done() параметр в it() сигналізує завершення async тесту."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "done() не викликається якщо observable не emit — test timeout без clear error"
       - "Не обробляють error case в subscribe — thrown errors in subscribe не перехоплюються test runner"
     relatedQuestions: ["b18t2q2", "b18t5q1"]
-  - id: "b18t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як тестувати сервіс що використовує HttpClient — provideHttpClientTesting vs HttpClientTestingModule?"
     referenceAnswers:
       junior: "Є спеціальний модуль HttpClientTestingModule що замінює реальний HTTP на fake. Через HttpTestingController можна перевіряти що зроблено запит і відповідати тестовими даними."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не викликають controller.verify() afterEach — незаплановані requests проходять непоміченими"
       - "flush() після assert замість перед — Observable не emits відповідь ще"
     relatedQuestions: ["b18t2q3", "b18t4q1"]
-  - id: "b18t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як проектувати testable Angular services в масштабі enterprise додатку?"
     referenceAnswers:
       junior: "Сервіси з малою кількістю залежностей легше тестувати. Треба використовувати interfaces і моки."

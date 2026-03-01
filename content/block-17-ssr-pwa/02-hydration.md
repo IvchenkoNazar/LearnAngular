@@ -8,8 +8,7 @@ sinceVersion: "17"
 tags: ["hydration", "provideClientHydration", "incremental hydration", "@defer hydration", "DOM reuse", "hydration mismatch"]
 relatedTopics: ["angular-universal", "prerendering", "change-detection", "defer-blocks"]
 interviewQuestions:
-  - id: "b17t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке hydration в Angular і чим вона відрізняється від звичайного SSR?"
     referenceAnswers:
       junior: "Hydration — це коли Angular 'оживляє' HTML що прийшов з сервера, замість того щоб видаляти його і рендерити знову. Це швидше і немає мерехтіння сторінки."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що hydration = SSR — це різні речі: SSR генерує HTML, hydration клієнт-сайд процес"
       - "Не знають що без hydration Angular видаляв SSR DOM і рендерив заново"
     relatedQuestions: ["b17t2q2", "b17t1q1"]
-  - id: "b17t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке hydration mismatch і як його налагодити?"
     referenceAnswers:
       junior: "Hydration mismatch — коли HTML з сервера відрізняється від того що Angular генерує на клієнті. Angular виводить помилку в консоль."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Ставлять ngSkipHydration скрізь замість виправлення root cause"
       - "Не розуміють що browser extensions можуть викликати hydration mismatch (важко відтворити локально)"
     relatedQuestions: ["b17t2q1", "b17t2q3"]
-  - id: "b17t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як працює incremental hydration з @defer в Angular 18+?"
     referenceAnswers:
       junior: "Incremental hydration дозволяє гідратувати не всю сторінку одразу, а частинами — компоненти в @defer блоках гідратуються пізніше."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що incremental hydration = lazy loading компонентів — це різні концепції"
       - "Не додають withEventReplay() і дивуються що clicks під час hydration ігноруються"
     relatedQuestions: ["b17t2q2", "b17t2q4"]
-  - id: "b17t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Навіщо потрібні afterRender та afterNextRender хуки і коли їх використовувати замість ngAfterViewInit?"
     referenceAnswers:
       junior: "afterRender і afterNextRender виконуються тільки в браузері після рендеру, тому їх безпечно використовувати для DOM операцій при SSR."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Використовують afterRender для кожної маленької DOM операції — краще ngAfterViewInit де можна"
       - "Не розуміють різниці між afterRender (кожен рендер) і afterNextRender (один раз)"
     relatedQuestions: ["b17t2q3", "b17t1q3"]
-  - id: "b17t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як hydration впливає на Core Web Vitals і як вимірювати її ефективність?"
     referenceAnswers:
       junior: "Hydration покращує Largest Contentful Paint і зменшує мерехтіння при завантаженні."

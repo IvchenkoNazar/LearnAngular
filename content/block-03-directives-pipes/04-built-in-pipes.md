@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["pipe", "DatePipe", "CurrencyPipe", "AsyncPipe", "pure", "impure", "UpperCasePipe"]
 relatedTopics: ["custom-pipes", "signal-and-async-patterns", "built-in-directives", "component-metadata"]
 interviewQuestions:
-  - id: "b3t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке pure і impure pipe? Яка різниця в поведінці?"
     referenceAnswers:
       junior: "Pure pipe викликається тільки коли змінюється reference вхідних даних. Impure pipe викликається на кожен change detection cycle. Pure pipes ефективніші."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що impure pipe 'оновлюється автоматично' без розуміння CD cost"
       - "Не розуміють чому AsyncPipe impure — не знають механізм"
     relatedQuestions: ["b3t4q2", "b3t4q5"]
-  - id: "b3t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як AsyncPipe запобігає memory leaks і що відбувається якщо Observable не завершується?"
     referenceAnswers:
       junior: "AsyncPipe автоматично підписується на Observable і відписується коли компонент знищується."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Повертають new Observable з getter/computed і підписуються при кожному CD"
       - "Не знають що кілька AsyncPipe на одному Observable — кілька окремих підписок"
     relatedQuestions: ["b3t4q1", "b3t4q3"]
-  - id: "b3t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно chaining pipes? Покажи приклад з DatePipe та UpperCasePipe."
     referenceAnswers:
       junior: "Pipes можна об'єднати через | символ: {{ value | pipe1 | pipe2 }}. Результат першого pipe передається до другого."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не знають що impure pipe в chain робить весь chain expensive"
       - "Не перевіряють nullable types при chaining (DatePipe може повертати null)"
     relatedQuestions: ["b3t4q1", "b3t4q4"]
-  - id: "b3t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як DatePipe і CurrencyPipe залежать від locale? Як правильно налаштувати i18n в Angular?"
     referenceAnswers:
       junior: "DatePipe форматує дати, CurrencyPipe — валюту. Вони враховують locale налаштування Angular."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не реєструють locale data (registerLocaleData) і дивуються чому date formats не змінились"
       - "Думають що LOCALE_ID можна динамічно змінити без перестворення компонентів"
     relatedQuestions: ["b3t4q3", "b3t4q5"]
-  - id: "b3t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Які performance implications від використання багатьох pipes в template компонента що рендерить великі списки? Як оптимізувати?"
     referenceAnswers:
       junior: "Занадто багато pipes може сповільнити app. Pure pipes ефективніші ніж impure."

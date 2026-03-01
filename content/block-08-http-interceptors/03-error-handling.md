@@ -8,8 +8,7 @@ sinceVersion: "4.3"
 tags: ["HttpErrorResponse", "catchError", "retry", "retryWhen", "throwError", "error-handling", "resilience"]
 relatedTopics: ["httpclient", "http-interceptors", "rxjs-error-handling", "rxjs-higher-order-operators"]
 interviewQuestions:
-  - id: "b8t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Як обробити помилку HTTP запиту в Angular?"
     referenceAnswers:
       junior: "HTTP помилки обробляються через catchError оператор RxJS в pipe() після http.get(). У catchError можна повернути EMPTY щоб завершити stream без значення, або throwError щоб propagate помилку далі, або fallback значення через of()."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Перехоплюють помилки в interceptor і не propagate — service thinks request succeeded"
       - "Retry POST запити без ідемпотентності — duplicate submissions"
     relatedQuestions: ["b8t3q2", "b8t3q3"]
-  - id: "b8t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати retry з exponential backoff для HTTP запитів?"
     referenceAnswers:
       junior: "retry(3) виконає запит до 3 разів при помилці. Для паузи між спробами використовується retryWhen або новий retry() з delay опцією."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Retry для 4xx помилок — клієнтська помилка не зникне від повторного запиту"
       - "Без jitter — thundering herd при відновленні сервісу"
     relatedQuestions: ["b8t3q1", "b8t3q3"]
-  - id: "b8t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як розподілити HTTP error handling між interceptors і services?"
     referenceAnswers:
       junior: "Глобальні помилки (401, 500) обробляються в interceptors, специфічні для бізнес-логіки — в services або компонентах."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Перехоплюють помилки в interceptor без re-throw — service отримує successful undefined замість error"
       - "Обробляють validation errors (422) в interceptor — вони domain-specific, мають йти до service/component"
     relatedQuestions: ["b8t3q1", "b8t2q4", "b8t3q4"]
-  - id: "b8t3q4"
-    level: "staff"
+  - level: "staff"
     question: "Як реалізувати circuit breaker pattern для HTTP calls в Angular?"
     referenceAnswers:
       junior: "Circuit breaker — це pattern що тимчасово зупиняє HTTP запити після серії помилок, щоб не перевантажувати нестабільний сервіс."

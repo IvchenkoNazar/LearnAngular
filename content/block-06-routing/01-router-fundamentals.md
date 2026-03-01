@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["router", "Routes", "RouterLink", "RouterOutlet", "navigation", "provideRouter"]
 relatedTopics: ["lazy-loading", "guards", "route-data", "router-events", "bootstrapping"]
 interviewQuestions:
-  - id: "b6t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як налаштувати базовий Angular Router і що таке RouterOutlet?"
     referenceAnswers:
       junior: "provideRouter(routes) додається до providers в bootstrapApplication. Routes — масив об'єктів з path і component. RouterOutlet — місце в template де Angular рендерить активний компонент."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "pathMatch:'full' тільки для empty path redirect — забувають і redirect ніколи не спрацьовує"
       - "RouterLink з string замість array: `routerLink='/path'` — works але `[routerLink]='['/path']'` — standard для dynamic"
     relatedQuestions: ["b6t1q2", "b6t1q3"]
-  - id: "b6t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між router.navigate() і router.navigateByUrl() і коли кожен використовувати?"
     referenceAnswers:
       junior: "navigate() приймає масив сегментів, navigateByUrl() — повний URL рядок."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "navigate() без relativeTo для child routes — navigates to root level"
       - "Передають state via queryParams замість extras.state — security issue (state in URL)"
     relatedQuestions: ["b6t1q1", "b6t1q3"]
-  - id: "b6t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке ActivatedRoute і як читати route parameters в Angular 19?"
     referenceAnswers:
       junior: "ActivatedRoute — injectable service що дає доступ до поточного route. Через `activatedRoute.params` можна читати URL параметри."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують snapshot в ReusedRouteStrategy — snapshot stale, використовувати Observable"
       - "inject(ActivatedRoute) у service — отримують root route, не component route"
     relatedQuestions: ["b6t1q2", "b6t1q4"]
-  - id: "b6t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно налаштувати wildcard routes і redirect routes в Angular?"
     referenceAnswers:
       junior: "`{ path: '**', component: NotFoundComponent }` — wildcard для 404. `{ path: '', redirectTo: '/home', pathMatch: 'full' }` — redirect з root."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Wildcard route не на останньому місці — всі подальші routes ніколи не matchуться"
       - "Redirect з pathMatch:'prefix' для empty path — infinite redirect loop"
     relatedQuestions: ["b6t1q3", "b6t1q5"]
-  - id: "b6t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати routing архітектуру для великого enterprise Angular application?"
     referenceAnswers:
       junior: "Lazy loading для feature routes, guards для захисту, resolvers для даних."

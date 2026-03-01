@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["OWASP", "dependency audit", "npm audit", "supply chain", "environment variables", "sensitive data", "secure defaults"]
 relatedTopics: ["xss-sanitization", "auth-patterns", "csp-csrf"]
 interviewQuestions:
-  - id: "b16t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Як Angular захищає від поширених вразливостей OWASP Top 10 за замовчуванням?"
     referenceAnswers:
       junior: "Angular автоматично санітизує template bindings від XSS і надає DomSanitizer. Також є HttpClient для безпечних HTTP запитів."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Sensitive data у Angular environment files вважають захищеними"
       - "Покладаються лише на Angular без server-side security"
     relatedQuestions: ["b16t4q2", "b16t4q3"]
-  - id: "b16t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як захистити Angular додаток від supply chain атак через npm залежності?"
     referenceAnswers:
       junior: "Регулярно запускати npm audit і оновлювати залежності. Використовувати Dependabot або Snyk."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Ігнорують transitive vulnerability (dep of dep) — можна бути vulnerable без прямої залежності"
       - "Не фіксують Node.js version у CI — consistency issues"
     relatedQuestions: ["b16t4q1", "b16t4q3"]
-  - id: "b16t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як безпечно працювати з environment variables та секретними даними в Angular?"
     referenceAnswers:
       junior: "Секрети не повинні бути у Angular коді бо він відправляється до браузера. API ключі тримати на сервері."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Source maps у production — expose TypeScript source"
       - "Думають minification = obfuscation → secrets hidden"
     relatedQuestions: ["b16t4q2", "b16t4q4"]
-  - id: "b16t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке prototype pollution і як захистити Angular додаток?"
     referenceAnswers:
       junior: "Prototype pollution — атака де зловмисник модифікує Object.prototype і впливає на поведінку всього JS."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Стара версія lodash — lodash.merge вразлива до v4.17.12"
       - "eval() для dynamic functionality — ніколи з user input"
     relatedQuestions: ["b16t4q3", "b16t4q5"]
-  - id: "b16t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати Security Development Lifecycle (SDL) для Angular команди?"
     referenceAnswers:
       junior: "Регулярно робити code review з акцентом на безпеку, проводити npm audit, навчати розробників OWASP."

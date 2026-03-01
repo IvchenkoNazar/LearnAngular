@@ -8,8 +8,7 @@ sinceVersion: "17"
 tags: ["@defer", "@placeholder", "@loading", "@error", "defer-triggers", "lazy-loading", "incremental-hydration"]
 relatedTopics: ["bundle-optimization", "core-web-vitals", "runtime-optimization", "angular-devtools-profiling"]
 interviewQuestions:
-  - id: "b11t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке @defer в Angular і які trigger types він підтримує?"
     referenceAnswers:
       junior: "@defer — це новий синтаксис Angular 17 для lazy loading частин шаблону. Підтримує triggers: idle, viewport, interaction, hover, immediate, timer."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають @defer = ngIf/show/hide — ні, @defer = code splitting + lazy loading"
       - "Не знають що @defer автоматично створює окремий bundle chunk для залежностей"
     relatedQuestions: ["b11t1q2", "b11t1q3"]
-  - id: "b11t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати @placeholder, @loading і @error блоки і яка роль prefetch?"
     referenceAnswers:
       junior: "@placeholder показується до trigger, @loading під час завантаження, @error якщо сталась помилка."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не використовують minimum delay для @loading — flash of loading indicator на fast connections"
       - "@error без retry mechanism — user не може відновитись від failed lazy load"
     relatedQuestions: ["b11t1q1", "b11t1q3"]
-  - id: "b11t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як @defer впливає на bundle size та як налаштувати dependency deferral?"
     referenceAnswers:
       junior: "@defer виносить код у окремий chunk який завантажується пізніше, зменшуючи initial bundle."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що import в @Component.imports автоматично deferred — ні, тільки те що ТІЛЬКИ в @defer block"
       - "Не перевіряють chunk розміри після додавання @defer — можливо компонент вже в initial bundle через інший reference"
     relatedQuestions: ["b11t1q2", "b11t1q4"]
-  - id: "b11t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як @defer інтегрується з SSR та що таке incremental hydration в Angular 18+?"
     referenceAnswers:
       junior: "З SSR @defer контент може рендеритись на сервері. Incremental hydration — нова функція Angular 18 що дозволяє поступово гідрувати сторінку."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не розуміють різницю між defer (display) і hydrate triggers — це два незалежні mechanisms"
       - "Використовують @defer для all content без SSR — втрачають SEO benefit (content не в HTML)"
     relatedQuestions: ["b11t1q3", "b11t1q5"]
-  - id: "b11t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати @defer стратегію для performance-critical Angular app і як тестувати @defer blocks?"
     referenceAnswers:
       junior: "Використовувати @defer для важких компонентів нижче fold. Для тестування Angular надає спеціальні утиліти."

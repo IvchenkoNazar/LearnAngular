@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["OnPush", "trackBy", "pure-pipes", "virtual-scrolling", "memoization", "ChangeDetectorRef"]
 relatedTopics: ["deferrable-views", "bundle-optimization", "angular-devtools-profiling", "change-detection"]
 interviewQuestions:
-  - id: "b11t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ChangeDetectionStrategy.OnPush і коли Angular запускає change detection для OnPush компонента?"
     referenceAnswers:
       junior: "OnPush — стратегія яка каже Angular перевіряти компонент тільки коли його @Input() змінився. Default — перевіряє при кожному change detection cycle."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Мутують @Input() object замість нового reference — OnPush не detectує зміну"
       - "Думають OnPush = не буде CD — ні, OnPush = CD тільки при specific triggers"
     relatedQuestions: ["b11t3q2", "b11t3q3"]
-  - id: "b11t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке trackBy в @for та ngFor і чому він критичний для list performance?"
     referenceAnswers:
       junior: "trackBy допомагає Angular ідентифікувати елементи в списку. Без нього при зміні list Angular recreates всі DOM nodes."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "trackBy за `$index` для списків де елементи переставляються — семантично неправильно, може спричинити bugs"
       - "Думають track тільки для performance — насправді correctness теж залежить (component state у list items)"
     relatedQuestions: ["b11t3q1", "b11t3q3"]
-  - id: "b11t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між pure і impure pipes і коли використовувати кожен?"
     referenceAnswers:
       junior: "Pure pipe викликається тільки коли input змінився. Impure pipe викликається при кожному CD cycle. Async pipe — приклад impure pipe."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Створюють impure pipe для async операцій — краще Observable з async pipe або toSignal()"
       - "Pure pipe з array/object argument: мутують argument замість new reference → pipe never re-runs"
     relatedQuestions: ["b11t3q2", "b11t3q4"]
-  - id: "b11t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як CDK Virtual Scroll вирішує проблему великих списків і як налаштувати CdkVirtualScrollViewport?"
     referenceAnswers:
       junior: "Virtual scroll рендерить тільки visible items замість всього списку. CDK Virtual Scroll — Angular CDK implementation."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Використовують *ngFor замість *cdkVirtualFor в cdkVirtualScrollViewport — virtual scroll не працює"
       - "Не вказують itemSize — AutoSizeVirtualScrollStrategy значно важча ніж FixedSize"
     relatedQuestions: ["b11t3q3", "b11t3q5"]
-  - id: "b11t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як runOutsideAngular використовується для оптимізації і коли це необхідно?"
     referenceAnswers:
       junior: "runOutsideAngular виконує код поза Zone.js, тому Angular CD не запускається після цього коду."

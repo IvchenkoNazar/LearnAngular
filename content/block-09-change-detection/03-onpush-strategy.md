@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["OnPush", "ChangeDetectionStrategy", "immutability", "pure-pipe", "markForCheck", "performance"]
 relatedTopics: ["cd-mechanism", "signals", "rxjs-subject-types", "input-output"]
 interviewQuestions:
-  - id: "b9t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке OnPush change detection strategy і яка різниця з Default?"
     referenceAnswers:
       junior: "OnPush — це стратегія CD де Angular перевіряє компонент тільки якщо змінились його Input значення (за reference), відбулась DOM подія всередині, або async pipe emit нове значення. Default перевіряє кожен компонент при кожному CD cycle."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Мутують Input об'єкт і очікують що CD спрацює — reference не змінилась"
       - "Думають OnPush пропускає весь subtree — Angular все одно traverse щоб знайти dirty children"
     relatedQuestions: ["b9t3q2", "b9t3q3"]
-  - id: "b9t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Чому з OnPush потрібно використовувати immutable data і як правильно оновлювати стан?"
     referenceAnswers:
       junior: "З OnPush Angular перевіряє Input через reference equality. Якщо мутувати масив (push), reference залишається та сама і Angular не бачить зміну. Потрібно створювати новий масив: [...oldArray, newItem]."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують JSON.parse(JSON.stringify(obj)) для deep clone — повільно і втрачає Date, undefined, функції"
       - "Мутують масиви у service і очікують що OnPush компонент оновиться через reference до того самого масиву"
     relatedQuestions: ["b9t3q1", "b9t3q3"]
-  - id: "b9t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як async pipe пов'язана з OnPush і чому вона є рекомендованим паттерном?"
     referenceAnswers:
       junior: "async pipe автоматично підписується на Observable або Promise і викликає markForCheck() при новому значенні, що змушує OnPush компонент оновитись. Вона також автоматично відписується при destroy компонента."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Підписуються двічі на один Observable з двома async pipe і дивуються подвійним HTTP запитам"
       - "Думають async pipe робить компонент Default — вона просто викликає markForCheck() при emit"
     relatedQuestions: ["b9t3q2", "b9t3q1", "b9t4q1"]
-  - id: "b9t3q4"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати scalable component architecture де всі компоненти OnPush без постійних проблем з оновленнями?"
     referenceAnswers:
       junior: "Використовувати immutable data, async pipe або signals для реактивного стану, і signals або BehaviorSubject для services."

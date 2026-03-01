@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["structural-directive", "ng-template", "ng-container", "TemplateRef", "ViewContainerRef", "microsyntax"]
 relatedTopics: ["built-in-directives", "attribute-directives", "lifecycle-hooks", "dependency-injection"]
 interviewQuestions:
-  - id: "b3t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ng-template і ng-container, і яка між ними різниця?"
     referenceAnswers:
       junior: "ng-template — це Angular-елемент що визначає HTML блок який не рендериться одразу. ng-container — це grouping елемент що не створює DOM елемент. Різниця: ng-template — lazy template definition, ng-container — structural wrapper без DOM node."
@@ -19,9 +18,8 @@ interviewQuestions:
     commonMistakes:
       - "Думають що ng-template рендериться в DOM як невидимий елемент"
       - "Використовують div замість ng-container і забруднюють DOM структуру"
-    relatedQuestions: ["b3t3q2", "b3t3q3"]
-  - id: "b3t3q2"
-    level: "mid"
+    relatedQuestions: ["b3t2q2", "b3t2q3"]
+  - level: "mid"
     question: "Як працює TemplateRef і ViewContainerRef разом? Поясни механізм custom structural directive."
     referenceAnswers:
       junior: "TemplateRef — це reference на ng-template. ViewContainerRef — місце в DOM де можна вставляти views. Structural directive використовує їх щоб показувати або ховати content."
@@ -31,9 +29,8 @@ interviewQuestions:
     commonMistakes:
       - "Плутають ViewContainerRef компонента і ViewContainerRef з @ViewChild — перший рендерить всередині компонента, другий — після конкретного елемента"
       - "Не знають що vcr.createEmbeddedView повертає EmbeddedViewRef з повним lifecycle control"
-    relatedQuestions: ["b3t3q1", "b3t3q4"]
-  - id: "b3t3q3"
-    level: "mid"
+    relatedQuestions: ["b3t2q1", "b3t2q4"]
+  - level: "mid"
     question: "Що таке microsyntax десугаринг? Розкажи що відбувається з *ngIf='condition; else tmpl'."
     referenceAnswers:
       junior: "Зірочка перед директивою — це syntactic sugar. *ngIf='condition' насправді розгортається в довший синтаксис з ng-template."
@@ -43,9 +40,8 @@ interviewQuestions:
     commonMistakes:
       - "Думають що * просто приховує ng-template — не розуміють microsyntax parser"
       - "Намагаються використовувати власні ключові слова в microsyntax — вони не парсяться"
-    relatedQuestions: ["b3t3q2", "b3t3q4"]
-  - id: "b3t3q4"
-    level: "senior"
+    relatedQuestions: ["b3t2q2", "b3t2q4"]
+  - level: "senior"
     question: "Коли варто писати custom structural directive а не використовувати @if/@for? Наведи реальні use cases."
     referenceAnswers:
       junior: "Custom structural directive потрібна коли вбудований @if/@for не вистачає — наприклад для permission checking або complex conditional rendering."
@@ -55,9 +51,8 @@ interviewQuestions:
     commonMistakes:
       - "Пишуть structural directive для простих boolean умов — overkill, @if достатній"
       - "Не типізують context TemplateRef — втрачають type safety для let bindings"
-    relatedQuestions: ["b3t3q3", "b3t3q5"]
-  - id: "b3t3q5"
-    level: "staff"
+    relatedQuestions: ["b3t2q3", "b3t2q5"]
+  - level: "staff"
     question: "Як реалізувати structural directive з context що передає async стан (loading/error/data) і як забезпечити type safety для let bindings?"
     referenceAnswers:
       junior: "Structural directive може надавати context об'єкт до template через createEmbeddedView з другим аргументом."
@@ -67,7 +62,7 @@ interviewQuestions:
     commonMistakes:
       - "Забувають ngTemplateContextGuard — let bindings стають any"
       - "Recreate EmbeddedView на кожну emission замість updating context — зайвий DOM churn і lifecycle triggers"
-    relatedQuestions: ["b3t3q4", "b3t3q2"]
+    relatedQuestions: ["b3t2q4", "b3t2q2"]
 ---
 
 ## Core Concept

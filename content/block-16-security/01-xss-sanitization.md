@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["XSS", "DomSanitizer", "SafeValue", "innerHTML", "bypassSecurityTrust", "Trusted Types", "sanitization"]
 relatedTopics: ["csp-csrf", "secure-coding", "auth-patterns"]
 interviewQuestions:
-  - id: "b16t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як Angular захищає від XSS атак за замовчуванням?"
     referenceAnswers:
       junior: "Angular автоматично екранує HTML у template bindings. Якщо bind значення що містить HTML теги — вони відображаються як текст, а не виконуються."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не розуміють що server-side rendering потребує окремої sanitization"
       - "Плутають HTML escaping ({{ }}) і HTML sanitization ([innerHTML])"
     relatedQuestions: ["b16t1q2", "b16t1q3"]
-  - id: "b16t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке DomSanitizer і які методи `bypassSecurityTrust*` існують?"
     referenceAnswers:
       junior: "DomSanitizer — сервіс Angular для sanitization небезпечного HTML/URL контенту. `bypassSecurityTrustHtml` дозволяє Angular відображати HTML без sanitization."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Використовують bypassSecurityTrustUrl для HTTP URLs — не потрібно, лише для custom schemes"
       - "Не аудитують codebase на наявність bypassSecurityTrust*"
     relatedQuestions: ["b16t1q1", "b16t1q3"]
-  - id: "b16t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як виникає XSS через server-side API дані у Angular і як його запобігти?"
     referenceAnswers:
       junior: "Якщо API повертає HTML і ми його відображаємо через `[innerHTML]` — там може бути шкідливий код."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не тестують XSS scenarios з user-generated content"
       - "Думають HttpOnly cookie вирішує всі XSS проблеми"
     relatedQuestions: ["b16t1q2", "b16t1q4"]
-  - id: "b16t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке Trusted Types і як Angular їх підтримує?"
     referenceAnswers:
       junior: "Trusted Types — це браузерний API що запобігає небезпечним DOM маніпуляціям. Angular підтримує їх для підвищення безпеки."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не використовують report-only спочатку"
       - "Плутають Angular 'angular' policy і 'angular#unsafe-bypass' policy"
     relatedQuestions: ["b16t1q3", "b16t1q5"]
-  - id: "b16t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати многорівневий захист від XSS у production Angular додатку?"
     referenceAnswers:
       junior: "Angular захищає автоматично, плюс треба додати Content Security Policy у HTTP заголовки."

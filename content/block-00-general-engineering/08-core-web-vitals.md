@@ -7,8 +7,7 @@ difficulty: 3
 tags: ["LCP", "FID", "CLS", "INP", "TTFB", "performance-budget", "Lighthouse", "PageSpeed"]
 relatedTopics: ["deferrable-views", "bundle-optimization", "runtime-optimization", "angular-devtools-profiling"]
 interviewQuestions:
-  - id: "b0t8q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Core Web Vitals і які три основні метрики вони вимірюють?"
     referenceAnswers:
       junior: "Core Web Vitals — три метрики Google для оцінки UX: LCP (Largest Contentful Paint) — час завантаження основного контенту, FID/INP — час реакції на першу взаємодію, CLS (Cumulative Layout Shift) — стабільність верстки. Ці метрики впливають на SEO ранжування."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Вважають що CLS = тільки зображення без розмірів — будь-який unexplained layout shift рахується"
       - "Ігнорують TTFB — він напряму обмежує досяжний LCP"
     relatedQuestions: ["b0t8q2", "b0t8q3"]
-  - id: "b0t8q2"
-    level: "mid"
+  - level: "mid"
     question: "Як Angular SSR та гідратація впливають на LCP і CLS?"
     referenceAnswers:
       junior: "SSR рендерить HTML на сервері, тому контент з'являється швидше — це покращує LCP. Але якщо Angular клієнт рендерить по-іншому, може бути зміщення — це CLS."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Думають SSR автоматично вирішує CLS — гідратаційні mismatches можуть спричиняти більший CLS ніж CSR"
       - "Не використовують withDomHydration — Angular без нього знищує server DOM і CLS spike неминучий"
     relatedQuestions: ["b0t8q1", "b0t8q4"]
-  - id: "b0t8q3"
-    level: "mid"
+  - level: "mid"
     question: "Як виміряти Core Web Vitals для Angular застосунку і що впливає на INP?"
     referenceAnswers:
       junior: "Можна використовувати Lighthouse в Chrome DevTools або PageSpeed Insights. Вони показують оцінки і рекомендації."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують тільки Lighthouse (lab data) — реальні користувачі на слабких пристроях можуть мати значно гірші показники"
       - "Профілюють в development mode — Angular devMode додає extra checks, production завжди швидший"
     relatedQuestions: ["b0t8q2", "b0t8q4"]
-  - id: "b0t8q4"
-    level: "senior"
+  - level: "senior"
     question: "Як налаштувати performance budget для Angular застосунку і інтегрувати Lighthouse CI в pipeline?"
     referenceAnswers:
       junior: "В angular.json є budgets налаштування де можна вказати максимальний розмір bundle. Якщо бюджет перевищено — build fails."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Встановлюють budget тільки на initial bundle і забувають про lazy chunks — великий lazy chunk блокує navigation"
       - "Lighthouse CI запускають на throttled network але не на emulated mobile CPU — CPU throttling критичніший для INP"
     relatedQuestions: ["b0t8q3", "b0t8q1"]
-  - id: "b0t8q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати систему моніторингу Web Performance для production Angular застосунку з мільйонами користувачів?"
     referenceAnswers:
       junior: "Можна використовувати Google Analytics або Sentry для моніторингу помилок і продуктивності."

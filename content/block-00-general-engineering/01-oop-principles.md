@@ -7,8 +7,7 @@ difficulty: 2
 tags: ["oop", "encapsulation", "inheritance", "polymorphism", "abstraction", "composition"]
 relatedTopics: ["solid-principles", "design-patterns"]
 interviewQuestions:
-  - id: "b0t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Які основні принципи ООП ви знаєте і як вони проявляються в Angular-компонентах?"
     referenceAnswers:
       junior: "Основні принципи ООП — інкапсуляція, наслідування, поліморфізм та абстракція. В Angular компоненти є класами з інкапсульованим станом, сервіси можуть наслідуватися, а DI забезпечує поліморфізм."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Вважають що Angular компоненти не підтримують наслідування"
       - "Не розуміють чому Angular використовує класи замість інтерфейсів для DI"
     relatedQuestions: ["b0t1q2", "b0t1q3"]
-  - id: "b0t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Чому в Angular рекомендують композицію замість наслідування компонентів? Які проблеми виникають при наслідуванні?"
     referenceAnswers:
       junior: "Композиція краща за наслідування тому що вона гнучкіша. В Angular наслідування компонентів може створювати проблеми з metadata декораторів та lifecycle hooks."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Не знають про hostDirectives як офіційний composition mechanism"
       - "Думають що наслідування компонентів взагалі не працює в Angular"
     relatedQuestions: ["b0t1q1", "b0t1q4"]
-  - id: "b0t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як Angular реалізує інкапсуляцію на рівні компонентів? Порівняйте ViewEncapsulation стратегії."
     referenceAnswers:
       junior: "Angular має три режими ViewEncapsulation: Emulated (за замовчуванням), ShadowDom і None. Emulated додає спеціальні атрибути до елементів для ізоляції стилів."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не розуміють різницю між compile-time та runtime інкапсуляцією"
       - "Використовують ::ng-deep як основний інструмент замість правильної архітектури стилів"
     relatedQuestions: ["b0t1q1", "b0t1q4"]
-  - id: "b0t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як Angular внутрішньо використовує поліморфізм через Dependency Injection? Поясніть ієрархію інжекторів та resolution strategy."
     referenceAnswers:
       junior: "Angular DI дозволяє підставляти різні реалізації сервісів через провайдери. Можна використовувати useClass, useValue, useExisting для поліморфізму."
@@ -59,8 +55,7 @@ interviewQuestions:
       - "Не знають про bloom filter optimization в Ivy"
       - "Плутають useExisting з useClass — перший alias, другий нова інстанція"
     relatedQuestions: ["b0t1q2", "b0t1q5"]
-  - id: "b0t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Спроектуйте архітектуру Angular-застосунку з plugin-based системою, використовуючи ООП-принципи. Як забезпечити extensibility без модифікації core-коду?"
     referenceAnswers:
       junior: "Можна використовувати DI для підключення різних плагінів. Кожен плагін буде окремим модулем з сервісами, які реєструються через провайдери."

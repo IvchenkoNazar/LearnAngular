@@ -8,8 +8,7 @@ sinceVersion: "9"
 tags: ["ComponentStore", "SignalStore", "ngrx", "lightweight-store", "feature-state", "rxmethod", "withEntities"]
 relatedTopics: ["ngrx", "signal-store-ngrx", "service-behaviorsubject", "signals-intro"]
 interviewQuestions:
-  - id: "b12t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке NgRx ComponentStore і чим відрізняється від NgRx Store?"
     referenceAnswers:
       junior: "ComponentStore — це легший варіант NgRx для управління станом окремого компонента або feature. Він не потребує глобального store і не має actions."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Думають ComponentStore і NgRx Store API однакові"
       - "Не знають що SignalStore — successor до ComponentStore"
     relatedQuestions: ["b12t3q2", "b12t3q3"]
-  - id: "b12t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як написати ComponentStore з updater, effect і select?"
     referenceAnswers:
       junior: "Extend ComponentStore<State>, визначити updater() для оновлень, effect() для HTTP, select() для derived state."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "updater що returns undefined (forgot return) — state becomes undefined"
       - "Не знають що select вже має distinctUntilChanged"
     relatedQuestions: ["b12t3q1", "b12t3q3"]
-  - id: "b12t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як NgRx SignalStore відрізняється від ComponentStore? Як провести міграцію?"
     referenceAnswers:
       junior: "SignalStore використовує Angular Signals замість RxJS. Менше boilerplate і простіший API."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не оновлюють template (async pipe removal)"
       - "Намагаються migrate все at once замість incremental"
     relatedQuestions: ["b12t3q2", "b12t3q4"]
-  - id: "b12t3q4"
-    level: "mid"
+  - level: "mid"
     question: "Як providable scope впливає на lifecycle ComponentStore і SignalStore?"
     referenceAnswers:
       junior: "Якщо надається у providers компонента — lifecycle прив'язаний до компонента. Якщо в root — живе весь час."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Component-scoped для shared state — кожен компонент має свою копію"
       - "Не знають route-scoped providers pattern"
     relatedQuestions: ["b12t3q3", "b12t3q5"]
-  - id: "b12t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як обрати між ComponentStore, SignalStore і NgRx Store для різних сценаріїв?"
     referenceAnswers:
       junior: "ComponentStore для окремих компонентів, NgRx Store для глобального стану, SignalStore — нова альтернатива."

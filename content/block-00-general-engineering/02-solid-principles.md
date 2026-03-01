@@ -7,8 +7,7 @@ difficulty: 3
 tags: ["solid", "srp", "ocp", "lsp", "isp", "dip", "dependency-injection"]
 relatedTopics: ["oop-principles", "dependency-injection", "design-patterns"]
 interviewQuestions:
-  - id: "b0t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке SOLID і навіщо ці принципи потрібні в Angular-розробці?"
     referenceAnswers:
       junior: "SOLID — це п'ять принципів об'єктно-орієнтованого дизайну: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. Вони допомагають писати код, який легше підтримувати та розширювати."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Вважають SOLID абсолютними правилами, а не guidelines"
       - "Не бачать зв'язку між DIP та Angular DI"
     relatedQuestions: ["b0t2q2", "b0t2q3"]
-  - id: "b0t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як Single Responsibility Principle застосовується при декомпозиції Angular-компонентів та сервісів? Наведіть приклади порушення SRP."
     referenceAnswers:
       junior: "SRP означає що кожен клас повинен мати одну причину для зміни. В Angular компонент не повинен містити HTTP-логіку або складну бізнес-логіку — це відповідальність сервісів."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Плутають SRP з 'робити тільки одну річ' — SRP про причини для зміни"
       - "Ігнорують SRP на рівні модулів та feature areas"
     relatedQuestions: ["b0t2q1", "b0t2q4"]
-  - id: "b0t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Поясніть Open/Closed Principle на прикладах Angular: interceptors, guards, multi-providers."
     referenceAnswers:
       junior: "OCP означає що код повинен бути відкритий для розширення, але закритий для модифікації. В Angular можна додавати нові HTTP interceptors без зміни існуючих."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не знають про multi-provider pattern як реалізацію OCP"
       - "Створюють надмірно абстрактні extension points 'на майбутнє'"
     relatedQuestions: ["b0t2q1", "b0t2q5"]
-  - id: "b0t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як Dependency Inversion Principle реалізований в Angular DI? Як правильно визначати абстракції для injectable залежностей?"
     referenceAnswers:
       junior: "DIP означає що модулі вищого рівня не повинні залежати від модулів нижчого рівня — обидва повинні залежати від абстракцій. В Angular це реалізується через Dependency Injection."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Визначають абстракцію в low-level module замість high-level"
       - "Не розрізняють DIP (принцип) та DI (механізм)"
     relatedQuestions: ["b0t2q3", "b0t2q5"]
-  - id: "b0t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як ви застосовуєте SOLID при проектуванні shared Angular бібліотеки, яку використовують кілька команд? Які trade-offs виникають?"
     referenceAnswers:
       junior: "При створенні shared бібліотеки потрібно дотримуватися SOLID щоб різні команди могли легко використовувати та розширювати компоненти без конфліктів."

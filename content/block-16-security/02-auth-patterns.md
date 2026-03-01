@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["JWT", "OAuth2", "OIDC", "route guards", "token interceptor", "refresh token", "silent refresh", "auth state"]
 relatedTopics: ["xss-sanitization", "csp-csrf", "secure-coding", "http-client"]
 interviewQuestions:
-  - id: "b16t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Де безпечно зберігати JWT токен у Angular SPA і які є варіанти?"
     referenceAnswers:
       junior: "JWT можна зберігати у localStorage або cookie. localStorage простіший, cookie безпечніший якщо HttpOnly."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не знають SameSite cookie attribute — CSRF vulnerability з cookies"
       - "Довгий expiry для access token (1 day+) — large stolen token window"
     relatedQuestions: ["b16t2q2", "b16t2q3"]
-  - id: "b16t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати HTTP interceptor для автоматичного додавання JWT до запитів?"
     referenceAnswers:
       junior: "Interceptor — це клас що перехоплює всі HTTP запити. В ньому можна додати Authorization header з JWT."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не вирішують race condition при паралельних 401 — N refresh requests"
       - "Refresh request сам проходить через auth interceptor — infinite loop"
     relatedQuestions: ["b16t2q1", "b16t2q3"]
-  - id: "b16t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати route guard для захисту роутів з redirectUrl після логіну?"
     referenceAnswers:
       junior: "CanActivate guard перевіряє чи авторизований користувач. Якщо ні — редиректить на /login."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Покладаються тільки на guard без server-side authorization"
       - "Клас CanActivate замість функціонального guard (deprecated pattern)"
     relatedQuestions: ["b16t2q2", "b16t2q4"]
-  - id: "b16t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати OAuth2/OIDC flow у Angular SPA і що таке silent refresh?"
     referenceAnswers:
       junior: "OAuth2 — стандарт для авторизації. Angular використовує redirect до auth server, отримує token, зберігає його. Silent refresh — автоматичне оновлення token у фоні."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Silent refresh не обробляє failure — token expiry = silent logout"
       - "ID token для API authorization замість access token"
     relatedQuestions: ["b16t2q3", "b16t2q5"]
-  - id: "b16t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як управляти auth state у Angular додатку з signals і що відбувається при logout?"
     referenceAnswers:
       junior: "AuthService зберігає стан авторизації. Logout очищає токен і redirect на /login."

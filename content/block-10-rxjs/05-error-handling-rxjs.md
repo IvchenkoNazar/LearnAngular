@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["catchError", "retry", "retryWhen", "throwError", "EMPTY", "error-handling", "resilience"]
 relatedTopics: ["higher-order-operators", "reactive-patterns", "memory-leaks"]
 interviewQuestions:
-  - id: "b10t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Як обробити помилку в RxJS Observable? Що станеться з потоком після помилки?"
     referenceAnswers:
       junior: "Помилку можна обробити через catchError оператор або через другий аргумент subscribe(next, error). Після помилки Observable завершується і більше не emit значень."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не знають що після error Observable повністю dead — не emit більше нічого"
       - "Забувають про NgRx Effects що 'вмирають' без catchError"
     relatedQuestions: ["b10t5q2", "b10t5q3"]
-  - id: "b10t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати retry з exponential backoff у RxJS? Коли retry недоречний?"
     referenceAnswers:
       junior: "retry(3) перепідписується на Observable 3 рази при помилці. Exponential backoff можна реалізувати через retryWhen."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Без jitter в backoff — thundering herd problem"
       - "Retry non-idempotent operations — дублювання side effects"
     relatedQuestions: ["b10t5q1", "b10t5q3"]
-  - id: "b10t5q3"
-    level: "senior"
+  - level: "senior"
     question: "Поясніть різницю між catchError, throwError і EMPTY. Коли що використовувати?"
     referenceAnswers:
       junior: "catchError перехоплює помилку. throwError кидає нову помилку. EMPTY — порожній Observable що одразу complete."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "NEVER замість EMPTY коли потрібно complete stream"
       - "Кілька catchError і не розуміють що перший що не re-throws — зупиняє propagation"
     relatedQuestions: ["b10t5q1", "b10t5q4"]
-  - id: "b10t5q4"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно обробляти HTTP помилки в Angular з RxJS? Де catchError — в сервісі чи в компоненті?"
     referenceAnswers:
       junior: "catchError можна ставити і в сервісі, і в компоненті — залежно від того де потрібна обробка."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не використовують interceptor для cross-cutting concerns (retry, auth refresh)"
       - "Показують raw HttpErrorResponse у UI — містить internal info, поганий UX"
     relatedQuestions: ["b10t5q3", "b10t5q5"]
-  - id: "b10t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як реалізувати circuit breaker pattern у Angular HTTP layer?"
     referenceAnswers:
       junior: "Circuit breaker — це патерн де після кількох помилок ми перестаємо надсилати запити деякий час."

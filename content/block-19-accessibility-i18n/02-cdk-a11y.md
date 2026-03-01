@@ -8,8 +8,7 @@ sinceVersion: "7"
 tags: ["FocusTrap", "FocusMonitor", "LiveAnnouncer", "CdkTrapFocus", "A11yModule", "focus management"]
 relatedTopics: ["aria-angular", "keyboard-navigation", "angular-animations"]
 interviewQuestions:
-  - id: "b19t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке FocusTrap в Angular CDK і для чого він використовується?"
     referenceAnswers:
       junior: "FocusTrap обмежує переміщення focus всередині певного DOM елемента. Використовується в модальних вікнах, щоб focus не виходив за межі модалу."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Забувають destroy FocusTrap при закритті modal — може залишитись активним після видалення DOM"
       - "Не переміщують focus на перший focusable елемент при відкритті modal — screen reader не знає про новий контент"
     relatedQuestions: ["b19t2q2", "b19t4q1"]
-  - id: "b19t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як FocusMonitor відрізняється від звичайних focus events? Що таке focus origin?"
     referenceAnswers:
       junior: "FocusMonitor відстежує звідки прийшов focus — від миші, клавіатури або програматично. Це дозволяє показувати focus ring тільки при клавіатурній навігації."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не викликають stopMonitoring при знищенні компонента — memory leak"
       - "Плутають FocusMonitor (CDK) з :focus-visible (CSS) — різні use cases, CSS завжди кращий для простих стилів"
     relatedQuestions: ["b19t2q1", "b19t4q2"]
-  - id: "b19t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати LiveAnnouncer для programmatic screen reader announcements?"
     referenceAnswers:
       junior: "LiveAnnouncer дозволяє програматично оголошувати повідомлення screen reader'ам без зміни видимого UI через aria-live region."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують assertive для всіх повідомлень — перериває navigation, руйнує UX"
       - "Не await Promise від announce() при sequential announcements — race condition"
     relatedQuestions: ["b19t1q3", "b19t2q4"]
-  - id: "b19t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно відновити focus після закриття modal в Angular? Які edge cases існують?"
     referenceAnswers:
       junior: "Після закриття modal потрібно повернути focus на елемент який його відкрив, щоб клавіатурний користувач не загубився."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не зберігають previouslyFocusedElement до відкриття — намагаються визначити 'хто відкрив' після закриття"
       - "Не обробляють випадок коли trigger element видалений з DOM"
     relatedQuestions: ["b19t2q1", "b19t4q3"]
-  - id: "b19t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як реалізувати roving tabindex pattern для keyboard navigation в кастомному list/grid компоненті?"
     referenceAnswers:
       junior: "Roving tabindex — це коли тільки один елемент у групі має tabindex=0, решта tabindex=-1. Tab переходить до групи, стрілки навігують всередині."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["FormGroup", "FormControl", "FormArray", "ReactiveFormsModule", "typed-forms", "FormBuilder", "NonNullableFormBuilder"]
 relatedTopics: ["template-driven-forms", "custom-validators", "control-value-accessor", "signals"]
 interviewQuestions:
-  - id: "b7t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке reactive forms і чим вони відрізняються від template-driven?"
     referenceAnswers:
       junior: "Reactive forms — підхід де форма створюється програмно в TypeScript через FormGroup і FormControl. На відміну від template-driven, модель форми явна і доступна в коді компонента, а не генерується з template."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають FormGroup і FormControl — FormGroup містить controls, FormControl містить value"
       - "Забувають імпортувати ReactiveFormsModule"
     relatedQuestions: ["b7t2q2", "b7t1q4"]
-  - id: "b7t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працюють typed forms з Angular v14+ і що дає NonNullableFormBuilder?"
     referenceAnswers:
       junior: "Typed forms додають TypeScript типи до form controls. NonNullableFormBuilder створює controls що не приймають null як значення."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Використовують UntypedFormGroup в нових файлах замість міграції на typed"
       - "Плутають value (partial, без disabled) і getRawValue() (повний)"
     relatedQuestions: ["b7t2q1", "b7t2q3"]
-  - id: "b7t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як працює FormArray і коли його використовувати?"
     referenceAnswers:
       junior: "FormArray — це масив FormControl або FormGroup. Використовується коли потрібно динамічно додавати/видаляти поля форми, наприклад список телефонів або адрес."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Забувають formArrayName і formGroupName в template — отримують binding errors"
       - "Мутують controls array напряму замість push/removeAt — обходять change notification"
     relatedQuestions: ["b7t2q2", "b7t2q4"]
-  - id: "b7t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як використовувати valueChanges та statusChanges для реактивних form patterns?"
     referenceAnswers:
       junior: "valueChanges — Observable що emit при зміні значення форми. statusChanges — при зміні стану валідації."
@@ -58,8 +54,7 @@ interviewQuestions:
       - "Використовують subscribe замість async pipe — більше boilerplate і manual unsubscription"
       - "Не знають про {emitEvent: false} option — отримують infinite loops при cross-field updates"
     relatedQuestions: ["b7t2q3", "b7t2q5"]
-  - id: "b7t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати type-safe dynamic form system на базі reactive forms?"
     referenceAnswers:
       junior: "Створити сервіс що будує FormGroup динамічно з конфігурації."

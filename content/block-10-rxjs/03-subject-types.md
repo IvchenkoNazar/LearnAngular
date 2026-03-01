@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["Subject", "BehaviorSubject", "ReplaySubject", "AsyncSubject", "multicast", "state-management", "hot-observable"]
 relatedTopics: ["reactive-patterns", "memory-leaks", "service-behaviorsubject"]
 interviewQuestions:
-  - id: "b10t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Чим Subject відрізняється від звичайного Observable?"
     referenceAnswers:
       junior: "Subject є одночасно Observable і Observer. Він може мати кілька subscribers і дозволяє програмно emit значення через next(). Звичайний Observable виконується для кожного subscriber окремо."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають hot і cold Observable — думають Subject і звичайний Observable однакові"
       - "Expose Subject напряму з сервісу замість asObservable()"
     relatedQuestions: ["b10t3q2", "b10t3q3"]
-  - id: "b10t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Коли використовувати BehaviorSubject vs ReplaySubject vs AsyncSubject? Наведіть практичні приклади."
     referenceAnswers:
       junior: "BehaviorSubject зберігає останнє значення і повертає його новим підписникам. ReplaySubject зберігає N значень. AsyncSubject повертає тільки останнє значення після complete."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "ReplaySubject без windowTime для real-time streams — unbounded memory growth"
       - "AsyncSubject плутають з Promise — якщо complete() не викликано, жоден subscriber нічого не отримає"
     relatedQuestions: ["b10t3q1", "b10t3q3"]
-  - id: "b10t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як Subject поводиться при помилках та після complete()? Що таке 'closed Subject'?"
     referenceAnswers:
       junior: "Після error() або complete() Subject більше не приймає значення і нові subscribers отримають помилку або complete негайно."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не знають що нові subscribers отримують помилку негайно якщо Subject вже errored"
       - "Не розуміють різницю між closed і isStopped"
     relatedQuestions: ["b10t3q2", "b10t3q4"]
-  - id: "b10t3q4"
-    level: "mid"
+  - level: "mid"
     question: "Чому не варто expose Subject напряму з сервісу і як правильно приховати його?"
     referenceAnswers:
       junior: "Якщо expose Subject напряму, то будь-хто може викликати next() і змінити стан. Краще expose тільки Observable через asObservable()."
@@ -59,8 +55,7 @@ interviewQuestions:
       - "Думають asObservable() — runtime guard (TypeScript only)"
       - "Забувають що asObservable() Observable не має getValue() — потрібен окремий метод для sync access"
     relatedQuestions: ["b10t3q3", "b10t3q1"]
-  - id: "b10t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як реалізувати reactive state management у Angular сервісі використовуючи Subject/BehaviorSubject? Яка різниця між цим підходом і NgRx?"
     referenceAnswers:
       junior: "Можна зберігати state у BehaviorSubject у сервісі і emit нові значення коли state змінюється. NgRx — це більша бібліотека з більшими можливостями."

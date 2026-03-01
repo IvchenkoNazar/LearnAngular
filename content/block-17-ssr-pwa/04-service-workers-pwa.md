@@ -8,8 +8,7 @@ sinceVersion: "5"
 tags: ["service worker", "PWA", "@angular/service-worker", "SwUpdate", "ngsw-config", "cache strategy", "offline", "push notifications"]
 relatedTopics: ["prerendering", "angular-universal", "http-interceptors"]
 interviewQuestions:
-  - id: "b17t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Service Worker і як @angular/service-worker спрощує його використання?"
     referenceAnswers:
       junior: "Service Worker — це скрипт що працює в фоні в браузері, перехоплює мережеві запити і може кешувати ресурси для offline роботи. @angular/service-worker автоматично генерує і управляє ним через ngsw-config.json."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Тестують PWA з ng serve (development build) — SW не реєструється без production build"
       - "Не налаштовують SwUpdate — користувачі використовують застарілу версію без повідомлення"
     relatedQuestions: ["b17t4q2", "b17t3q3"]
-  - id: "b17t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як влаштований ngsw-config.json і які є стратегії кешування?"
     referenceAnswers:
       junior: "ngsw-config.json описує які файли і API responses кешувати. Є стратегії freshness (спочатку мережа) і performance (спочатку кеш)."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Кешують authenticated API responses без урахування безпеки — data leaks на shared devices"
       - "Встановлюють maxAge занадто великим для mutable data — stale content"
     relatedQuestions: ["b17t4q1", "b17t4q3"]
-  - id: "b17t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як SwUpdate service сповіщає про нові версії додатку і як показати промпт оновлення?"
     referenceAnswers:
       junior: "SwUpdate.versionUpdates stream повідомляє коли є нова версія. Можна показати UI і запропонувати reload сторінки."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Викликають activateUpdate() без location.reload() — JS bundle старий, SW новий — inconsistent state"
       - "Не обробляють unrecoverable stream — додаток stuck в broken state"
     relatedQuestions: ["b17t4q2", "b17t4q4"]
-  - id: "b17t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати push notifications через SwPush в Angular PWA?"
     referenceAnswers:
       junior: "SwPush — Angular сервіс для роботи з Web Push API. Потрібна підписка користувача, сервер що відправляє push повідомлення."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не зберігають subscription на сервері — після refresh subscription Lost"
       - "Ігнорують iOS PWA limitations для push notifications до iOS 16.4"
     relatedQuestions: ["b17t4q3", "b17t4q5"]
-  - id: "b17t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроєктувати offline-first Angular PWA для production?"
     referenceAnswers:
       junior: "Offline-first — коли додаток спочатку намагається використати кешовані дані і тільки потім мережу. Service Worker кешує дані для offline режиму."

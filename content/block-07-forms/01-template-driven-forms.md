@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ngModel", "FormsModule", "template-driven", "two-way-binding", "NgForm", "form-validation"]
 relatedTopics: ["reactive-forms", "custom-validators", "control-value-accessor", "built-in-directives"]
 interviewQuestions:
-  - id: "b7t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке template-driven forms і як працює двостороннє зв'язування через ngModel?"
     referenceAnswers:
       junior: "Template-driven forms — це підхід де логіка форми описується в HTML template через директиви ngModel, ngForm, ngModelGroup. [(ngModel)] забезпечує two-way binding — зміни в input автоматично оновлюють змінну компонента і навпаки."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Намагаються отримати form model синхронно — вона створюється асинхронно"
       - "Змішують template-driven і reactive підходи в одній формі"
     relatedQuestions: ["b7t1q2", "b7t2q1"]
-  - id: "b7t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працює NgForm під капотом і як отримати доступ до стану форми?"
     referenceAnswers:
       junior: "NgForm автоматично створюється для кожного <form> елемента. Через template reference variable #myForm='ngForm' можна отримати доступ до стану: myForm.valid, myForm.value."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Використовують (submit) замість (ngSubmit) — не prevent default browser submit"
       - "Очікують form.value бути заповненим синхронно в ngOnInit"
     relatedQuestions: ["b7t1q1", "b7t1q3"]
-  - id: "b7t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як додати валідацію в template-driven forms?"
     referenceAnswers:
       junior: "Валідація додається через HTML5 атрибути: required, minlength, maxlength, pattern на input елементах. Стан валідації доступний через ngModel reference: #name='ngModel', name.errors, name.valid."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Показують помилки без перевірки touched/dirty — користувач бачить помилки до взаємодії"
       - "Використовують HTML5 validation замість Angular validators — нативна validation конфліктує"
     relatedQuestions: ["b7t1q2", "b7t3q1"]
-  - id: "b7t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Які trade-offs між template-driven і reactive forms? Коли який підхід обрати?"
     referenceAnswers:
       junior: "Template-driven простіші для невеликих форм. Reactive forms дають більше контролю і підходять для складних форм."
@@ -57,8 +53,7 @@ interviewQuestions:
       - "Обирають TDF для складних форм заради простоти — потім переписують на reactive"
       - "Думають що reactive forms завжди кращі — для простих форм це overengineering"
     relatedQuestions: ["b7t1q1", "b7t2q1"]
-  - id: "b7t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроектували архітектуру форм для enterprise застосунку з server-driven validation?"
     referenceAnswers:
       junior: "Використав би reactive forms і отримував validation rules з сервера."

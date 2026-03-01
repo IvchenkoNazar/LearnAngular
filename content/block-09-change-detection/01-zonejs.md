@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Zone.js", "NgZone", "monkey-patching", "async-tracking", "zoneless", "runOutsideAngular"]
 relatedTopics: ["cd-mechanism", "onpush-strategy", "zoneless-angular", "signals"]
 interviewQuestions:
-  - id: "b9t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Zone.js і яку роль він відіграє в Angular?"
     referenceAnswers:
       junior: "Zone.js — це бібліотека що дозволяє Angular автоматично запускати change detection після будь-якої асинхронної операції. Без Zone.js Angular не знав би коли оновлювати UI після setTimeout, HTTP запитів або подій."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що Zone.js = Change Detection — це різні речі; Zone.js тільки тригерить CD"
       - "Не знають про runOutsideAngular() — використовують setInterval для polling і навантажують CD"
     relatedQuestions: ["b9t1q2", "b9t1q3"]
-  - id: "b9t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як і навіщо використовувати NgZone.runOutsideAngular()?"
     referenceAnswers:
       junior: "runOutsideAngular() дозволяє виконати код без Zone.js tracking, тобто без тригера change detection. Корисно для операцій що часто запускаються (setInterval, requestAnimationFrame) але не змінюють UI."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Викликають runOutsideAngular() для всього коду — UI перестає оновлюватись бо NgZone.run() забули"
       - "Не використовують runOutsideAngular() для animation loops — непотрібна CD навантаження"
     relatedQuestions: ["b9t1q1", "b9t1q3", "b9t2q1"]
-  - id: "b9t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як Zone.js monkey-patching впливає на production performance і як це діагностувати?"
     referenceAnswers:
       junior: "Zone.js патчує браузерні async APIs, що додає overhead до кожної async операції і може спричинити зайві change detection cycles."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що Zone.js сам по собі повільний — проблема в кількості CD triggers, не в overhead Zone.js"
       - "Намагаються виміряти Zone.js overhead мікробенчмарками замість real CD profiling"
     relatedQuestions: ["b9t1q2", "b9t2q1", "b9t3q1"]
-  - id: "b9t1q4"
-    level: "staff"
+  - level: "staff"
     question: "Що означає 'Zoneless Angular' і яка стратегія міграції для існуючих great apps?"
     referenceAnswers:
       junior: "Zoneless Angular — це режим без Zone.js де change detection запускається вручну або через signals, а не автоматично після async операцій."

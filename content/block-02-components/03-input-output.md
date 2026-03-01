@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["input", "output", "signal-inputs", "model", "two-way-binding", "EventEmitter"]
 relatedTopics: ["component-metadata", "lifecycle-hooks", "content-projection", "signals"]
 interviewQuestions:
-  - id: "b2t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Як передати дані від parent до child компонента і назад?"
     referenceAnswers:
       junior: "Від parent до child — через @Input або signal input(). Від child до parent — через @Output з EventEmitter або output() function. Parent передає значення через property binding [prop]='value', child emit'ить подію (event)='handler($event)'."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Мутують Input object замість створення нового"
       - "Використовують EventEmitter з @Output як Observable (subscribe в parent)"
     relatedQuestions: ["b2t3q2", "b2t3q3"]
-  - id: "b2t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між @Input() decorator і signal input()? Коли мігрувати?"
     referenceAnswers:
       junior: "Signal input() — новіший спосіб, створює signal замість звичайної property. Рекомендований для нових проєктів."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Намагаються set() signal input (він read-only)"
       - "Забувають що ngOnChanges не працює з signal inputs"
     relatedQuestions: ["b2t3q1", "b2t3q4"]
-  - id: "b2t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Як працює model() і two-way binding? Коли його використовувати?"
     referenceAnswers:
       junior: "model() дозволяє two-way binding — дані йдуть від parent до child і назад. Використовується з [()] синтаксисом."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують model() для всього замість input()+output()"
       - "Не розуміють що [()] — це синтаксичний цукор"
     relatedQuestions: ["b2t3q1", "b2t3q2"]
-  - id: "b2t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як працюють output() function і OutputEmitterRef? Чим відрізняються від EventEmitter?"
     referenceAnswers:
       junior: "output() — новий спосіб створення Output подій замість @Output з EventEmitter."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Вважають що EventEmitter deprecated"
       - "Subscribe на EventEmitter в parent component замість template binding"
     relatedQuestions: ["b2t3q1", "b2t3q5"]
-  - id: "b2t3q5"
-    level: "senior"
+  - level: "senior"
     question: "Як працюють input transform і required? Наведіть приклади production використання."
     referenceAnswers:
       junior: "required робить Input обов'язковим. transform перетворює значення при передачі."

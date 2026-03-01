@@ -8,8 +8,7 @@ sinceVersion: "4"
 tags: ["InjectionToken", "multi-providers", "APP_INITIALIZER", "HTTP_INTERCEPTORS", "opaque-token", "DI-token"]
 relatedTopics: ["provider-types", "di-internals", "inject-function", "resolution-modifiers", "http-interceptors"]
 interviewQuestions:
-  - id: "b5t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке InjectionToken і коли його використовують замість класу як DI токена?"
     referenceAnswers:
       junior: "InjectionToken використовують коли хочуть inject не клас, а конфігурацію або примітивне значення. Наприклад `new InjectionToken<string>('API_URL')`."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що два InjectionToken з однаковим description — це один token (це два різних tokens)"
       - "Не додають TypeScript generic — inject() повертає unknown замість typed value"
     relatedQuestions: ["b5t3q2", "b5t3q3"]
-  - id: "b5t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно визначити InjectionToken з default factory і як це пов'язано з tree-shaking?"
     referenceAnswers:
       junior: "Можна передати factory в InjectionToken: `new InjectionToken('', { factory: () => value })`."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Забувають що factory в InjectionToken потребує explicit return type"
       - "Не знають що factory injection context дозволяє inject() всередині factory"
     relatedQuestions: ["b5t3q1", "b5t3q3"]
-  - id: "b5t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Як APP_INITIALIZER і ENVIRONMENT_INITIALIZER tokens відрізняються і коли кожен використовувати?"
     referenceAnswers:
       junior: "APP_INITIALIZER виконує код перед запуском Angular app. Часто використовується для загрузки конфігурації перед тим як рендериться перший компонент."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не повертають Promise або Observable з APP_INITIALIZER factory — Angular не чекає async операцій"
       - "Довгий APP_INITIALIZER без timeout — white screen indefinitely якщо network fails"
     relatedQuestions: ["b5t3q2", "b5t3q4"]
-  - id: "b5t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати extension point через InjectionToken для plugin-based архітектури?"
     referenceAnswers:
       junior: "Можна створити InjectionToken і декілька класів що його implements, потім inject масив через multi:true."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не використовують optional: true при inject — throws якщо no plugins registered"
       - "Не думають про plugin interface versioning — breaking change в interface = all plugins broken"
     relatedQuestions: ["b5t3q3", "b5t3q5"]
-  - id: "b5t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як bi ви спроектували configuration token hierarchy для enterprise Angular application?"
     referenceAnswers:
       junior: "Один APP_CONFIG token з усіма налаштуваннями і inject в сервіси де потрібно."

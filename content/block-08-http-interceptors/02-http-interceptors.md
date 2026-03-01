@@ -8,8 +8,7 @@ sinceVersion: "4.3"
 tags: ["HttpInterceptor", "functional-interceptors", "withInterceptors", "HttpHandlerFn", "middleware", "auth-interceptor"]
 relatedTopics: ["httpclient", "error-handling-http", "dependency-injection", "guards"]
 interviewQuestions:
-  - id: "b8t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке HTTP interceptors і для чого вони використовуються?"
     referenceAnswers:
       junior: "HTTP interceptors — це middleware що перехоплюють HTTP запити та відповіді. Вони дозволяють додавати headers (наприклад, Authorization token), логувати запити, показувати loading spinner або обробляти помилки в одному місці для всіх запитів."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Модифікують HttpRequest напряму замість clone() — HttpRequest immutable"
       - "Не передають modified request через next.handle(clonedReq) — pipeline обривається"
     relatedQuestions: ["b8t2q2", "b8t2q3"]
-  - id: "b8t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як написати functional interceptor для додавання Authorization header до всіх запитів?"
     referenceAnswers:
       junior: "Functional interceptor — це функція що приймає request і next, клонує request з Authorization header і передає далі. Реєструється через withInterceptors() в provideHttpClient()."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Не обробляють token refresh race condition — кілька одночасних запитів після expiry викликають кілька refresh attempts"
       - "Зберігають token у HttpContext щоб передати в interceptor — HttpContext призначений для metadata, не для secrets"
     relatedQuestions: ["b8t2q1", "b8t2q3", "b8t3q1"]
-  - id: "b8t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати interceptor що дедуплікує однакові HTTP запити (request deduplication)?"
     referenceAnswers:
       junior: "Request deduplication означає що якщо один і той самий запит виконується кілька разів одночасно, виконується тільки один реальний HTTP запит, а всі підписники отримують його результат."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Дедуплікують POST запити — POST не idempotent, кожен виклик має side effect"
       - "Не видаляють з cache при error — наступний request отримує той самий error замість retry"
     relatedQuestions: ["b8t2q2", "b8t2q4"]
-  - id: "b8t2q4"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати interceptors у великому Angular додатку з кількома API доменами і різними auth схемами?"
     referenceAnswers:
       junior: "Можна мати кілька interceptors для різних задач і кожен перевіряє URL щоб вирішити чи обробляти запит."

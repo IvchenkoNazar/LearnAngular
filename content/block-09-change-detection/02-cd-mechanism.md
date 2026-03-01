@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["change-detection", "LView", "TView", "ApplicationRef", "detectChanges", "markForCheck", "dirty-checking"]
 relatedTopics: ["zonejs", "onpush-strategy", "signals", "expression-changed-error"]
 interviewQuestions:
-  - id: "b9t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Як Angular визначає що потрібно оновити DOM?"
     referenceAnswers:
       junior: "Angular запускає change detection що порівнює поточні значення template expressions з попередніми. Якщо є різниця — оновлює DOM. Це відбувається після кожної async операції завдяки Zone.js."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що Angular знає які конкретні змінні змінились — насправді dirty-checking ВСІХ bindings"
       - "Плутають CD trigger (Zone.js) з CD механізмом (LView/TView traversal)"
     relatedQuestions: ["b9t2q2", "b9t2q3"]
-  - id: "b9t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між detectChanges() і markForCheck() і коли що використовувати?"
     referenceAnswers:
       junior: "detectChanges() негайно запускає change detection для компонента. markForCheck() позначає компонент для оновлення при наступному CD cycle. markForCheck() використовується з OnPush."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Викликають detectChanges() в OnPush компоненті думаючи що markForCheck() не потрібен — detectChanges() безпосередній, але markForCheck() потрібен для ancestors"
       - "Викликають markForCheck() очікуючи негайного DOM оновлення — воно відбудеться при наступному CD cycle"
     relatedQuestions: ["b9t2q1", "b9t2q3", "b9t3q1"]
-  - id: "b9t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Що таке LView і TView і як вони формують основу Angular's Ivy change detection?"
     referenceAnswers:
       junior: "LView і TView — це внутрішні структури даних Angular Ivy що зберігають стан компонента і метадані template для ефективного change detection."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що кожен component instance має окремий TView — TView shared між instances того самого type"
       - "Думають що Ivy використовує Virtual DOM — ні, direct DOM instructions"
     relatedQuestions: ["b9t2q2", "b9t2q4"]
-  - id: "b9t2q4"
-    level: "staff"
+  - level: "staff"
     question: "Як Angular Ivy's change detection відрізняється від View Engine і як signals змінюють модель CD?"
     referenceAnswers:
       junior: "Ivy — новий compiler і runtime що замінив View Engine в Angular 9. Signals — новий reactive primitive що дозволяє fine-grained CD без Zone.js."

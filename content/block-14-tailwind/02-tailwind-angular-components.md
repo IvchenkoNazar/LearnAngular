@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Tailwind", "utility classes", "component styling", "host binding", "encapsulation", ":host"]
 relatedTopics: ["tailwind-setup", "material-tailwind-together", "component-driven-approach", "setup-theming"]
 interviewQuestions:
-  - id: "b14t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Як використовувати Tailwind utility classes в Angular компонентах і чи є якісь особливості?"
     referenceAnswers:
       junior: "Tailwind класи додаються прямо в HTML template. Вони глобальні тому ViewEncapsulation не заважає. Можна використовувати ngClass для умовних класів."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Конкатенують class names динамічно — purge не знайде"
       - "Використовують Tailwind у компонентах але не включають .ts файли в content paths"
     relatedQuestions: ["b14t2q2", "b14t1q2"]
-  - id: "b14t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як стилізувати :host елемент Angular компонента через Tailwind і коли потрібний @apply?"
     referenceAnswers:
       junior: "Можна використати :host селектор у component styles і написати CSS вручну або через @apply."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "HostBinding string з усіма класами одразу замість окремих bindings — важко читати і дебажити"
       - "Не враховують що @apply копіює CSS, не клас — specificity може дивувати"
     relatedQuestions: ["b14t2q1", "b14t2q3"]
-  - id: "b14t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як ViewEncapsulation.None і ViewEncapsulation.ShadowDom впливають на Tailwind CSS в Angular компонентах?"
     referenceAnswers:
       junior: "None означає що стилі глобальні, ShadowDom ізолює стилі. З Tailwind — None не має ефекту бо Tailwind вже глобальний."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Expect Tailwind utilities в ShadowDom component template — вони не penetrate Shadow DOM"
       - "Використовують ShadowDom без розуміння CSS custom properties bridge pattern"
     relatedQuestions: ["b14t2q2", "b14t2q4"]
-  - id: "b14t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати dynamic Tailwind classes в Angular з ngClass без breaking Tailwind content scanning?"
     referenceAnswers:
       junior: "Треба писати повні назви класів, не конкатенувати рядки. Tailwind сканує файли і не знайде partial strings."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Safelist pattern занадто broad (pattern: /.*/) — нейтралізує весь purge"
       - "Не включають .ts файли в content paths — class maps у TS не знайдуться"
     relatedQuestions: ["b14t2q3", "b14t1q2"]
-  - id: "b14t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як проектувати Angular компоненти styled з Tailwind що легко тестувати, підтримувати і reuse в різних контекстах?"
     referenceAnswers:
       junior: "Компоненти повинні мати окремі класи для різних станів і encapsulated логіку."

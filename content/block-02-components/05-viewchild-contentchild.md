@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ViewChild", "ContentChild", "signal-queries", "viewChildren", "contentChildren", "ElementRef", "QueryList"]
 relatedTopics: ["content-projection", "lifecycle-hooks", "component-metadata", "host-element"]
 interviewQuestions:
-  - id: "b2t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ViewChild і ContentChild? В чому різниця між ними?"
     referenceAnswers:
       junior: "ViewChild дозволяє отримати посилання на елемент або компонент з власного template компонента. ContentChild — те саме але для контенту що проєктується через ng-content. ViewChild шукає в view component, ContentChild — в projected content."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Звертаються до ViewChild в ngOnInit — він ще не ініціалізований (тільки в ngAfterViewInit)"
       - "Плутають ContentChild і ViewChild — ContentChild для projected content, не для власного template"
     relatedQuestions: ["b2t5q2", "b2t5q3"]
-  - id: "b2t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між signal-based queries (viewChild(), contentChild()) і decorator-based queries (@ViewChild, @ContentChild)?"
     referenceAnswers:
       junior: "signal-based queries — новий спосіб (Angular 17+). Повертають Signal замість прямого значення. Декоратори — старий спосіб."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Намагаються використати viewChild() в ngOnInit і чекають значення — signal ready після view init, але читати можна де завгодно"
       - "Забувають що viewChild() без required повертає Signal<T | undefined>"
     relatedQuestions: ["b2t5q1", "b2t5q3", "b2t5q4"]
-  - id: "b2t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Як працює ViewChildren/viewChildren() і що таке QueryList? Коли потрібні множинні queries?"
     referenceAnswers:
       junior: "ViewChildren повертає всі елементи що відповідають запиту, а не тільки перший. Результат — колекція."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не unsubscribe від QueryList.changes — memory leak"
       - "Плутають ViewChildren (всі) і ViewChild (перший знайдений)"
     relatedQuestions: ["b2t5q2", "b2t5q4"]
-  - id: "b2t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Поясніть timing проблеми при роботі з ViewChild і ContentChild. Чому є AfterViewInit і AfterContentInit? Як signal queries змінюють ситуацію?"
     referenceAnswers:
       junior: "ViewChild не готовий в ngOnInit — треба чекати ngAfterViewInit. ContentChild готовий в ngAfterContentInit."
@@ -57,8 +53,7 @@ interviewQuestions:
       - "Не розуміють що static: true не працює з @if/@for"
       - "Намагаються вирішити ExpressionChangedAfterItHasBeenChecked через setTimeout замість архітектурного рефакторингу"
     relatedQuestions: ["b2t5q2", "b2t5q3", "b2t5q5"]
-  - id: "b2t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Які performance implications мають ViewChild queries з descendants: true? Як проєктувати component APIs щоб мінімізувати потребу в прямому DOM access?"
     referenceAnswers:
       junior: "descendants: true шукає глибше в DOM дереві, що може бути повільніше."

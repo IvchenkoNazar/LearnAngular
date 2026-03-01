@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["HttpClientTestingModule", "HttpTestingController", "expectOne", "expectNone", "provideHttpClientTesting", "flush", "error"]
 relatedTopics: ["testing-services", "testing-signals-rxjs", "http-interceptors", "unit-testing"]
 interviewQuestions:
-  - id: "b18t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Як тестувати Angular сервіс що виконує HTTP запити?"
     referenceAnswers:
       junior: "Треба використовувати HttpClientTestingModule або provideHttpClientTesting() щоб замінити реальний HTTP на fake. HttpTestingController.expectOne() перевіряє запит і flush() відповідає тестовими даними."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "flush() до subscribe — Observable не чекає response, бо немає subscriber"
       - "Відсутність verify() afterEach — зайві requests проходять непоміченими"
     relatedQuestions: ["b18t4q2", "b18t2q4"]
-  - id: "b18t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати HTTP error scenarios та перевіряти request headers/params?"
     referenceAnswers:
       junior: "Для error: flush() з status кодом помилки. Для headers: перевіряємо testReq.request.headers."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Тестують тільки happy path, ігнорують 4xx/5xx — production bugs в error handling"
       - "Не перевіряють request body для POST/PUT — service може відправляти неправильні дані"
     relatedQuestions: ["b18t4q1", "b18t4q3"]
-  - id: "b18t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати Angular HTTP interceptors?"
     referenceAnswers:
       junior: "Interceptor перехоплює HTTP запити. Для тестування треба налаштувати TestBed з реальним interceptor і MockBackend."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Тестують тільки interceptor through service call — неясно де помилка при failure"
       - "Не тестують interceptor chain order — two interceptors can conflict"
     relatedQuestions: ["b18t4q2", "b18t4q4"]
-  - id: "b18t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як тестувати retry logic і concurrency scenarios в HTTP services?"
     referenceAnswers:
       junior: "Для retry: кілька разів відповідати на один запит з помилкою, потім успіхом. Для concurrency: кілька підписок на різні запити."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не перевіряють що cancelled requests реально cancelled (TestRequest.cancelled)"
       - "forkJoin тест без flush всіх requests — forkJoin не emits до всі complete"
     relatedQuestions: ["b18t4q3", "b18t5q1"]
-  - id: "b18t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати HTTP testing у великому Angular проєкті для ефективного maintenance?"
     referenceAnswers:
       junior: "Спільні helpers для setup TestBed і типові HTTP мок відповіді."

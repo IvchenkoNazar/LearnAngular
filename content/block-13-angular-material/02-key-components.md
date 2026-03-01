@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["MatTable", "MatDialog", "MatFormField", "MatSnackBar", "MatStepper", "CDK", "overlay"]
 relatedTopics: ["setup-theming", "cdk", "reactive-forms", "tailwind-angular-components"]
 interviewQuestions:
-  - id: "b13t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Як використати MatTable для відображення списку даних з сортуванням і пагінацією?"
     referenceAnswers:
       junior: "Треба підключити MatTableModule, MatSortModule, MatPaginatorModule. Визначити dataSource, displayedColumns, і додати matSort директиву та mat-paginator компонент."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не додають trackBy — таблиця перемальовується повністю при будь-якій зміні"
       - "Використовують MatTableDataSource для server-side pagination — фільтрує/сортує client-side дані"
     relatedQuestions: ["b13t2q2", "b13t3q1"]
-  - id: "b13t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як відкрити MatDialog, передати дані в діалог і отримати результат закриття?"
     referenceAnswers:
       junior: "Inject MatDialog сервіс, викликати open() з компонентом і data. Підписатись на afterClosed() щоб отримати результат."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не обмежують ширину діалогу (width/maxWidth) — на mobile займає весь екран некрасиво"
       - "Subscribe без takeUntilDestroyed або async pipe — memory leak якщо component зникає до закриття"
     relatedQuestions: ["b13t2q1", "b13t3q2"]
-  - id: "b13t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати кастомний MatFormField control через ControlValueAccessor?"
     referenceAnswers:
       junior: "Потрібно реалізувати ControlValueAccessor інтерфейс і надати його через NG_VALUE_ACCESSOR. Тоді компонент може використовуватись як form control."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Забувають implement setDescribedByIds — accessibility hint/error text не пов'язується з control"
       - "Inject NgControl напряму замість через constructor + Optional + Self decorators — circular dependency"
     relatedQuestions: ["b13t2q2", "b7t3q1"]
-  - id: "b13t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як MatSnackBar і MatStepper вирішують свої специфічні UX задачі? Які є не-очевидні налаштування?"
     referenceAnswers:
       junior: "MatSnackBar показує тимчасові повідомлення внизу екрану. MatStepper — покроковий wizard для форм."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Linear stepper без [stepControl] — не блокує некоректну навігацію"
       - "Не reset stepper після submit — повторне відкриття форми показує completed state"
     relatedQuestions: ["b13t2q3", "b13t3q1"]
-  - id: "b13t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як інтегрувати Angular Material компоненти в складну reactive forms систему, включаючи nested form groups, dynamic forms, і cross-field validation?"
     referenceAnswers:
       junior: "Material компоненти підтримують reactive forms через formControlName директиву — підключаєш formGroup і вказуєш controlName."

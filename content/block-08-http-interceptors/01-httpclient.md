@@ -8,8 +8,7 @@ sinceVersion: "4.3"
 tags: ["HttpClient", "provideHttpClient", "HTTP", "Observable", "typed-requests", "withFetch"]
 relatedTopics: ["http-interceptors", "error-handling-http", "rxjs-higher-order-operators", "reactive-forms"]
 interviewQuestions:
-  - id: "b8t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як підключити HttpClient в Angular standalone додатку і зробити GET запит?"
     referenceAnswers:
       junior: "В standalone додатку HttpClient підключається через provideHttpClient() в app.config.ts. Потім інжектуємо HttpClient в компонент або сервіс і використовуємо методи get(), post(), put(), delete() для HTTP запитів. Всі методи повертають Observable."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Import HttpClientModule в standalone app замість provideHttpClient()"
       - "Не відписуються від HTTP observables (хоча HttpClient auto-completes після response)"
     relatedQuestions: ["b8t1q2", "b8t1q3"]
-  - id: "b8t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Які опції observe і responseType надає HttpClient і навіщо вони потрібні?"
     referenceAnswers:
       junior: "observe вказує що отримати у відповідь: body (за замовчуванням), response (повний HttpResponse), events (всі події включно з прогресом). responseType вказує формат: json, text, blob, arraybuffer."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Вказують get<MyType>() і думають що responseType: 'json' встановлюється автоматично — воно й так json за замовчуванням, але generic не пов'язаний з responseType"
       - "Забувають reportProgress: true при observe: 'events' — progress events не приходять"
     relatedQuestions: ["b8t1q1", "b8t1q3", "b8t2q1"]
-  - id: "b8t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно передавати HTTP headers і query params в HttpClient?"
     referenceAnswers:
       junior: "Headers передаються через options об'єкт: { headers: {'Authorization': 'Bearer token'} }. Query params через params: { search: 'query', page: '1' }."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Мутують HttpHeaders: headers.set() не повертає void, а новий HttpHeaders — стара помилка"
       - "Передають number в HttpParams.set() — приймає тільки string; потрібно .toString()"
     relatedQuestions: ["b8t1q2", "b8t2q1"]
-  - id: "b8t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке withFetch() feature для provideHttpClient і які переваги та обмеження Fetch API transport?"
     referenceAnswers:
       junior: "withFetch() переключає HttpClient використовувати Fetch API замість XHR для HTTP запитів."

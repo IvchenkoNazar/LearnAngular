@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["keyboard navigation", "focus management", "skip links", "tabindex", "roving tabindex", "focus trap", "keyboard shortcuts"]
 relatedTopics: ["aria-angular", "cdk-a11y", "i18n"]
 interviewQuestions:
-  - id: "b19t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке tabindex і які значення він може приймати? Навіщо уникати позитивних значень?"
     referenceAnswers:
       junior: "tabindex='0' додає елемент в природній tab order. tabindex='-1' видаляє з tab order але дозволяє focus програматично. tabindex='1' та вище змінює порядок — варто уникати."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Використовують tabindex='1' для 'першого елемента' — вся логіка tab order ламається"
       - "Не знають що tabindex='-1' потрібен для focus restoration (dialog close → повернення на trigger)"
     relatedQuestions: ["b19t4q2", "b19t2q1"]
-  - id: "b19t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке skip navigation links і як їх реалізувати в Angular Single Page Application?"
     referenceAnswers:
       junior: "Skip navigation — це невидимий або видимий при фокусі link 'Skip to main content' на початку сторінки для клавіатурних користувачів."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Skip link тільки hidden без :focus visible state — не допомагає keyboard users"
       - "Не переміщують focus після route transition — screen reader announcer перечитує весь заголовок сторінки"
     relatedQuestions: ["b19t4q3", "b19t4q1"]
-  - id: "b19t4q3"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно управляти focus при навігації між routes в Angular? Яка проблема виникає при SPA routing?"
     referenceAnswers:
       junior: "При переході між сторінками в SPA focus залишається на попередньому елементі або зникає. Потрібно переміщати focus на новий контент після navigation."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Focus на router-outlet замість main content — screen reader оголошує outlet, не content"
       - "Не оголошують page title через LiveAnnouncer — screen reader не знає про page change"
     relatedQuestions: ["b19t4q2", "b19t2q3"]
-  - id: "b19t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати глобальні keyboard shortcuts в Angular? Які проблеми можуть виникнути?"
     referenceAnswers:
       junior: "Keyboard shortcuts реалізуються через `@HostListener('document:keydown.ctrl+s')` або `(keydown)` event binding в шаблоні."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не перевіряють `event.isComposing` — shortcuts спрацьовують під час IME input"
       - "Встановлюють shortcuts що конфліктують з browser built-ins (Ctrl+S, Ctrl+P, F5)"
     relatedQuestions: ["b19t4q3", "b19t4q1"]
-  - id: "b19t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як тестувати keyboard navigation в Angular додатку? Що включає повноцінна стратегія тестування?"
     referenceAnswers:
       junior: "Keyboard тестування — це ручна перевірка що всі функції доступні з клавіатури. Tab, Enter, Escape, стрілки."

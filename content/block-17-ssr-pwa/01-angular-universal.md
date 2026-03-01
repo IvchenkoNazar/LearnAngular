@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["SSR", "Angular Universal", "server-side rendering", "TransferState", "makeStateKey", "platform-server", "isPlatformBrowser"]
 relatedTopics: ["hydration", "prerendering", "change-detection", "dependency-injection"]
 interviewQuestions:
-  - id: "b17t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Server-Side Rendering в Angular і для чого він потрібен?"
     referenceAnswers:
       junior: "SSR — це коли Angular генерує HTML на сервері, а не в браузері. Це допомагає SEO і першому завантаженню сторінки, бо браузер отримує готовий HTML замість порожньої сторінки."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що SSR автоматично означає кращий SEO — без TransferState можуть бути duplicate API calls і мерехтіння контенту"
       - "Не розуміють різниці між SSR і hydration — SSR повертає HTML, hydration 'оживляє' його"
     relatedQuestions: ["b17t1q2", "b17t2q1"]
-  - id: "b17t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як TransferState вирішує проблему подвійних HTTP запитів при SSR?"
     referenceAnswers:
       junior: "TransferState зберігає дані з сервера і передає їх на клієнт, щоб не робити запити двічі."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не використовують TransferState і дивуються чому API calls виконуються двічі"
       - "Кешують user-specific дані в TransferState що може привести до data leaks між користувачами на shared servers"
     relatedQuestions: ["b17t1q1", "b17t1q3"]
-  - id: "b17t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Чому isPlatformBrowser/isPlatformServer guard необхідний в SSR додатку?"
     referenceAnswers:
       junior: "Деякий код працює тільки в браузері (window, document) і не працює на сервері. isPlatformBrowser перевіряє де виконується код."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Доступ до window/document безпосередньо без guard — додаток падає на сервері"
       - "Перевіряють typeof window !== 'undefined' замість isPlatformBrowser — менш читабельно і не Angular-ідіоматично"
     relatedQuestions: ["b17t1q2", "b17t2q1"]
-  - id: "b17t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке CommonEngine в Angular SSR і чим вона відрізняється від старого AppServerModule підходу?"
     referenceAnswers:
       junior: "CommonEngine — це новий спосіб робити SSR в Angular, який простіше налаштувати."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Залишають довгоживучі Observables незакритими — AppRef ніколи не стає stable і SSR render висить"
       - "Не налаштовують request-scoped providers — всі запити шарять state"
     relatedQuestions: ["b17t1q3", "b17t2q1"]
-  - id: "b17t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроєктували SSR архітектуру для high-traffic Angular додатку з personalized контентом?"
     referenceAnswers:
       junior: "Потрібен сервер що рендерить HTML з Angular Universal і відправляє користувачу."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ng-template", "ng-container", "ViewContainerRef", "TemplateRef", "dynamic-components", "portal"]
 relatedTopics: ["control-flow", "template-reference-variables", "structural-directives", "viewchild-contentchild", "content-projection"]
 interviewQuestions:
-  - id: "b4t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ng-template і ng-container і для чого вони використовуються?"
     referenceAnswers:
       junior: "ng-template — це шаблон що не рендериться одразу, Angular може його рендерити пізніше. ng-container — це логічний контейнер що не створює DOM елемент. Обидва корисні для структурних директив."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають ng-template і ng-container — template не рендерить DOM, container рендерить content але без wrapper element"
       - "Думають що ng-template з `#ref` автоматично рендериться — потрібен explicit render через ViewContainerRef або ngTemplateOutlet"
     relatedQuestions: ["b4t4q2", "b4t4q3"]
-  - id: "b4t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як передати context у ng-template і як отримати $implicit значення?"
     referenceAnswers:
       junior: "Через ngTemplateOutlet з context: `[ngTemplateOutletContext]='{ $implicit: myValue }'`. В template використовують `let-varName` для отримання значення."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не знають що `let-x` без `='prop'` читає `$implicit`"
       - "Не типізують context — втрачають type checking в template"
     relatedQuestions: ["b4t4q1", "b4t4q3"]
-  - id: "b4t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке ViewContainerRef і як його використовувати для dynamic component loading?"
     referenceAnswers:
       junior: "ViewContainerRef — це місце куди Angular може динамічно додавати компоненти або templates. Через нього можна програмно додавати компоненти."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не destroy ViewRef після видалення — memory leak"
       - "Inject ViewContainerRef в constructor отримують container linked до host element, не до specific anchor — використовувати @ViewChild для точної позиції"
     relatedQuestions: ["b4t4q2", "b4t4q4"]
-  - id: "b4t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати dynamic component loading з proper lifecycle management і input/output handling?"
     referenceAnswers:
       junior: "Використовуємо ViewContainerRef.createComponent() для завантаження компоненту динамічно."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не clean up output subscriptions при dynamic component removal — memory leak"
       - "Прямий instance доступ для inputs замість setInput() — OnChanges не спрацьовує"
     relatedQuestions: ["b4t4q3", "b4t4q5"]
-  - id: "b4t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати систему dialog/modal з dynamic content в Angular без третьосторонніх бібліотек?"
     referenceAnswers:
       junior: "Можна використати Angular Material MatDialog або зробити компонент що показується/ховається через *ngIf."

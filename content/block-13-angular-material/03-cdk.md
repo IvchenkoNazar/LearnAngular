@@ -8,8 +8,7 @@ sinceVersion: "7"
 tags: ["CDK", "a11y", "overlay", "drag-drop", "virtual scroll", "FocusTrap", "CdkPortal", "CdkTable"]
 relatedTopics: ["setup-theming", "key-components", "change-detection", "performance-optimization"]
 interviewQuestions:
-  - id: "b13t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Angular CDK і чим він відрізняється від Angular Material?"
     referenceAnswers:
       junior: "CDK — це набір утиліт для будування UI компонентів. Material використовує CDK але додає Material Design стилі. CDK можна використовувати без Material."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не знають CDK модулі granular — імпортують надлишкове"
       - "Будують custom overlays вручну (z-index, position) замість CDK Overlay"
     relatedQuestions: ["b13t3q2", "b13t2q1"]
-  - id: "b13t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як використати CDK Overlay для створення кастомного popover/tooltip компонента?"
     referenceAnswers:
       junior: "Inject Overlay сервіс, викликати create() з конфігурацією, attach component через PortalOutlet."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "ScrollStrategy noop — overlay залишається де є при scroll замість dismiss/reposition"
       - "Забувають dispose() OverlayRef — memory leak, orphaned DOM elements"
     relatedQuestions: ["b13t3q1", "b13t3q3"]
-  - id: "b13t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як CDK accessibility utilities (FocusTrap, FocusMonitor, LiveAnnouncer) допомагають будувати accessible компоненти?"
     referenceAnswers:
       junior: "FocusTrap утримує фокус в межах модального діалогу. LiveAnnouncer оголошує зміни для screen readers."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "LiveAnnouncer assertive для non-critical updates — перериває screen reader без причини"
       - "Не тестують з реальним screen reader — automated axe-core не ловить всі проблеми"
     relatedQuestions: ["b13t3q2", "b13t3q4"]
-  - id: "b13t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як CDK Virtual Scroll і Drag-Drop вирішують свої задачі під капотом? Які обмеження?"
     referenceAnswers:
       junior: "Virtual Scroll показує тільки видимі елементи замість всіх — швидше для великих списків. Drag-Drop дозволяє перетягувати елементи."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "moveItemInArray мутує масив — потрібен immutable copy для OnPush components"
       - "Drag-Drop без keyboard alternative — порушення WCAG 2.1 SC 2.1.1"
     relatedQuestions: ["b13t3q3", "b13t3q5"]
-  - id: "b13t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як CDK Portals вирішують задачу teleporting DOM content і які architectural patterns вони дозволяють?"
     referenceAnswers:
       junior: "Portal дозволяє рендерити компонент або template в іншому місці DOM дерева."

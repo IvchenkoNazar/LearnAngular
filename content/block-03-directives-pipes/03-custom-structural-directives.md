@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["TemplateRef", "ViewContainerRef", "createEmbeddedView", "structural-directive", "microsyntax"]
 relatedTopics: ["structural-directives", "attribute-directives", "change-detection", "deferrable-views"]
 interviewQuestions:
-  - id: "b3t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке структурна директива і як Angular обробляє символ * перед директивою?"
     referenceAnswers:
       junior: "Структурна директива змінює структуру DOM — додає або видаляє елементи. Символ * — syntactic sugar, Angular автоматично огортає елемент у <ng-template>."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що * — просто синтаксис, не розуміють що Angular створює окремий ng-template"
       - "Не знають що TemplateRef типізований через generic C (context type)"
     relatedQuestions: ["b3t3q2", "b3t3q3"]
-  - id: "b3t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати власну структурну директиву з context об'єктом і типізацією?"
     referenceAnswers:
       junior: "Директива inject ViewContainerRef і TemplateRef. Викликає createEmbeddedView для відображення шаблону або clear для приховування."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не реалізують ngTemplateContextGuard — template variables мають тип unknown, немає type safety"
       - "Не cleanup views в ngOnDestroy — memory leak якщо VCR не destroyed автоматично"
     relatedQuestions: ["b3t3q1", "b3t3q3"]
-  - id: "b3t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як працює microsyntax desugaring і як написати директиву з custom microsyntax?"
     referenceAnswers:
       junior: "Microsyntax — це спрощений синтаксис з символом *. Angular перетворює його у ng-template."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не знають правило іменування inputs для named microsyntax bindings (directiveName + PascalCase alias)"
       - "Забувають що $implicit — спеціальна назва для default let binding без explicit name"
     relatedQuestions: ["b3t3q2", "b3t3q4"]
-  - id: "b3t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Чим відрізняється TemplateRef від TemplatePortal і коли використовувати кожен?"
     referenceAnswers:
       junior: "TemplateRef — посилання на шаблон у Angular. TemplatePortal — це з Angular CDK для рендерингу контенту в інше місце у DOM."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Використовують DomPortalOutlet для Angular-template content — втрачають Change Detection і DI"
       - "Не dispose Portal після закриття modal — memory leak, EmbeddedView залишається в memory"
     relatedQuestions: ["b3t3q3", "b3t3q5"]
-  - id: "b3t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як Angular новий control flow (@if/@for/@switch) відрізняється від *ngIf/*ngFor і які наслідки для custom structural directives?"
     referenceAnswers:
       junior: "Новий control flow (@if, @for, @switch) — це вбудований синтаксис у Angular 17, синтаксично схожий на JavaScript."

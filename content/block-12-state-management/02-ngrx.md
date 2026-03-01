@@ -8,8 +8,7 @@ sinceVersion: "4"
 tags: ["ngrx", "redux", "store", "actions", "reducers", "effects", "selectors", "entity", "devtools"]
 relatedTopics: ["service-behaviorsubject", "signal-store-ngrx", "higher-order-operators", "error-handling-rxjs"]
 interviewQuestions:
-  - id: "b12t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке NgRx і як він реалізує Redux pattern в Angular?"
     referenceAnswers:
       junior: "NgRx — це state management бібліотека для Angular що реалізує Redux pattern. Є Store (global state), Actions (що сталося), Reducers (як state змінюється), Effects (async operations)."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "HTTP calls у reducers — side effects belong in Effects"
       - "Не використовують selectors — читають весь store у component"
     relatedQuestions: ["b12t2q2", "b12t2q3"]
-  - id: "b12t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно написати NgRx Effect і обробити помилки?"
     referenceAnswers:
       junior: "Effect — це Injectable з @Effect decorator або createEffect() що перехоплює actions і робить async операції. catchError потрібен щоб Effect не вмер при помилці."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "switchMap для write operations — request cancellation mid-flight"
       - "Effect читає store напряму замість withLatestFrom"
     relatedQuestions: ["b12t2q1", "b12t2q3"]
-  - id: "b12t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як працюють NgRx Selectors і чому memoization важлива?"
     referenceAnswers:
       junior: "Selectors — це функції що вибирають частину store. createSelector мemoizes результат щоб не перераховувати при незмінних даних."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Parametrized selectors у template — new instance on each call = no memoization"
       - "Не знають що projector tests не потребують Redux setup"
     relatedQuestions: ["b12t2q2", "b12t2q4"]
-  - id: "b12t2q4"
-    level: "mid"
+  - level: "mid"
     question: "Що таке NgRx Entity і як він спрощує CRUD operations?"
     referenceAnswers:
       junior: "NgRx Entity — це допоміжний пакет для управління колекціями об'єктів. Він зберігає entities у normalized формі і надає CRUD operations."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не знають selectAll = ids.map(id => entities[id]) — order matters"
       - "Embed child objects замість normalize"
     relatedQuestions: ["b12t2q3", "b12t2q5"]
-  - id: "b12t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як тестувати NgRx Store, Effects і Selectors?"
     referenceAnswers:
       junior: "Selectors тестуються як чисті функції. Effects тестуються з provideMockActions. Store тестуються через TestBed з MockStore."

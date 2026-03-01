@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["CSP", "CSRF", "XSRF", "HttpClientXsrfModule", "nonce", "strict CSP", "meta tag", "security headers"]
 relatedTopics: ["xss-sanitization", "auth-patterns", "secure-coding"]
 interviewQuestions:
-  - id: "b16t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Content Security Policy і навіщо вона потрібна Angular додатку?"
     referenceAnswers:
       junior: "CSP — це HTTP заголовок що вказує браузеру звідки можна завантажувати скрипти, стилі та інші ресурси. Захищає від XSS."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "CSP через meta тег замість HTTP header — менш безпечний, деякі директиви недоступні"
       - "Не збирають CSP violation reports — не знають що блокується"
     relatedQuestions: ["b16t3q2", "b16t3q3"]
-  - id: "b16t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке CSRF атака і як Angular захищає від неї через HttpClientXsrfModule?"
     referenceAnswers:
       junior: "CSRF — атака де шкідливий сайт змушує браузер надіслати запит до вашого API від імені авторизованого користувача. Angular надає HttpClientXsrfModule для захисту."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не активують HttpClientXsrfModule — Angular не додає XSRF header за замовчуванням"
       - "XSRF-TOKEN cookie встановлюють як HttpOnly — Angular не зможе читати"
     relatedQuestions: ["b16t3q1", "b16t3q3"]
-  - id: "b16t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Які security headers окрім CSP варто встановити для Angular SPA і навіщо?"
     referenceAnswers:
       junior: "Є кілька важливих заголовків: X-Frame-Options проти clickjacking, HSTS для HTTPS. Angular app потребує правильних HTTP заголовків від web сервера."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "X-Frame-Options замість CSP frame-ancestors — менш flexible"
       - "Не кешують Angular static assets — зайві requests при кожному page load"
     relatedQuestions: ["b16t3q2", "b16t3q4"]
-  - id: "b16t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як налаштувати nonce-based CSP для Angular і які є обмеження цього підходу?"
     referenceAnswers:
       junior: "Nonce — це випадковий рядок що додається до script тегів. Браузер дозволяє виконання скриптів лише з відповідним nonce у CSP header."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Nonce без `'strict-dynamic'` — lazy-loaded chunks не завантажуються"
       - "Один nonce для всіх requests — predictable nonce = defeating purpose"
     relatedQuestions: ["b16t3q3", "b16t3q5"]
-  - id: "b16t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як реалізувати comprehensive security header policy для Angular додатку у production infrastructure?"
     referenceAnswers:
       junior: "Встановити security headers у Nginx або через reverse proxy що стоїть перед Angular app."

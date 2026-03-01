@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Optional", "Self", "SkipSelf", "Host", "resolution-modifiers", "DI-hierarchy", "inject-options"]
 relatedTopics: ["di-internals", "provider-types", "inject-function", "injection-tokens", "content-projection"]
 interviewQuestions:
-  - id: "b5t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке @Optional в Angular DI і коли його використовувати?"
     referenceAnswers:
       junior: "@Optional дозволяє inject сервіс який може бути не зареєстрований. Якщо сервіс не знайдено — inject поверне null замість помилки."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Не перевіряють null після optional inject — runtime error при access"
       - "Не знають що @Optional з multi-token повертає null (не empty array) якщо не registered"
     relatedQuestions: ["b5t5q2", "b5t5q3"]
-  - id: "b5t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між @Self, @SkipSelf і @Host і коли кожен використовувати?"
     referenceAnswers:
       junior: "@Self — inject тільки з поточного injector. @SkipSelf — пропустити поточний. @Host — зупинитись на host element."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Плутають @Self і @Host — Self = current only, Host = traverse до host component boundary"
       - "Не знають що @Host в content projection → projecting component, не receiving"
     relatedQuestions: ["b5t5q1", "b5t5q3"]
-  - id: "b5t5q3"
-    level: "senior"
+  - level: "senior"
     question: "Як resolution modifiers використовуються для реалізації parent-child component communication через DI?"
     referenceAnswers:
       junior: "Батьківський компонент може зробити себе injectable і child inject його через @SkipSelf або @Host."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "useExisting з forwardRef — забувають forwardRef при self-reference"
       - "DI communication everywhere — замість Input/Output де вони достатні і більш explicit"
     relatedQuestions: ["b5t5q2", "b5t5q4"]
-  - id: "b5t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Як @Optional і @Self використовуються в ControlValueAccessor компонентах для форм?"
     referenceAnswers:
       junior: "CVA компоненти implements ControlValueAccessor і реєструються через NG_VALUE_ACCESSOR."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Inject FormControl напряму замість NgControl — не works з ngModel template-driven forms"
       - "Реєструють NG_VALUE_ACCESSOR і inject NgControl — circular dependency"
     relatedQuestions: ["b5t5q3", "b5t5q5"]
-  - id: "b5t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як resolution modifiers допомагають при реалізації compound component patterns у Design System?"
     referenceAnswers:
       junior: "Parent компонент provides service який child inject через DI щоб комунікувати."

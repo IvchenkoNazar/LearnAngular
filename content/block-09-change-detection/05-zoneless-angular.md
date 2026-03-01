@@ -8,8 +8,7 @@ sinceVersion: "18"
 tags: ["zoneless", "provideZonelessChangeDetection", "signals", "markForCheck", "SSR", "performance"]
 relatedTopics: ["zonejs", "signals", "cd-mechanism", "onpush-strategy"]
 interviewQuestions:
-  - id: "b9t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Zoneless Angular і як його увімкнути?"
     referenceAnswers:
       junior: "Zoneless Angular — це режим без Zone.js де Angular не відслідковує async операції автоматично. CD запускається тільки через signals або явний markForCheck(). Увімкнути: provideZonelessChangeDetection() в app.config.ts і видалити import 'zone.js' з polyfills."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Видаляють zone.js без міграції до signals — UI перестає оновлюватись після async"
       - "Думають provideZonelessChangeDetection() автоматично мігрує код — потрібні manual changes"
     relatedQuestions: ["b9t5q2", "b9t1q4"]
-  - id: "b9t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Що потрібно змінити в компоненті щоб він працював коректно без Zone.js?"
     referenceAnswers:
       junior: "Компоненти мають бути OnPush і використовувати signals або async pipe для state що змінюється після async operations."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Залишають Default CD strategy — без zone.js trigger, CD ніколи не запуститься"
       - "Не обробляють third-party lib callbacks — вони оновлюють Angular state поза CD awareness"
     relatedQuestions: ["b9t5q1", "b9t4q1"]
-  - id: "b9t5q3"
-    level: "senior"
+  - level: "senior"
     question: "Як zoneless Angular покращує SSR (Server-Side Rendering) і чому Zone.js проблематичний у Node.js?"
     referenceAnswers:
       junior: "Zoneless Angular покращує SSR бо Zone.js має проблеми у Node.js середовищі де деякі browser APIs не існують або поводяться інакше."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають Zone.js і SSR несумісні — вони сумісні але з обмеженнями; zoneless просто краще"
       - "Не враховують edge runtime обмеження при виборі архітектури"
     relatedQuestions: ["b9t5q1", "b9t5q2"]
-  - id: "b9t5q4"
-    level: "staff"
+  - level: "staff"
     question: "Як спланувати zoneless migration для existing large Angular app з мінімальними ризиками?"
     referenceAnswers:
       junior: "Починати з нових компонентів у zoneless режимі, поступово мігрувати старі, використовувати E2E тести для виявлення проблем."

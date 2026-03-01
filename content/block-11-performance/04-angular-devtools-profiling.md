@@ -8,8 +8,7 @@ sinceVersion: "12"
 tags: ["Angular-DevTools", "Profiler", "component-tree", "change-detection-cycles", "flame-chart", "performance-timeline"]
 relatedTopics: ["runtime-optimization", "bundle-optimization", "deferrable-views", "change-detection"]
 interviewQuestions:
-  - id: "b11t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Angular DevTools і які основні функції він надає?"
     referenceAnswers:
       junior: "Angular DevTools — Chrome extension для debugging Angular apps. Показує component tree і дозволяє профілювати change detection."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають Angular DevTools працює в production builds — ні, Ivy debug API тільки в development"
       - "Використовують тільки Component tree і ігнорують Profiler — Profiler дає найцінніші performance insights"
     relatedQuestions: ["b11t4q2", "b11t4q3"]
-  - id: "b11t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати Profiler tab в Angular DevTools для знаходження slow components?"
     referenceAnswers:
       junior: "В Profiler tab є кнопка Record. Після запису видно flame chart з CD cycles. Великі блоки = повільні компоненти."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Record у development mode з Angular's extra checks — це природно повільніше ніж production, але ОК для відносного comparison"
       - "Фокусуються тільки на найширшому bar і ігнорують frequency (частоту CD cycles)"
     relatedQuestions: ["b11t4q1", "b11t4q3"]
-  - id: "b11t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як виявити зайві change detection cycles з Angular DevTools?"
     referenceAnswers:
       junior: "В Profiler видно скільки разів кожен компонент перевіряється. Якщо Default компонент перевіряється дуже часто — потрібен OnPush."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Виправляють симптом (додають OnPush) без розуміння root cause (Zone.js trigger)"
       - "Не вимірюють after optimization — можливо OnPush не помогло якщо є explicit markForCheck()"
     relatedQuestions: ["b11t4q2", "b11t4q4"]
-  - id: "b11t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як використовувати Chrome DevTools Performance tab для profiling Angular-specific issues?"
     referenceAnswers:
       junior: "Chrome DevTools Performance tab записує все що відбувається в браузері: JavaScript виконання, layout, paint. Можна знайти довгі tasks що блокують UI."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не використовують CPU throttling — desktop 60fps може маскувати проблеми що реальні для mobile users"
       - "Аналізують тільки Call Tree і ігнорують Bottom-Up view — Bottom-Up краще для ідентифікації найдорожчих функцій"
     relatedQuestions: ["b11t4q3", "b11t4q5"]
-  - id: "b11t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як побудувати real-world profiling workflow для Angular app і які інструменти комбінувати?"
     referenceAnswers:
       junior: "Спочатку Angular DevTools для component-level аналізу, потім Chrome Performance для детального timing."

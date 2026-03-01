@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Nx", "monorepo", "workspace", "libraries", "affected commands", "module boundaries", "project graph"]
 relatedTopics: ["project-structure", "microfrontends", "design-system"]
 interviewQuestions:
-  - id: "b15t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Nx monorepo і яка різниця між apps/ та libs/ в Nx workspace?"
     referenceAnswers:
       junior: "Nx — це інструмент для monorepo, де весь код в одному репозиторії. apps/ містить deployable applications, libs/ містить shared libraries."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Одна велика lib замість composable libs — втрачається granular affected"
       - "Не розуміють що apps/ і libs/ — конвенція, не enforcement"
     relatedQuestions: ["b15t2q2", "b15t2q3"]
-  - id: "b15t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як `nx affected` прискорює CI і як Nx обчислює 'affected' projects?"
     referenceAnswers:
       junior: "Nx affected запускає тести лише для змінених модулів, не для всього репозиторію."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не налаштовують `implicitDependencies` для shared config files"
       - "Запускають `nx affected` без base branch — порівнює з поточним HEAD, завжди 0 changed"
     relatedQuestions: ["b15t2q1", "b15t2q3"]
-  - id: "b15t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як `@nx/enforce-module-boundaries` ESLint rule захищає архітектуру?"
     referenceAnswers:
       junior: "Це ESLint правило, що не дозволяє бібліотекам імпортувати одна одну якщо це заборонено архітектурними правилами."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Всі libs з одним тегом — enforcement не granular"
       - "depConstraints визначені але не enforced у CI"
     relatedQuestions: ["b15t2q2", "b15t2q4"]
-  - id: "b15t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як побудувати Nx project graph і що він показує?"
     referenceAnswers:
       junior: "Project graph показує залежності між libs і apps у monorepo. `nx graph` відкриває його у браузері."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не налаштовують implicit dependencies для shared config"
       - "Не використовують graph для planning refactoring"
     relatedQuestions: ["b15t2q3", "b15t2q5"]
-  - id: "b15t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати Nx workspace для 5 команд з різними доменами і спільним design system?"
     referenceAnswers:
       junior: "Кожна команда має свою папку в libs/, спільний дизайн у shared/."

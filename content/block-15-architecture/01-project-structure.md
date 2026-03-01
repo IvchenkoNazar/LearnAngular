@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["feature modules", "shared module", "core module", "barrel exports", "standalone architecture", "folder structure"]
 relatedTopics: ["standalone-components", "lazy-loading", "dependency-injection", "monorepo-nx"]
 interviewQuestions:
-  - id: "b15t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке feature module у Angular і навіщо він потрібен?"
     referenceAnswers:
       junior: "Feature module — це NgModule, що групує компоненти, директиви і сервіси для певної функції програми. Він допомагає розбити великий додаток на менші частини."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Плутають declarations і exports — component у declarations не доступний зовні без exports"
       - "Circular imports між feature modules — порушення boundary"
     relatedQuestions: ["b15t1q2", "b15t1q3"]
-  - id: "b15t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Поясни роль CoreModule і SharedModule у класичній Angular архітектурі."
     referenceAnswers:
       junior: "CoreModule містить singleton сервіси як AuthService. SharedModule містить компоненти і директиви, що використовуються в багатьох місцях."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Імпорт CoreModule у feature modules — порушує singleton pattern"
       - "SharedModule як сміттєзвалище для всього shared коду"
     relatedQuestions: ["b15t1q1", "b15t1q3"]
-  - id: "b15t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке barrel exports (index.ts) і як вони допомагають запобігти circular dependencies?"
     referenceAnswers:
       junior: "index.ts файл, що реекспортує все з директорії, щоб можна було писати `import { X } from './feature'` замість довгого шляху."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Barrel на кожному рівні директорій — надмірна складність"
       - "Circular imports через barrel не помічають до build time"
     relatedQuestions: ["b15t1q2", "b15t1q4"]
-  - id: "b15t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Порівняй feature-based та layer-based структуру папок. Коли яку обирати?"
     referenceAnswers:
       junior: "Feature-based: папки по features (users/, products/). Layer-based: папки по типу (components/, services/, models/)."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Feature папки без ізоляції — компоненти однієї feature залежать від деталей іншої"
       - "Занадто глибока вкладеність feature в feature"
     relatedQuestions: ["b15t1q3", "b15t1q5"]
-  - id: "b15t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати структуру великого Angular додатку (30+ features, 10+ розробників) щоб мінімізувати merge conflicts і забезпечити незалежний деплой features?"
     referenceAnswers:
       junior: "Розбити на окремі модулі для кожної feature і використовувати lazy loading."

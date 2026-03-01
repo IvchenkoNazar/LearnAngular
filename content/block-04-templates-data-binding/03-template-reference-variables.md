@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["template-reference", "viewchild", "ElementRef", "NgForm", "template-variable", "signal-queries"]
 relatedTopics: ["binding-types", "event-binding", "viewchild-contentchild", "dynamic-templates"]
 interviewQuestions:
-  - id: "b4t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке template reference variable і як її оголосити в Angular template?"
     referenceAnswers:
       junior: "Template reference variable оголошується через `#name` в template. Вона дає доступ до DOM елемента або директиви. Наприклад, `<input #myInput>` — і потім можна використовувати `myInput.value`."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Пробують використовувати ViewChild reference в ngOnInit — вона undefined до AfterViewInit"
       - "Оголошують #var в *ngIf/#if block і намагаються використати поза блоком"
     relatedQuestions: ["b4t3q2", "b4t3q3"]
-  - id: "b4t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між #var на native елементі, компоненті і директиві з exportAs?"
     referenceAnswers:
       junior: "#var дає доступ до елементу. Якщо на компоненті — до компоненту."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не знають що без `='ngForm'` отримають HTMLFormElement, не NgForm"
       - "Думають що template var на компоненті дає доступ до host DOM element — насправді це component instance"
     relatedQuestions: ["b4t3q1", "b4t3q3"]
-  - id: "b4t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як template reference variables взаємодіють з @ViewChild і новими signal-based queries viewChild()?"
     referenceAnswers:
       junior: "@ViewChild дозволяє отримати template variable в компоненті. Потрібно чекати ngAfterViewInit."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують static:true для @ViewChild під *ngIf — reference буде undefined бо element ще не в DOM"
       - "Не розуміють що signal viewChild() може бути undefined якщо element відсутній (умовний рендеринг)"
     relatedQuestions: ["b4t3q2", "b4t3q4"]
-  - id: "b4t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Чому прямий доступ до DOM через template reference variable (ElementRef) вважається anti-pattern і коли це прийнятно?"
     referenceAnswers:
       junior: "Прямий DOM manipulation ламає Angular CD. Краще використовувати binding."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Маніпулюють DOM в ngOnInit через ViewChild — ще недоступний, і SSR несумісно"
       - "Не знають про afterRender/afterNextRender для post-render DOM reads"
     relatedQuestions: ["b4t3q3", "b4t3q5"]
-  - id: "b4t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як template reference variables і ViewChild використовуються для composable component patterns в Design System?"
     referenceAnswers:
       junior: "ViewChild дозволяє батьківському компоненту викликати методи дочірнього."

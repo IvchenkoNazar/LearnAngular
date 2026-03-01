@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ControlValueAccessor", "custom-form-control", "NG_VALUE_ACCESSOR", "reactive-forms", "template-driven-forms", "form-integration"]
 relatedTopics: ["reactive-forms", "template-driven-forms", "custom-validators", "dependency-injection"]
 interviewQuestions:
-  - id: "b7t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ControlValueAccessor і навіщо він потрібен?"
     referenceAnswers:
       junior: "ControlValueAccessor — це інтерфейс що дозволяє створювати кастомні компоненти форм, які працюють як стандартні form controls. Він є мостом між Angular forms API (FormControl) і DOM елементом або кастомним компонентом."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не імплементують setDisabledState() — disabled стан form control не відображається"
       - "Викликають writeValue() рекурсивно — призводить до нескінченного циклу"
     relatedQuestions: ["b7t4q2", "b7t4q3"]
-  - id: "b7t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно імплементувати ControlValueAccessor для кастомного компонента?"
     referenceAnswers:
       junior: "Потрібно реалізувати інтерфейс ControlValueAccessor з методами writeValue, registerOnChange, registerOnTouched, і додати provider NG_VALUE_ACCESSOR в декоратор компонента."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Не використовують forwardRef() — компонент не знайдено при ін'єкції"
       - "Не зберігають onChange/onTouched як noop functions — null pointer exceptions при першому рендері"
     relatedQuestions: ["b7t4q1", "b7t4q3", "b7t3q1"]
-  - id: "b7t4q3"
-    level: "senior"
+  - level: "senior"
     question: "Як CVA взаємодіє з Validators і як реалізувати validation в кастомному form control?"
     referenceAnswers:
       junior: "CVA і Validators — це окремі концепції. Validators додаються до FormControl окремо через Validators.required або через NG_VALIDATORS provider."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Забувають реєструвати через NG_VALIDATORS окремо від NG_VALUE_ACCESSOR"
       - "Не викликають onValidatorChange() при зміні validation input — форма стає stale"
     relatedQuestions: ["b7t4q2", "b7t3q1", "b7t4q4"]
-  - id: "b7t4q4"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати component library де всі form controls є CVA-compliant і добре працюють з Angular forms в різних проектах?"
     referenceAnswers:
       junior: "Всі компоненти форм в бібліотеці мають реалізовувати ControlValueAccessor інтерфейс."

@@ -8,8 +8,7 @@ sinceVersion: "19"
 tags: ["linkedSignal", "resource", "httpResource", "ResourceRef", "async-state", "loading-state"]
 relatedTopics: ["signals-intro", "rxjs-signal-interop", "reactive-patterns"]
 interviewQuestions:
-  - id: "b11t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке resource() у Angular 19 і яку проблему вирішує?"
     referenceAnswers:
       junior: "resource() — це новий API у Angular 19 для управління async state. Він автоматично відстежує loading і error стани для async операцій."
@@ -20,9 +19,8 @@ interviewQuestions:
       - "resource() для mutations (POST/PUT) — resource для read (GET)"
       - "Не знають про status() Signal і можливі стани"
       - "Плутають resource() і toSignal(http$)"
-    relatedQuestions: ["b11t4q2", "b11t4q3"]
-  - id: "b11t4q2"
-    level: "mid"
+    relatedQuestions: ["b9t8q2", "b9t8q3"]
+  - level: "mid"
     question: "Що таке linkedSignal() і коли його використовувати замість computed()?"
     referenceAnswers:
       junior: "linkedSignal() — це сигнал що автоматично оновлюється коли батьківський сигнал змінюється, але його також можна змінювати вручну."
@@ -33,9 +31,8 @@ interviewQuestions:
       - "computed() де потрібен linkedSignal — read-only не дозволяє override"
       - "signal() + effect для reset — не glitch-free, race condition"
       - "Не знають про previous value parameter у computation function"
-    relatedQuestions: ["b11t4q1", "b11t4q3"]
-  - id: "b11t4q3"
-    level: "senior"
+    relatedQuestions: ["b9t8q1", "b9t8q3"]
+  - level: "senior"
     question: "Як httpResource() відрізняється від resource() і toSignal(http.get())?"
     referenceAnswers:
       junior: "httpResource() спеціально для HTTP запитів, має кращу TypeScript типізацію."
@@ -46,9 +43,8 @@ interviewQuestions:
       - "httpResource для mutations (POST/PUT) — тільки для GET reads"
       - "Не знають undefined request = idle (not error)"
       - "Думають httpResource кешує між navigations — ні"
-    relatedQuestions: ["b11t4q2", "b11t4q4"]
-  - id: "b11t4q4"
-    level: "mid"
+    relatedQuestions: ["b9t8q2", "b9t8q4"]
+  - level: "mid"
     question: "Як обробити loading, error, success стани з resource()?"
     referenceAnswers:
       junior: "resource.isLoading() для loading стану, resource.error() для помилки, resource.value() для даних."
@@ -59,9 +55,8 @@ interviewQuestions:
       - "value() null check — при Loading або Error value() може бути undefined"
       - "Не розрізняють Loading і Refreshing — різна UX"
       - "resource.reload() замість resource.value.set() для optimistic updates"
-    relatedQuestions: ["b11t4q3", "b11t4q5"]
-  - id: "b11t4q5"
-    level: "staff"
+    relatedQuestions: ["b9t8q3", "b9t8q5"]
+  - level: "staff"
     question: "Як спроєктувати data loading architecture в Angular 19+ з resource та signal APIs?"
     referenceAnswers:
       junior: "Використовувати httpResource() для всіх GET запитів і управляти state через signals."
@@ -72,7 +67,7 @@ interviewQuestions:
       - "httpResource для mutations — тільки для reads"
       - "linkedSignal де треба computed (read-only) — зайва complexity"
       - "Не враховують SSR implications httpResource"
-    relatedQuestions: ["b11t4q4", "b11t4q2"]
+    relatedQuestions: ["b9t8q4", "b9t8q2"]
 ---
 
 ## Core Concept

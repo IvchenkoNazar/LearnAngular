@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Material", "Tailwind", "CSS cascade layers", "specificity", "coexistence", "@layer", "override"]
 relatedTopics: ["tailwind-setup", "tailwind-angular-components", "setup-theming", "component-driven-approach"]
 interviewQuestions:
-  - id: "b14t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Які проблеми виникають при спільному використанні Angular Material і Tailwind CSS в одному проєкті?"
     referenceAnswers:
       junior: "Вони можуть конфліктувати через CSS specificity. Наприклад, Tailwind reset може зламати Material стилі, або Tailwind utility класи можуть не застосовуватись до Material компонентів."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не знають про CSS cascade layers і думають що specificity — лише 0-0-0 числа"
       - "Намагаються стилізувати Material internal DOM через Tailwind — fragile"
     relatedQuestions: ["b14t3q2", "b14t1q1"]
-  - id: "b14t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як вирішити проблему CSS specificity між Angular Material і Tailwind і які є патерни coexistence?"
     referenceAnswers:
       junior: "Можна використовувати !important для Tailwind utilities коли Material перекриває."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Намагаються обидва фреймворки використовувати для одних і тих самих elements"
       - "Не встановлюють `corePlugins: { preflight: false }` — подвійний normalize CSS"
     relatedQuestions: ["b14t3q1", "b14t3q3"]
-  - id: "b14t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно налаштувати Tailwind CSS щоб він не конфліктував з Angular Material базовими стилями? Що таке preflight і чи потрібно його відключати?"
     referenceAnswers:
       junior: "Tailwind preflight — це CSS normalize. Якщо Material має власні базові стилі, потрібно відключити preflight щоб уникнути конфліктів."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не знають про subscriptSizing='dynamic' — mat-form-field ламає grid layouts"
       - "Включають Material styles після @tailwind utilities — Material specificity override неможливий"
     relatedQuestions: ["b14t3q2", "b14t3q4"]
-  - id: "b14t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як використати CSS cascade layers (@layer) для вирішення specificity конфліктів між Material і Tailwind?"
     referenceAnswers:
       junior: "CSS @layer дозволяє визначити порядок CSS rules — можна поставити Material у нижчий layer ніж Tailwind utilities."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Обгортають Material у @layer без тестування — можуть виникнути subtle стилі рендеринг issues"
       - "Не мають browser support matrix — @layer не підтримується в IE"
     relatedQuestions: ["b14t3q3", "b14t3q5"]
-  - id: "b14t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Спроєктуйте CSS architecture для Angular проєкту що використовує обидва Angular Material і Tailwind CSS в production-scale додатку."
     referenceAnswers:
       junior: "Потрібно чітко розділити де використовується Material і де Tailwind, щоб вони не конфліктували."

@@ -8,8 +8,7 @@ sinceVersion: "16"
 tags: ["toSignal", "toObservable", "rxjs-interop", "signals", "interoperability", "DestroyRef", "effect"]
 relatedTopics: ["memory-leaks", "reactive-patterns", "signals-intro", "signals-vs-observables"]
 interviewQuestions:
-  - id: "b10t7q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке toSignal() і toObservable() і коли їх використовувати?"
     referenceAnswers:
       junior: "toSignal() конвертує Observable у Signal. toObservable() конвертує Signal у Observable. Використовуються для інтеграції RxJS і Signals у Angular додатку."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Очікують synchronous emission від toObservable() — воно асинхронне"
       - "Не вказують initialValue і отримують undefined у template"
     relatedQuestions: ["b10t7q2", "b10t7q3"]
-  - id: "b10t7q2"
-    level: "mid"
+  - level: "mid"
     question: "Як toSignal() обробляє помилки Observable? Що таке rejectErrors опція?"
     referenceAnswers:
       junior: "Якщо Observable помиляється, toSignal() теж кине помилку."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "rejectErrors: false без catchError — помилки ігноруються silently"
       - "Не використовують Result pattern — throw у template = поганий UX"
     relatedQuestions: ["b10t7q1", "b10t7q3"]
-  - id: "b10t7q3"
-    level: "senior"
+  - level: "senior"
     question: "Коли використовувати toSignal vs async pipe? Які trade-offs?"
     referenceAnswers:
       junior: "toSignal() конвертує Observable у Signal і можна використовувати без async pipe у template. async pipe — старіший підхід."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "toSignal без initialValue — undefined у template до першого emit"
       - "Multiple async pipes без shareReplay — multiple HTTP requests"
     relatedQuestions: ["b10t7q2", "b10t7q4"]
-  - id: "b10t7q4"
-    level: "mid"
+  - level: "mid"
     question: "Як toObservable() конвертує Signal у Observable і коли це корисно?"
     referenceAnswers:
       junior: "toObservable() створює Observable що emit нові значення коли сигнал змінюється."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "subscribe всередині effect без takeUntilDestroyed — memory leak"
       - "Надмірні конверсії Signal→Observable→Signal у chain"
     relatedQuestions: ["b10t7q1", "b10t7q3"]
-  - id: "b10t7q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроєктувати boundary між RxJS і Signals у великому Angular додатку?"
     referenceAnswers:
       junior: "Можна конвертувати Observable у Signal за допомогою toSignal там де потрібно відображати у template."

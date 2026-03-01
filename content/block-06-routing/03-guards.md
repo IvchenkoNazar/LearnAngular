@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["guards", "CanActivateFn", "CanDeactivateFn", "CanMatchFn", "functional-guards", "auth-guard"]
 relatedTopics: ["router-fundamentals", "lazy-loading", "inject-function", "route-data", "di-internals"]
 interviewQuestions:
-  - id: "b6t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке route guards і які основні типи guards існують в Angular?"
     referenceAnswers:
       junior: "Guards — це перевірки що дозволяють або забороняють навігацію. CanActivate перевіряє чи можна активувати route. CanDeactivate — чи можна покинути route. Guards повертають boolean або UrlTree для redirect."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Клас-based guards (deprecated Angular 15.1) — використовують CanActivate interface"
       - "canLoad замість canMatch — canLoad deprecated, blocks preloading"
     relatedQuestions: ["b6t3q2", "b6t3q3"]
-  - id: "b6t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати auth guard з redirect на login і збереженням returnUrl?"
     referenceAnswers:
       junior: "Перевіряємо isLoggedIn() в guard, якщо false — повертаємо UrlTree до /login."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "returnUrl не validates — open redirect vulnerability"
       - "HTTP auth check per navigation замість cached signal state"
     relatedQuestions: ["b6t3q1", "b6t3q3"]
-  - id: "b6t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке CanDeactivate guard і як реалізувати unsaved changes warning?"
     referenceAnswers:
       junior: "CanDeactivate викликається коли user намагається покинути route. Можна показати confirm dialog якщо є незбережені зміни."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "window.confirm() для confirmation — блокує main thread, не customizable"
       - "Не обробляють browser back button окремо від router navigation"
     relatedQuestions: ["b6t3q2", "b6t3q4"]
-  - id: "b6t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як CanMatch відрізняється від CanActivate і коли використовувати кожен?"
     referenceAnswers:
       junior: "CanMatch визначає чи route взагалі може бути matched. CanActivate — чи може компонент бути активований після matching."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "canLoad замість canMatch — deprecated і blocks preloading"
       - "canMatch та canActivate — не знають різниці в matching vs activation semantics"
     relatedQuestions: ["b6t3q3", "b6t3q5"]
-  - id: "b6t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як протестувати route guards в Angular і які patterns використовуються?"
     referenceAnswers:
       junior: "TestBed з провайдером mock сервісу і router.navigate() для перевірки навігації."

@@ -7,8 +7,7 @@ difficulty: 4
 tags: ["typescript", "generics", "type-guards", "mapped-types", "conditional-types", "utility-types", "decorators"]
 relatedTopics: ["oop-principles", "design-patterns"]
 interviewQuestions:
-  - id: "b0t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке generics у TypeScript і навіщо вони потрібні?"
     referenceAnswers:
       junior: "Generics — це параметри типів, які дозволяють писати функції та класи, що працюють з різними типами даних. Наприклад, Array<number> і Array<string> — один і той самий Array, але з різним типом елементів."
@@ -19,8 +18,7 @@ interviewQuestions:
       - "Використовують any замість generics — втрачають type safety"
       - "Не розуміють type erasure — намагаються робити runtime перевірки generic типів"
     relatedQuestions: ["b0t6q2", "b0t6q3"]
-  - id: "b0t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працюють type guards і навіщо вони потрібні в Angular?"
     referenceAnswers:
       junior: "Type guards — це перевірки, які звужують тип змінної. Наприклад, if (typeof x === 'string') дозволяє TypeScript знати, що x — це string всередині if блоку."
@@ -31,8 +29,7 @@ interviewQuestions:
       - "Пишуть type guards що не роблять реальну runtime перевірку — тип звужується але дані некоректні"
       - "Не знають про discriminated unions як альтернативу ланцюжку if/else"
     relatedQuestions: ["b0t6q1", "b0t6q4"]
-  - id: "b0t6q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке mapped types і conditional types? Як вони використовуються в Angular?"
     referenceAnswers:
       junior: "Mapped types створюють нові типи на основі існуючих, змінюючи кожну property. Conditional types — це як if/else але для типів. Наприклад, Partial<T> робить всі поля optional."
@@ -43,8 +40,7 @@ interviewQuestions:
       - "Не розуміють distributive behavior conditional types з union — wrapping в tuple вимикає distribution"
       - "Створюють надто складні types що уповільнюють компіляцію"
     relatedQuestions: ["b0t6q2", "b0t6q4"]
-  - id: "b0t6q4"
-    level: "senior"
+  - level: "senior"
     question: "Як працюють декоратори в TypeScript та як Angular їх використовує внутрішньо?"
     referenceAnswers:
       junior: "Декоратори — це спеціальні функції що додають метадані до класів. Angular використовує @Component, @Injectable, @Input для позначення що клас є компонентом, сервісом, або що властивість приймає дані."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Плутають TC39 Stage 3 decorators з TypeScript legacy decorators"
       - "Не знають про signal-based alternatives (@input → input())"
     relatedQuestions: ["b0t6q3", "b0t6q5"]
-  - id: "b0t6q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроектували type-safe API layer для великого Angular додатку використовуючи advanced TypeScript?"
     referenceAnswers:
       junior: "Я б створив інтерфейси для всіх API responses і використовував HttpClient з generic типами: http.get<User[]>('/api/users')."

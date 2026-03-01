@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["PreloadAllModules", "NoPreloading", "custom-preloading", "QuicklinkStrategy", "withPreloading"]
 relatedTopics: ["lazy-loading", "router-fundamentals", "router-events", "bundle-optimization"]
 interviewQuestions:
-  - id: "b6t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке preloading стратегія в Angular і яка різниця між PreloadAllModules і NoPreloading?"
     referenceAnswers:
       junior: "Preloading — завантаження lazy-loaded модулів у фоні після початкового завантаження. PreloadAllModules завантажує всі lazy modules після initial load. NoPreloading — не preloading, модулі завантажуються тільки при navigation."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що preloading = завантаження при route navigate, а не у фоні після initial load"
       - "Використовують PreloadAllModules для всіх apps без оцінки bandwidth impact"
     relatedQuestions: ["b6t6q2", "b6t6q3"]
-  - id: "b6t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати custom preloading стратегію на основі route data?"
     referenceAnswers:
       junior: "Можна додати data в route config і в custom strategy перевіряти це data для вирішення чи preload."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не provide strategy як injectable — DI помилка при inject(SelectivePreloadingStrategy)"
       - "Повертають null замість EMPTY — Observable<null> тригерить preload, EMPTY — ні"
     relatedQuestions: ["b6t6q1", "b6t6q3"]
-  - id: "b6t6q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке QuicklinkStrategy і як вона покращує preloading порівняно з PreloadAllModules?"
     referenceAnswers:
       junior: "QuicklinkStrategy (з бібліотеки ngx-quicklink) — preloads тільки routes що видні на екрані через RouterLink. Це розумніший підхід ніж завантажувати все."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не враховують SSR — Intersection Observer не available server-side, QuicklinkStrategy потребує platform check"
       - "Забувають додати QuicklinkModule або QuicklinkDirective поруч з QuicklinkStrategy"
     relatedQuestions: ["b6t6q2", "b6t6q4"]
-  - id: "b6t6q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати network-aware і idle-time preloading стратегію?"
     referenceAnswers:
       junior: "Можна перевіряти navigator.connection для визначення швидкості і preloaditi тільки на швидкому підключенні."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не обробляють відсутність Navigator.connection API — older Safari не підтримує"
       - "requestIdleCallback blocking: якщо fn() synchronously expensive — idle callback ще блокує, потрібний async fn()"
     relatedQuestions: ["b6t6q3", "b6t6q5"]
-  - id: "b6t6q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати preloading strategy для enterprise Angular app з 50+ lazy routes і різними user roles?"
     referenceAnswers:
       junior: "Для різних ролей можна preload тільки routes що доступні поточному user."

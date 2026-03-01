@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["switchMap", "mergeMap", "concatMap", "exhaustMap", "flattening", "higher-order-observable"]
 relatedTopics: ["reactive-patterns", "memory-leaks", "error-handling-rxjs"]
 interviewQuestions:
-  - id: "b10t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке higher-order mapping operator і навіщо він потрібен?"
     referenceAnswers:
       junior: "Higher-order mapping operator приймає значення з одного Observable і повертає новий Observable. Наприклад, switchMap використовується коли потрібно зробити HTTP-запит на кожне значення з потоку."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Використовують nested subscribe замість higher-order operator"
       - "Плутають switchMap і mergeMap — використовують switchMap для POST/PUT запитів і втрачають запити"
     relatedQuestions: ["b10t1q2", "b10t4q1"]
-  - id: "b10t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Коли використовувати switchMap vs concatMap vs mergeMap vs exhaustMap? Наведіть приклади."
     referenceAnswers:
       junior: "switchMap — для пошуку, mergeMap — для паралельних запитів, concatMap — коли порядок важливий, exhaustMap — щоб ігнорувати повторні кліки."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "mergeMap без concurrency limit для великих масивів — DDoS свого API"
       - "concatMap з inner Observable що не завершується — вічна чергу"
     relatedQuestions: ["b10t1q1", "b10t1q3"]
-  - id: "b10t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Що станеться якщо inner Observable в switchMap кине помилку? Як це впливає на зовнішній потік?"
     referenceAnswers:
       junior: "Якщо inner Observable кине помилку, то весь потік зупиниться."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не тестують error scenarios в higher-order operators"
       - "В NgRx Effects забувають catchError — effect перестає працювати після першої помилки"
     relatedQuestions: ["b10t1q2", "b10t5q1"]
-  - id: "b10t1q4"
-    level: "mid"
+  - level: "mid"
     question: "Що таке concurrency parameter в mergeMap і коли його варто використовувати?"
     referenceAnswers:
       junior: "mergeMap може приймати другий аргумент — число, яке обмежує кількість паралельних inner subscriptions."
@@ -58,8 +54,7 @@ interviewQuestions:
       - "Ігнорують concurrency parameter і створюють сотні паралельних HTTP запитів"
       - "Не знають що mergeMap(fn, 1) еквівалентний concatMap(fn)"
     relatedQuestions: ["b10t1q2", "b10t1q5"]
-  - id: "b10t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроєктували стратегію використання higher-order operators для великого enterprise Angular додатку?"
     referenceAnswers:
       junior: "Потрібно використовувати правильний оператор для кожної ситуації — switchMap для пошуку, concatMap для збереження."

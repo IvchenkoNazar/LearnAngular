@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Directive", "attribute-directive", "HostBinding", "HostListener", "ElementRef", "Renderer2"]
 relatedTopics: ["built-in-directives", "structural-directives", "dependency-injection", "testing"]
 interviewQuestions:
-  - id: "b3t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке attribute directive і як її створити?"
     referenceAnswers:
       junior: "Attribute directive — це клас з @Directive decorator що змінює зовнішній вигляд або поведінку елемента. Вона застосовується як HTML атрибут: <div appHighlight>. Створюється через ng generate directive."
@@ -19,9 +18,8 @@ interviewQuestions:
     commonMistakes:
       - "Плутають attribute directive з component (component — це directive з template)"
       - "Безпосередньо маніпулюють DOM через ElementRef.nativeElement замість Renderer2"
-    relatedQuestions: ["b3t2q2", "b3t2q3"]
-  - id: "b3t2q2"
-    level: "mid"
+    relatedQuestions: ["b3t1q2", "b3t1q3"]
+  - level: "mid"
     question: "Чому потрібно використовувати Renderer2 замість прямого маніпулювання DOM через ElementRef.nativeElement?"
     referenceAnswers:
       junior: "Renderer2 — це Angular-абстракція для роботи з DOM. ElementRef.nativeElement дає прямий доступ до DOM елемента, але це не рекомендовано."
@@ -31,9 +29,8 @@ interviewQuestions:
     commonMistakes:
       - "Не розуміють навіщо Renderer2 якщо ElementRef 'просто працює'"
       - "Думають що Renderer2 тільки для SSR — не знають про CSP і тестування переваги"
-    relatedQuestions: ["b3t2q1", "b3t2q4"]
-  - id: "b3t2q3"
-    level: "mid"
+    relatedQuestions: ["b3t1q1", "b3t1q4"]
+  - level: "mid"
     question: "Що таке exportAs і коли він потрібний?"
     referenceAnswers:
       junior: "exportAs — це поле в @Directive metadata що дозволяє отримати reference на директиву в template через template reference variable."
@@ -43,9 +40,8 @@ interviewQuestions:
     commonMistakes:
       - "Не знають що #ref без exportAs посилається на HTMLElement, не на directive"
       - "Плутають exportAs (template access) з providers (DI access)"
-    relatedQuestions: ["b3t2q2", "b3t3q2"]
-  - id: "b3t2q4"
-    level: "senior"
+    relatedQuestions: ["b3t1q2", "b3t1q2"]
+  - level: "senior"
     question: "Яка різниця між structural і attribute directive? Наведи приклади коли обирати кожну."
     referenceAnswers:
       junior: "Structural directive змінює структуру DOM (додає/видаляє елементи), attribute directive змінює appearance або behavior елемента що вже є в DOM."
@@ -55,9 +51,8 @@ interviewQuestions:
     commonMistakes:
       - "Намагаються використовувати два structural directives на одному елементі"
       - "Не знають що ng-container дозволяє застосовувати structural directive без зайвого DOM елемента"
-    relatedQuestions: ["b3t2q3", "b3t3q1"]
-  - id: "b3t2q5"
-    level: "staff"
+    relatedQuestions: ["b3t1q3", "b3t1q1"]
+  - level: "staff"
     question: "Як тестувати attribute directive ізольовано? Які підводні камені?"
     referenceAnswers:
       junior: "Directive можна тестувати через TestBed, створюючи host компонент в тесті."
@@ -67,7 +62,7 @@ interviewQuestions:
     commonMistakes:
       - "Не знають як отримати directive instance в тесті"
       - "Тестують тільки що DOM змінився — не тестують що directive правильно cleanup при destroy"
-    relatedQuestions: ["b3t2q1", "b3t2q2"]
+    relatedQuestions: ["b3t1q1", "b3t1q2"]
 ---
 
 ## Core Concept

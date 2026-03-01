@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["dependency-injection", "injector", "EnvironmentInjector", "NodeInjector", "DI-hierarchy", "Ivy"]
 relatedTopics: ["provider-types", "injection-tokens", "inject-function", "resolution-modifiers", "bootstrapping"]
 interviewQuestions:
-  - id: "b5t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Dependency Injection в Angular і навіщо він потрібен?"
     referenceAnswers:
       junior: "DI — це патерн де Angular сам створює і надає залежності (сервіси) компонентам замість того щоб компоненти самі їх створювали. Це зменшує coupling між компонентами."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що DI — просто singleton pattern, не розуміючи ієрархію injectors"
       - "Не знають різницю між EnvironmentInjector і NodeInjector"
     relatedQuestions: ["b5t1q2", "b5t1q3"]
-  - id: "b5t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між EnvironmentInjector і NodeInjector в Angular Ivy?"
     referenceAnswers:
       junior: "В Angular є root injector для сервісів і component injector для компонентів."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Думають що всі injectors одного типу — не знають про dual tree"
       - "Не розуміють що @Component providers: [] створює NodeInjector scope, не singleton"
     relatedQuestions: ["b5t1q1", "b5t1q3"]
-  - id: "b5t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як Angular резолвить залежність при inject() виклику — опишіть алгоритм lookup крок за кроком?"
     referenceAnswers:
       junior: "Angular шукає сервіс в поточному injector, якщо не знаходить — йде до батьківського."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що DI resolution — тільки лінійний пошук без bloom filter оптимізації"
       - "Не знають що @Self/@SkipSelf/@Host змінюють traversal алгоритм"
     relatedQuestions: ["b5t1q2", "b5t1q4"]
-  - id: "b5t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке injection context і де inject() функцію можна і не можна використовувати?"
     referenceAnswers:
       junior: "inject() можна використовувати в constructor класу або на рівні класу поля. В ngOnInit використовувати не можна."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Намагаються inject() в ngOnInit або lifecycle methods — NG0203 error"
       - "Не знають про runInInjectionContext() для нестандартних сценаріїв"
     relatedQuestions: ["b5t1q3", "b5t1q5"]
-  - id: "b5t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як DI ієрархія впливає на архітектуру великого Angular застосування? Розкажіть про scoped services, lazy module injectors і route-level DI."
     referenceAnswers:
       junior: "Lazy loaded модулі мають свій injector де можна перевизначити сервіси для тієї частини app."

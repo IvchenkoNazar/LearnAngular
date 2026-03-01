@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["router-events", "NavigationStart", "NavigationEnd", "NavigationError", "loading-indicator", "router-lifecycle"]
 relatedTopics: ["router-fundamentals", "guards", "route-data", "preloading-strategies", "rxjs"]
 interviewQuestions:
-  - id: "b6t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Router Events і як підписатись на навігаційні події?"
     referenceAnswers:
       junior: "Router emits events під час навігації. Підписуємось через `router.events` Observable. Можна фільтрувати по типу через instanceof або filter."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Не unsubscribe від router.events — memory leak оскільки subject never completes"
       - "Тільки слухають NavigationEnd і ігнорують NavigationError/NavigationCancel"
     relatedQuestions: ["b6t5q2", "b6t5q3"]
-  - id: "b6t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати global loading indicator за допомогою Router Events?"
     referenceAnswers:
       junior: "Слухаємо NavigationStart для показу spinner, NavigationEnd для приховання. Сервіс який керує станом."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не обробляють NavigationCancel і NavigationError — spinner застрягає"
       - "Spinner flicker для instant navigations — no debounce on show"
     relatedQuestions: ["b6t5q1", "b6t5q3"]
-  - id: "b6t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати analytics page tracking через Router Events?"
     referenceAnswers:
       junior: "Слухаємо NavigationEnd і відправляємо page view event в analytics service."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не фільтрують PII в URL — email/token в analytics logs"
       - "Відправляють тільки URL, не page metadata (section, category)"
     relatedQuestions: ["b6t5q2", "b6t5q4"]
-  - id: "b6t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке scroll restoration і як Router керує scroll position?"
     referenceAnswers:
       junior: "Angular Router може відновлювати scroll position при навігації назад. Налаштовується через withInMemoryScrolling."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "withInMemoryScrolling не додають — scroll position не відновлюється при back navigation"
       - "Scroll restoration в component constructor — element ще не rendered"
     relatedQuestions: ["b6t5q3", "b6t5q5"]
-  - id: "b6t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати систему моніторингу navigation performance через Router Events?"
     referenceAnswers:
       junior: "Можна відслідковувати час між NavigationStart і NavigationEnd для вимірювання швидкості навігації."

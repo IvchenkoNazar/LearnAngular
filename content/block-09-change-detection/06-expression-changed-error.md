@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ExpressionChangedAfterItHasBeenChecked", "change-detection", "dev-mode", "lifecycle-hooks", "CD-cycle"]
 relatedTopics: ["cd-mechanism", "onpush-strategy", "signals", "lifecycle-hooks"]
 interviewQuestions:
-  - id: "b9t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке ExpressionChangedAfterItHasBeenCheckedError і чому він виникає?"
     referenceAnswers:
       junior: "Ця помилка виникає коли значення expression змінюється після того як Angular вже перевірив його під час CD cycle. Angular виявляє це у development mode запускаючи перевірку двічі."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що помилка є production bug — вона тільки в development mode"
       - "Вирішують через setTimeout() або ChangeDetectorRef.detectChanges() в ngAfterViewInit — це workarounds, не fixes"
     relatedQuestions: ["b9t6q2", "b9t6q3"]
-  - id: "b9t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Як виправити ExpressionChangedAfterItHasBeenChecked правильно (не через setTimeout workaround)?"
     referenceAnswers:
       junior: "Правильне рішення залежить від причини. Якщо стан змінюється в ngAfterViewInit — перенести зміну в ngOnInit. Можна також використовувати signals або async pipe."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "setTimeout(0) workaround — відкладає проблему, не вирішує; і додає macro-task delay до UI"
       - "detectChanges() у ngAfterViewInit — може вирішити симптом але часто причина circular updates"
     relatedQuestions: ["b9t6q1", "b9t6q3"]
-  - id: "b9t6q3"
-    level: "senior"
+  - level: "senior"
     question: "Як перший і другий CD pass у development mode відрізняються і навіщо потрібен другий?"
     referenceAnswers:
       junior: "Перший pass оновлює DOM. Другий pass перевіряє що нічого не змінилось. Якщо щось змінилось — Angular сигналізує про проблему."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що проблема є тільки в dev mode і production safe — production silently inconsistent"
       - "Використовують enableProdMode() щоб 'вирішити' проблему — маскує, не вирішує"
     relatedQuestions: ["b9t6q2", "b9t2q1"]
-  - id: "b9t6q4"
-    level: "staff"
+  - level: "staff"
     question: "Як signals і нові lifecycle hooks (afterRender, afterNextRender) допомагають уникнути ExpressionChangedAfterItHasBeenChecked?"
     referenceAnswers:
       junior: "Signals уникають цієї помилки бо вони реактивно оновлюють тільки своїх consumers. afterRender і afterNextRender — нові hooks що виконуються після rendering і безпечні для post-render updates."

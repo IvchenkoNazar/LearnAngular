@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["lifecycle", "ngOnInit", "ngOnChanges", "ngOnDestroy", "afterRender", "DestroyRef"]
 relatedTopics: ["component-metadata", "input-output", "change-detection", "signals"]
 interviewQuestions:
-  - id: "b2t2q1"
-    level: "junior"
+  - level: "junior"
     question: "В якому порядку виконуються lifecycle hooks в Angular і для чого потрібен ngOnInit?"
     referenceAnswers:
       junior: "Порядок: constructor, ngOnChanges, ngOnInit, ngDoCheck, ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, ngAfterViewChecked, ngOnDestroy. ngOnInit використовується для ініціалізації після того як Angular встановить Input-и."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Роблять HTTP запити в constructor замість ngOnInit"
       - "Не знають про afterRender/afterNextRender"
     relatedQuestions: ["b2t2q2", "b2t2q3"]
-  - id: "b2t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Чому не варто робити ініціалізацію в constructor? Яка різниця між constructor і ngOnInit?"
     referenceAnswers:
       junior: "В constructor ще немає значень Input-ів, тому ініціалізацію роблять в ngOnInit. Constructor — для DI."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Підписуються на Observable в constructor"
       - "Вважають що signal inputs мають значення в constructor"
     relatedQuestions: ["b2t2q1", "b2t3q1"]
-  - id: "b2t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно робити cleanup в компоненті? ngOnDestroy vs DestroyRef vs takeUntilDestroyed."
     referenceAnswers:
       junior: "ngOnDestroy викликається коли компонент видаляється. Там потрібно відписуватись від підписок і очищати таймери."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Забувають відписатись від Observable — memory leak"
       - "Використовують takeUntilDestroyed() поза injection context"
     relatedQuestions: ["b2t2q1", "b2t2q5"]
-  - id: "b2t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як працює ngOnChanges і SimpleChanges? Коли він не спрацює?"
     referenceAnswers:
       junior: "ngOnChanges викликається коли @Input значення змінюються. SimpleChanges містить старе і нове значення."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не перевіряють firstChange і виконують логіку зайвий раз"
       - "Очікують що ngOnChanges спрацює при мутації object"
     relatedQuestions: ["b2t2q1", "b2t3q1"]
-  - id: "b2t2q5"
-    level: "senior"
+  - level: "senior"
     question: "Що таке afterRender/afterNextRender і коли їх використовувати замість ngAfterViewInit?"
     referenceAnswers:
       junior: "afterRender виконується після кожного рендерингу компонента, afterNextRender — тільки після наступного."

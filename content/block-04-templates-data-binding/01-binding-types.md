@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["property-binding", "attribute-binding", "class-binding", "style-binding", "interpolation"]
 relatedTopics: ["event-binding", "template-reference-variables", "built-in-directives", "component-metadata"]
 interviewQuestions:
-  - id: "b4t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Яка різниця між property binding [value] і attribute binding [attr.value]?"
     referenceAnswers:
       junior: "Property binding [value] встановлює DOM property елемента, а attribute binding [attr.value] встановлює HTML attribute. Зазвичай використовують property binding."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають HTML attributes з DOM properties — attributes ініціалізують, properties відображають поточний стан"
       - "Використовують [attr.disabled] замість [disabled] — для boolean DOM properties це працює некоректно"
     relatedQuestions: ["b4t1q2", "b4t1q3"]
-  - id: "b4t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Коли interpolation {{ }} і property binding [prop] не є взаємозамінними?"
     referenceAnswers:
       junior: "Interpolation підставляє значення як string, а property binding передає значення як є. Для string значень вони однакові."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують interpolation для передачі об'єктів в child component — завжди потрібен property binding"
       - "Не розуміють що interpolation завжди повертає string"
     relatedQuestions: ["b4t1q1", "b4t1q3"]
-  - id: "b4t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як Angular обробляє class і style binding конфлікти між host bindings і template bindings?"
     referenceAnswers:
       junior: "Angular дозволяє додавати класи через [class.name] або [ngClass] директиву."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не розуміють priority між host і template bindings — template завжди має вищий пріоритет"
       - "Думають що host і template class bindings повністю перезаписують один одного — Angular merge non-conflicting classes"
     relatedQuestions: ["b4t1q1", "b4t1q4"]
-  - id: "b4t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Що відбувається під капотом коли Angular виконує property binding з точки зору change detection?"
     referenceAnswers:
       junior: "Angular перевіряє чи змінилось значення і оновлює DOM якщо так."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Використовують getters що повертають нові об'єкти в template — кожен CD cycle буде dirty"
       - "Не розуміють що Angular порівнює через === — мутація об'єкту не тригерить оновлення при OnPush"
     relatedQuestions: ["b4t1q3", "b4t1q5"]
-  - id: "b4t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроектували систему binding для Design System бібліотеки враховуючи performance, DX і cross-framework interop?"
     referenceAnswers:
       junior: "Я б використовував Angular Input/Output для передачі даних між компонентами."

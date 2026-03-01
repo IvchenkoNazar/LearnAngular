@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["component", "decorator", "selector", "template", "styles", "encapsulation", "change-detection"]
 relatedTopics: ["lifecycle-hooks", "input-output", "host-element", "standalone-components"]
 interviewQuestions:
-  - id: "b2t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке @Component decorator і які його основні поля?"
     referenceAnswers:
       junior: "Decorator @Component позначає клас як Angular-компонент. Основні поля: selector, template або templateUrl, styles або styleUrl."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Не знають різницю між template і templateUrl"
       - "Вважають що standalone: true ще потрібно вказувати в Angular 19+"
     relatedQuestions: ["b2t1q2", "b2t1q3"]
-  - id: "b2t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Які типи selector підтримує Angular і коли використовувати кожен?"
     referenceAnswers:
       junior: "Selector — це CSS-подібний рядок що визначає як компонент використовується в HTML. Найчастіше це ім'я тега, наприклад app-header."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують element selector для directive-подібної поведінки"
       - "Не додають prefix до selector в libraries"
     relatedQuestions: ["b2t1q1", "b2t6q1"]
-  - id: "b2t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як працює ViewEncapsulation і яку стратегію обрати?"
     referenceAnswers:
       junior: "ViewEncapsulation визначає як стилі компонента ізолюються від інших компонентів. За замовчуванням Angular додає спеціальні атрибути до елементів."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують ::ng-deep повсюди замість CSS custom properties"
       - "Не розуміють різницю між Emulated і ShadowDom"
     relatedQuestions: ["b2t1q1", "b2t6q4"]
-  - id: "b2t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як changeDetection: OnPush впливає на поведінку компонента і коли його використовувати?"
     referenceAnswers:
       junior: "OnPush робить компонент ефективнішим — Angular перевіряє його рідше. Компонент оновлюється тільки коли змінюються його @Input значення."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Мутують @Input об'єкт і дивуються що view не оновлюється"
       - "Використовують detectChanges() замість markForCheck() і ламають unidirectional data flow"
     relatedQuestions: ["b2t1q5", "b2t2q1"]
-  - id: "b2t1q5"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно організувати template і styles компонента? Коли inline, коли окремий файл?"
     referenceAnswers:
       junior: "Можна писати template прямо в компоненті через template або в окремому файлі через templateUrl. Те саме зі стилями."

@@ -92,14 +92,18 @@ function extractInterviewQuestions(frontmatter: any, blockId: number, blockTitle
   if (!frontmatter.interviewQuestions || !Array.isArray(frontmatter.interviewQuestions)) {
     return [];
   }
-  return frontmatter.interviewQuestions.map((q: any) => ({
-    ...q,
-    block: blockId,
-    blockTitle,
-    topic: frontmatter.topic,
-    topicTitle: frontmatter.title,
-    topicSlug: frontmatter.slug,
-  }));
+  return frontmatter.interviewQuestions.map((q: any, qIdx: number) => {
+    const { id: _ignored, ...rest } = q; // strip any manually-authored id from YAML
+    return {
+      ...rest,
+      id: `b${blockId}t${frontmatter.topic}q${qIdx + 1}`, // always auto-generated
+      block: blockId,
+      blockTitle,
+      topic: frontmatter.topic,
+      topicTitle: frontmatter.title,
+      topicSlug: frontmatter.slug,
+    };
+  });
 }
 
 function build() {

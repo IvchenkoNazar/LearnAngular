@@ -8,8 +8,7 @@ sinceVersion: "14"
 tags: ["inject", "functional-providers", "DestroyRef", "takeUntilDestroyed", "injection-context", "functional-guards"]
 relatedTopics: ["di-internals", "provider-types", "injection-tokens", "resolution-modifiers", "routing-guards"]
 interviewQuestions:
-  - id: "b5t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке inject() функція і яка перевага над constructor injection?"
     referenceAnswers:
       junior: "inject() — це функція що дозволяє отримати сервіс без constructor. Можна писати `private service = inject(MyService)` як поле класу замість конструктора."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "inject() у ngOnInit або інших lifecycle методах — NG0203 помилка"
       - "Не знають що inject() у field initializer = compilation to constructor injection"
     relatedQuestions: ["b5t4q2", "b5t4q3"]
-  - id: "b5t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке DestroyRef і як takeUntilDestroyed() спрощує управління subscription?"
     referenceAnswers:
       junior: "DestroyRef дозволяє реагувати на destroy компоненту без implements OnDestroy. takeUntilDestroyed() автоматично unsubscribe Observable при destroy."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "takeUntilDestroyed() поза injection context — inject(DestroyRef) fails"
       - "Не знають що multiple onDestroy callbacks можна зареєструвати в LIFO order"
     relatedQuestions: ["b5t4q1", "b5t4q3"]
-  - id: "b5t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як inject() функція використовується в functional guards і resolvers Angular 15+?"
     referenceAnswers:
       junior: "В Angular 15 з'явились functional guards. inject() дозволяє inject сервіси в guard функцію без class."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Клас-based guards замість functional — старий deprecated pattern"
       - "Не використовують factory function для parameterized guards — duplicate logic"
     relatedQuestions: ["b5t4q2", "b5t4q4"]
-  - id: "b5t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке runInInjectionContext() і коли це потрібно?"
     referenceAnswers:
       junior: "runInInjectionContext() дозволяє запустити функцію де inject() доступний поза нормальним контекстом."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Overuse runInInjectionContext замість rethink architecture"
       - "Injector.get() замість inject() — старий deprecated style"
     relatedQuestions: ["b5t4q3", "b5t4q5"]
-  - id: "b5t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як використовувати inject() для створення composable behaviors (mixins) в Angular?"
     referenceAnswers:
       junior: "inject() можна використовувати в функціях що викликаються з constructor."

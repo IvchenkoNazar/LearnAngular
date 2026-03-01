@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ComponentFixture", "input", "output", "DOM interaction", "harness", "Material harness", "By.css", "triggerEventHandler"]
 relatedTopics: ["unit-testing", "testing-services", "mocking-strategies", "change-detection"]
 interviewQuestions:
-  - id: "b18t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Як тестувати @Input() та @Output() компонента?"
     referenceAnswers:
       junior: "@Input тестується через встановлення значення на component instance і detectChanges. @Output — підписка на EventEmitter і перевірка що він emit'ів значення."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Пряме присвоєння signal input (`component.signalProp = value`) — не працює, потрібен setInput()"
       - "Не підписуються на Output перед дією — emit вже відбувся, значення пропущено"
     relatedQuestions: ["b18t3q2", "b18t1q2"]
-  - id: "b18t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати DOM взаємодію через By.css і triggerEventHandler?"
     referenceAnswers:
       junior: "By.css дозволяє знайти елемент в DOM тесту. triggerEventHandler симулює DOM events. nativeElement.click() теж можна."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "triggerEventHandler без detectChanges() після — DOM не оновлений якщо OnPush"
       - "query(By.css) перед detectChanges initial — елемент ще не rendered"
     relatedQuestions: ["b18t3q1", "b18t3q3"]
-  - id: "b18t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати Angular Material компоненти через Component Harnesses?"
     referenceAnswers:
       junior: "Angular Material надає спеціальні test harnesses для своїх компонентів — наприклад MatButtonHarness. Вони дозволяють взаємодіяти з компонентами через стабільний API замість CSS selectors."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Queryять internal DOM Material компонентів (mat-button > .mat-button-base) — ламається при version update"
       - "Не використовують HarnessPredicate для filtering — беруть перший harness, але потрібен конкретний"
     relatedQuestions: ["b18t3q2", "b18t7q1"]
-  - id: "b18t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як тестувати @defer блоки в Angular компонентах?"
     referenceAnswers:
       junior: "@defer блок завантажується пізніше. В тестах треба якось trigger defer, щоб контент завантажився і можна було перевірити."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Очікують що @defer автоматично тригериться в тестах — він не тригериться без explicit render()"
       - "Тестують тільки DeferBlockState.Complete і пропускають Loading/Error states"
     relatedQuestions: ["b18t3q3", "b18t1q3"]
-  - id: "b18t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як тестувати компонент з ng-content (content projection)?"
     referenceAnswers:
       junior: "ng-content проектує контент з parent компонента. Для тестування треба передати контент при створенні компонента в TestBed."

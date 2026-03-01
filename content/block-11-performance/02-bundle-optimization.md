@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["tree-shaking", "lazy-loading", "code-splitting", "bundle-analysis", "esbuild", "source-map-explorer"]
 relatedTopics: ["deferrable-views", "core-web-vitals", "runtime-optimization", "angular-devtools-profiling"]
 interviewQuestions:
-  - id: "b11t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке tree-shaking і як Angular використовує його для зменшення bundle size?"
     referenceAnswers:
       junior: "Tree-shaking — видалення невикористаного коду з bundle. Angular використовує його при production build щоб видалити компоненти та сервіси що не використовуються."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають CommonJS dependencies tree-shaken — ні, require() не statically analyzable"
       - "Barrel файли (index.ts re-exports) ускладнюють tree-shaking — bundler включає більше ніж потрібно"
     relatedQuestions: ["b11t2q2", "b11t2q3"]
-  - id: "b11t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працює route-level code splitting і component-level lazy loading в Angular?"
     referenceAnswers:
       junior: "Lazy loading — завантаження коду тільки коли потрібно. Для routes використовуємо loadChildren або loadComponent щоб завантажувати feature modules тільки при navigation."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "loadChildren з barrel index.ts — весь feature module в один chunk навіть якщо можна split далі"
       - "Не враховують HTTP/2 overhead — занадто granular splitting може бути повільнішим ніж medium chunk"
     relatedQuestions: ["b11t2q1", "b11t2q3"]
-  - id: "b11t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати source-map-explorer і webpack-bundle-analyzer для аналізу bundle?"
     referenceAnswers:
       junior: "Можна використовувати ці інструменти щоб побачити що займає місце в bundle і знайти великі залежності."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не використовують source maps при analysis — без --source-map бачать мінімізований код без mapping"
       - "Аналізують development build — production build суттєво менший через minification і tree-shaking"
     relatedQuestions: ["b11t2q2", "b11t2q4"]
-  - id: "b11t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Яка різниця між CommonJS і ESM для bundle size і чому CommonJS погано для tree-shaking?"
     referenceAnswers:
       junior: "ESM (ES modules) використовує import/export. CommonJS використовує require(). ESM краще для tree-shaking бо import/export статично аналізується."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Ігнорують Angular CLI 'CommonJS or AMD dependencies' warnings — кожне таке попередження = потенційний розмір bundle"
       - "Думають що dynamic import() вирішує CJS tree-shaking — dynamic import = code splitting, не tree-shaking"
     relatedQuestions: ["b11t2q3", "b11t2q5"]
-  - id: "b11t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як esbuild і Angular CLI build pipeline змінили підхід до bundle optimization в Angular 17+?"
     referenceAnswers:
       junior: "esbuild — швидший bundler. Angular 17+ використовує esbuild замість webpack що робить build значно швидшим."

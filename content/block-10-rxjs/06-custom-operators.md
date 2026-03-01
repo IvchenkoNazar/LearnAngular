@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["custom-operators", "pipeable-operators", "MonoTypeOperatorFunction", "OperatorFunction", "operator-composition", "higher-order"]
 relatedTopics: ["higher-order-operators", "error-handling-rxjs", "reactive-patterns", "memory-leaks"]
 interviewQuestions:
-  - id: "b10t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке pipeable operator у RxJS і як написати простий custom operator?"
     referenceAnswers:
       junior: "Pipeable operator — це функція що приймає Observable і повертає Observable. Custom operator — це функція що повертає таку функцію. Можна написати через pipe() або через нову Observable."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Плутають MonoTypeOperatorFunction (T→T) і OperatorFunction (T→R)"
       - "Пишуть operators як classes замість functions"
     relatedQuestions: ["b10t6q2", "b10t6q3"]
-  - id: "b10t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Напишіть custom operator що автоматично додає retry з backoff і логування помилок."
     referenceAnswers:
       junior: "Можна написати функцію що повертає `source$.pipe(retry(3), tap(null, err => console.log(err)))`."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Логування через console.log замість injectable LoggingService"
       - "Без shouldRetry predicate — retry client errors"
     relatedQuestions: ["b10t6q1", "b10t6q3"]
-  - id: "b10t6q3"
-    level: "senior"
+  - level: "senior"
     question: "Як написати custom operator через new Observable? Коли це необхідно і що з cleanup?"
     referenceAnswers:
       junior: "new Observable дозволяє написати оператор з нуля, а не через composition. Потрібно manually subscribe до source і передавати значення."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "`subscriber.next()` після subscriber.closed — no-op але ознака race condition"
       - "Не обгортають sync code в try-catch — unhandled sync exceptions"
     relatedQuestions: ["b10t6q1", "b10t6q4"]
-  - id: "b10t6q4"
-    level: "mid"
+  - level: "mid"
     question: "Напишіть custom operator `filterNil` що видаляє null і undefined і правильно звужує тип."
     referenceAnswers:
       junior: "filter(v => v !== null && v !== undefined) видаляє null і undefined."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "v != null замість v !== null && v !== undefined (хоча != null перевіряє обидва через JavaScript coercion)"
       - "Не тестують TypeScript types — тільки runtime behavior"
     relatedQuestions: ["b10t6q3", "b10t6q5"]
-  - id: "b10t6q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати бібліотеку custom operators для enterprise Angular проекту?"
     referenceAnswers:
       junior: "Можна створити файл operators.ts і експортувати всі custom operators звідти."

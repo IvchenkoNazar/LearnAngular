@@ -8,8 +8,7 @@ sinceVersion: "8"
 tags: ["lazy-loading", "loadComponent", "loadChildren", "code-splitting", "dynamic-import", "preloading"]
 relatedTopics: ["router-fundamentals", "guards", "preloading-strategies", "performance", "di-internals"]
 interviewQuestions:
-  - id: "b6t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке lazy loading в Angular Router і як його реалізувати?"
     referenceAnswers:
       junior: "Lazy loading — завантаження компоненту або модуля тільки коли user переходить на відповідний route. Використовують loadComponent або loadChildren з dynamic import. Зменшує початковий bundle size."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Використовують loadChildren для standalone components замість loadComponent"
       - "Не perennially-cached: думають кожен navigation re-fetches chunk"
     relatedQuestions: ["b6t2q2", "b6t2q3"]
-  - id: "b6t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між loadComponent і loadChildren і коли кожен використовувати?"
     referenceAnswers:
       junior: "loadComponent для одного компоненту, loadChildren для групи routes або NgModule."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "loadChildren з NgModule у standalone app — зайва складність"
       - "Не групують пов'язані компоненти в один lazy chunk — занадто багато мережевих запитів"
     relatedQuestions: ["b6t2q1", "b6t2q3"]
-  - id: "b6t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як lazy loading взаємодіє з DI ієрархією і route-scoped providers?"
     referenceAnswers:
       junior: "Lazy loaded routes мають свій injector де можна зареєструвати сервіси."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Сервіс в route providers з providedIn:'root' — два instances, unexpected state"
       - "Не очищають active subscriptions в route services — DestroyRef.onDestroy()"
     relatedQuestions: ["b6t2q2", "b6t2q4"]
-  - id: "b6t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке preloading strategies і як вибрати правильну для свого app?"
     referenceAnswers:
       junior: "Preloading завантажує lazy chunks у фоні після initial load. PreloadAllModules завантажує всі lazy routes відразу."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "PreloadAllModules для apps з великими features — bandwidth waste на мобільних пристроях"
       - "Custom strategy без network detection — preloads на slow connections"
     relatedQuestions: ["b6t2q3", "b6t2q5"]
-  - id: "b6t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як оптимізувати bundle splitting для enterprise app з 50+ lazy routes?"
     referenceAnswers:
       junior: "Lazy loading кожного route, спільні компоненти у shared module, preloading для основних routes."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ngmodule", "declarations", "imports", "providers", "lazy-loading", "feature-modules"]
 relatedTopics: ["bootstrapping", "standalone-components", "dependency-injection"]
 interviewQuestions:
-  - id: "b1t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке NgModule і для чого потрібні масиви declarations, imports, exports, providers?"
     referenceAnswers:
       junior: "NgModule — це клас з декоратором @NgModule, який групує компоненти, директиви та пайпи. declarations — що модуль містить, imports — що він використовує з інших модулів, exports — що він надає назовні, providers — сервіси."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Декларують component в кількох модулях"
       - "Додають сервіси в providers замість використання providedIn: 'root'"
     relatedQuestions: ["b1t2q2", "b1t3q1"]
-  - id: "b1t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке feature module і як правильно організувати модульну архітектуру Angular додатку?"
     referenceAnswers:
       junior: "Feature module — це окремий NgModule для певної функціональності додатку. Наприклад, UsersModule для всього, що стосується користувачів."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Services в SharedModule providers — дублювання instances при lazy loading"
       - "Circular dependencies між feature modules"
     relatedQuestions: ["b1t2q1", "b1t2q3"]
-  - id: "b1t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Як працює lazy loading модулів і що відбувається з DI при lazy loading?"
     referenceAnswers:
       junior: "Lazy loading — це коли модуль завантажується тільки коли користувач переходить на відповідний route, а не при старті додатку."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не використовують preloading strategies"
       - "Імпортують lazy module і в imports AppModule — він перестає бути lazy"
     relatedQuestions: ["b1t2q2", "b1t2q4"]
-  - id: "b1t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Поясніть патерн forRoot/forChild. Яку проблему він вирішує?"
     referenceAnswers:
       junior: "forRoot і forChild — це static методи модулів. forRoot використовується в AppModule, forChild — в feature modules."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не розуміють зв'язок з injector hierarchy"
       - "Забувають про forChild при lazy loading"
     relatedQuestions: ["b1t2q3", "b1t2q5"]
-  - id: "b1t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як ви оцінюєте рішення Angular відмовитися від NgModules на користь standalone? Які trade-offs і як мігрувати великий проєкт?"
     referenceAnswers:
       junior: "Standalone components простіші — не треба створювати окремий module файл для кожного компонента."

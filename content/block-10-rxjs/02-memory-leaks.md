@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["memory-leaks", "unsubscribe", "takeUntilDestroyed", "async-pipe", "subscription-management", "DestroyRef"]
 relatedTopics: ["higher-order-operators", "reactive-patterns", "signals-vs-observables"]
 interviewQuestions:
-  - id: "b10t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке memory leak в контексті RxJS і як він виникає в Angular?"
     referenceAnswers:
       junior: "Memory leak виникає коли Observable subscription не відписана після знищення компонента. Observable продовжує посилатися на компонент, заважаючи garbage collector звільнити пам'ять."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що HTTP-запити HttpClient не потребують unsubscribe (вони завершуються самостійно, але interval/timer — ні)"
       - "Забувають що Subject у сервісі тримає посилання на всіх subscribers"
     relatedQuestions: ["b10t2q2", "b10t2q3"]
-  - id: "b10t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Порівняйте підходи до управління subscriptions: async pipe, takeUntilDestroyed, manual unsubscribe. Коли що використовувати?"
     referenceAnswers:
       junior: "async pipe автоматично відписується, takeUntilDestroyed теж автоматично, manual unsubscribe потрібно самостійно викликати у ngOnDestroy."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Забувають що takeUntil(destroy$) потребує ngOnDestroy з destroy$.next() І destroy$.complete()"
       - "Думають що Subscription у service не потребує cleanup — потребує якщо service є не root-рівня"
     relatedQuestions: ["b10t2q1", "b10t2q3"]
-  - id: "b10t2q3"
-    level: "senior"
+  - level: "senior"
     question: "Як takeUntilDestroyed() працює під капотом? Що таке DestroyRef і як він пов'язаний з lifecycle компонента?"
     referenceAnswers:
       junior: "takeUntilDestroyed — це оператор що автоматично відписується коли компонент знищується."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Думають що inject(DestroyRef) і ngOnDestroy interface — одне й те саме"
       - "Не знають що DestroyRef можна inject у standalone functions і guards"
     relatedQuestions: ["b10t2q2", "b10t2q4"]
-  - id: "b10t2q4"
-    level: "mid"
+  - level: "mid"
     question: "Чому async pipe є кращим підходом для управління підписками ніж manual subscribe у більшості випадків?"
     referenceAnswers:
       junior: "async pipe автоматично підписується і відписується, не потрібно писати ngOnDestroy."
@@ -59,8 +55,7 @@ interviewQuestions:
       - "Multiple async pipes на одному Observable без shareReplay — кілька HTTP запитів"
       - "Використовують async pipe у *ngIf без 'as' alias — втрачають доступ до значення"
     relatedQuestions: ["b10t2q2", "b10t2q5"]
-  - id: "b10t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви виявили та усунули memory leaks через RxJS у production Angular додатку?"
     referenceAnswers:
       junior: "Я б перевірив всі subscribe і переконався що є unsubscribe або takeUntilDestroyed."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Angular animations", "trigger", "state", "transition", "animate", "keyframes", "animateChild", "route animations"]
 relatedTopics: ["animation-builder", "error-handling-observability", "keyboard-navigation"]
 interviewQuestions:
-  - id: "b20t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як підключити Angular Animations до standalone додатку? В чому різниця між provideAnimations() і provideAnimationsAsync()?"
     referenceAnswers:
       junior: "provideAnimations() підключає Angular Animations синхронно. provideAnimationsAsync() завантажує animation engine асинхронно, що може покращити initial load time."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Додають `BrowserAnimationsModule` в NgModule imports замість provideAnimations() в standalone"
       - "Не знають що provideNoopAnimations() дозволяє animation callbacks — animations skip, але lifecycle events спрацьовують"
     relatedQuestions: ["b20t1q2", "b20t1q3"]
-  - id: "b20t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Поясни різницю між :enter і :leave aliases та state('*') wildcard в Angular Animations. Коли вони спрацьовують?"
     referenceAnswers:
       junior: ":enter спрацьовує коли елемент додається в DOM, :leave — коли видаляється. * — wildcard для будь-якого стану."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Плутають :enter/:leave з component ngOnInit/ngOnDestroy — вони пов'язані, але не ідентичні (re-attach не тригерить :enter якщо вже в DOM)"
       - "Не знають що :leave блокує DOM removal — анімація повинна завершитись"
     relatedQuestions: ["b20t1q1", "b20t1q3"]
-  - id: "b20t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке query() і stagger() в Angular Animations? Як реалізувати stagger animation для list items?"
     referenceAnswers:
       junior: "query() вибирає дочірні елементи для анімації. stagger() додає затримку між анімацією кожного елемента — ефект послідовного появи."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "stagger без limit на великих списках — останні items анімуються через декілька секунд"
       - "Не враховують prefers-reduced-motion — users з vestibular disorders можуть мати seizures від heavy stagger animations"
     relatedQuestions: ["b20t1q2", "b20t1q4"]
-  - id: "b20t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати route transition animations в Angular? Які підводні камені при реалізації?"
     referenceAnswers:
       junior: "Route animations — це анімація при переході між сторінками. Потрібно додати trigger на router-outlet і визначити transitions між routes."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не додають optional: true на query(':leave') для initial route — animation breaks"
       - "Не встановлюють position:absolute на :enter/:leave — елементи розміщуються вертикально один за одним"
     relatedQuestions: ["b20t1q3", "b20t2q1"]
-  - id: "b20t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як Angular Animations виконуються під капотом? Що таке AnimationDriver і WebAnimationsDriver?"
     referenceAnswers:
       junior: "Angular Animations використовують Web Animations API або CSS animations для рендерингу. AnimationDriver — це abstraction що дозволяє Angular запускати анімації в різних середовищах."

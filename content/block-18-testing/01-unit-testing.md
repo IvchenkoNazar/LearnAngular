@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["TestBed", "ComponentFixture", "Jasmine", "Jest", "describe", "it", "beforeEach", "shallow testing", "deep testing"]
 relatedTopics: ["testing-services", "testing-components", "testing-http", "change-detection"]
 interviewQuestions:
-  - id: "b18t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке TestBed в Angular testing і навіщо він потрібен?"
     referenceAnswers:
       junior: "TestBed — це Angular testing utility що дозволяє налаштувати тестове середовище для компонентів і сервісів. Він симулює Angular module для тестів."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Забувають fixture.detectChanges() після зміни state — DOM не оновлений"
       - "Не компілюють компоненти з templateUrl асинхронно — тести падають"
     relatedQuestions: ["b18t1q2", "b18t1q3"]
-  - id: "b18t1q2"
-    level: "mid"
+  - level: "mid"
     question: "В чому різниця між shallow і deep testing компонентів? Коли використовувати кожен підхід?"
     referenceAnswers:
       junior: "Shallow testing ізолює компонент і замінює дочірні компоненти заглушками. Deep testing рендерить всі дочірні компоненти."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують NO_ERRORS_SCHEMA скрізь — template binding errors не виявляються"
       - "Роблять deep testing для всього — тести повільні і тендітні"
     relatedQuestions: ["b18t1q1", "b18t3q1"]
-  - id: "b18t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як тестувати async операції в Angular: fakeAsync vs waitForAsync?"
     referenceAnswers:
       junior: "fakeAsync дозволяє симулювати час в тестах через tick(). waitForAsync чекає реальних async операцій через whenStable."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не викликають discardPeriodicTasks() після тесту з intervals — тести залишають pending tasks"
       - "Змішують fakeAsync і real async в одному тесті — непередбачувана поведінка"
     relatedQuestions: ["b18t1q2", "b18t5q1"]
-  - id: "b18t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Яка різниця між Jest і Jasmine для Angular тестів і як налаштувати Jest?"
     referenceAnswers:
       junior: "Jest і Jasmine — обидва дозволяють писати тести. Jest популярніший і швидший, Jasmine — стандартний з Angular CLI."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Не налаштовують transformIgnorePatterns для ESM packages — ImportError для @angular/* пакетів"
       - "Порівнюють Jest і Karma/Jasmine як одну категорію — Jest = runner + matcher + mock, Karma = тільки test runner"
     relatedQuestions: ["b18t1q3", "b18t6q1"]
-  - id: "b18t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як оптимізувати performance великого Angular test suite?"
     referenceAnswers:
       junior: "Запускати тести паралельно і використовувати Jest замість Karma — він швидший."

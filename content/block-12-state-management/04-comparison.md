@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["state-management", "ngrx", "signals", "BehaviorSubject", "architecture", "decision-framework", "scalability"]
 relatedTopics: ["service-behaviorsubject-pattern", "ngrx-store", "ngrx-lightweight-stores", "signals-intro", "signal-store-ngrx"]
 interviewQuestions:
-  - id: "b12t4q1"
-    level: "junior"
+  - level: "junior"
     question: "What are the main options for state management in Angular?"
     referenceAnswers:
       junior: "Angular has several options: a simple service with BehaviorSubject for component sharing, NgRx Store for large apps with complex state, and NgRx ComponentStore or SignalStore for local/feature state. Signals can also be used for simple reactive state in modern Angular."
@@ -22,8 +21,7 @@ interviewQuestions:
       - "Ignoring signals as a state management option — in Angular 17+ they're first-class and handle many use cases"
     relatedQuestions: ["b12t4q2", "b12t4q3"]
 
-  - id: "b12t4q2"
-    level: "mid"
+  - level: "mid"
     question: "When would you choose NgRx Store over a simple service with signals or BehaviorSubject?"
     referenceAnswers:
       junior: "NgRx is better for large apps with lots of shared state, where you need Redux DevTools for debugging. Simple services work fine for small apps."
@@ -36,8 +34,7 @@ interviewQuestions:
       - "Conflating 'NgRx effects are complex' with 'the whole pattern is complex' — effects are one part, not the whole"
     relatedQuestions: ["b12t4q1", "b12t4q3", "b12t4q4"]
 
-  - id: "b12t4q3"
-    level: "senior"
+  - level: "senior"
     question: "How do you decide the scope of state — local, feature, or global — and which tool fits each scope?"
     referenceAnswers:
       junior: "Local state stays in a component with signals or @Input. Shared state goes in a service. Global state like auth uses NgRx."
@@ -50,8 +47,7 @@ interviewQuestions:
       - "Using @Input for state that should be in a store — causes prop drilling and tight coupling"
     relatedQuestions: ["b12t4q2", "b12t4q4"]
 
-  - id: "b12t4q4"
-    level: "senior"
+  - level: "senior"
     question: "What are the concrete trade-offs between NgRx SignalStore and NgRx Store (full Redux) for a medium-sized app?"
     referenceAnswers:
       junior: "SignalStore is simpler and uses Angular signals. NgRx Store is more powerful but has more boilerplate."
@@ -64,8 +60,7 @@ interviewQuestions:
       - "Mixing NgRx Store and SignalStore state in the same feature without a clear boundary"
     relatedQuestions: ["b12t4q2", "b12t4q3", "b12t4q5"]
 
-  - id: "b12t4q5"
-    level: "staff"
+  - level: "staff"
     question: "How would you design a state management migration strategy for a large Angular app currently using Service+BehaviorSubject everywhere, wanting to modernize incrementally?"
     referenceAnswers:
       junior: "I'd gradually replace BehaviorSubject with signals in services, and add NgRx where state gets complex."

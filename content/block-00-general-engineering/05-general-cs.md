@@ -7,8 +7,7 @@ difficulty: 3
 tags: ["algorithms", "data-structures", "big-o", "event-loop", "memory-management", "web-apis"]
 relatedTopics: ["typescript-advanced", "anti-patterns"]
 interviewQuestions:
-  - id: "b0t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Event Loop і як він працює в браузері?"
     referenceAnswers:
       junior: "Event Loop — це механізм, який дозволяє JavaScript виконувати асинхронний код, хоча JS є однопоточним. Він перевіряє чи є задачі в черзі і виконує їх по одній."
@@ -19,8 +18,7 @@ interviewQuestions:
       - "Плутають microtasks і macrotasks — не розуміють пріоритет виконання"
       - "Не знають що Zone.js використовує Event Loop для change detection"
     relatedQuestions: ["b0t5q2", "b0t5q3"]
-  - id: "b0t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Які основні причини memory leaks в Angular SPA і як їх діагностувати?"
     referenceAnswers:
       junior: "Memory leaks виникають коли об'єкти залишаються в пам'яті хоча вже не потрібні. В Angular це часто трапляється через забуті підписки на Observable."
@@ -31,8 +29,7 @@ interviewQuestions:
       - "Думають що unsubscribe вирішує все — забувають про addEventListener, setInterval, closure references"
       - "Не знають як користуватись Chrome DevTools Memory profiler"
     relatedQuestions: ["b0t5q1", "b0t5q3"]
-  - id: "b0t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Яка роль Big-O нотації в реальних Angular додатках? Наведіть приклади."
     referenceAnswers:
       junior: "Big-O описує як швидкість алгоритму залежить від розміру вхідних даних. O(n) — лінійний, O(n²) — квадратичний."
@@ -43,8 +40,7 @@ interviewQuestions:
       - "Ігнорують Big-O бо 'в UI не має великих даних' — але забувають про change detection frequency"
       - "Не розуміють що impure pipe виконується на КОЖЕН change detection cycle"
     relatedQuestions: ["b0t5q2"]
-  - id: "b0t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Як працює Zone.js під капотом і навіщо Angular його використовує?"
     referenceAnswers:
       junior: "Zone.js — це бібліотека, яку Angular використовує для автоматичного оновлення UI після асинхронних операцій."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Вважають що zoneless Angular вже production-ready для всіх сценаріїв"
       - "Не розуміють зв'язок між Zone.js і change detection"
     relatedQuestions: ["b0t5q1"]
-  - id: "b0t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроєктували стратегію оптимізації performance для Angular додатку з 100k+ records?"
     referenceAnswers:
       junior: "Використовувати пагінацію або віртуальний скрол для великих списків."

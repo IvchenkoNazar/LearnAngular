@@ -8,8 +8,7 @@ sinceVersion: "17"
 tags: ["control-flow", "@if", "@for", "@switch", "@defer", "deferrable-views", "trackBy", "built-in-control-flow"]
 relatedTopics: ["dynamic-templates", "binding-types", "structural-directives", "change-detection", "performance"]
 interviewQuestions:
-  - id: "b4t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке нативний control flow в Angular і чим @if відрізняється від *ngIf?"
     referenceAnswers:
       junior: "@if — новий синтаксис Angular 17 що замінює *ngIf. Він читабельніший і не потребує NgIf імпорту. `@if (condition) { <div>show</div> } @else { <div>hide</div> }`."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що @if потребує import NgIf — він вбудований, не директива"
       - "Не знають про type narrowing всередині @if — не використовують цю перевагу"
     relatedQuestions: ["b4t5q2", "b4t5q3"]
-  - id: "b4t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Як правильно використовувати trackBy у @for і чому це критично для performance?"
     referenceAnswers:
       junior: "trackBy допомагає Angular відслідковувати елементи списку щоб не перерендерювати всі при зміні. Потрібно вказувати унікальний ідентифікатор."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують `track item` для objects з API responses — reference завжди нова → повний re-render"
       - "Використовують `track $index` при sorted/filtered lists — wrong DOM reuse"
     relatedQuestions: ["b4t5q1", "b4t5q3"]
-  - id: "b4t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке @defer і які triggers він підтримує для lazy rendering?"
     referenceAnswers:
       junior: "@defer дозволяє відкласти рендеринг частини template поки не виконається певна умова — наприклад viewport intersection або idle browser."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що @defer тільки для lazy loading — він також для progressive rendering і hydration"
       - "Не використовують prefetch — компонент завантажується тільки при trigger, може бути пізно"
     relatedQuestions: ["b4t5q2", "b4t5q4"]
-  - id: "b4t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Як @defer взаємодіє з SSR і incremental hydration в Angular 18+?"
     referenceAnswers:
       junior: "@defer з SSR рендерить placeholder на сервері і завантажує content на клієнті."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Думають що @defer завжди виключає SSR rendering — насправді можна контролювати через hydrate trigger"
       - "Не розуміють різницю між @defer (lazy load) і @defer (hydrate) — різні semantics"
     relatedQuestions: ["b4t5q3", "b4t5q5"]
-  - id: "b4t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроектували performance стратегію для content-heavy Angular application використовуючи всі можливості нового control flow?"
     referenceAnswers:
       junior: "Використовував би @defer для компонентів що не видно зразу і @if/@for для умовного рендерингу."

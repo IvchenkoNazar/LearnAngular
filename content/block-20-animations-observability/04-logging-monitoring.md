@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["logging", "structured logging", "performance monitoring", "Core Web Vitals", "Angular DevTools", "PerformanceObserver", "Real User Monitoring"]
 relatedTopics: ["error-handling-observability", "angular-animations", "animation-builder"]
 interviewQuestions:
-  - id: "b20t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Як реалізувати log service в Angular? Яка мінімальна структура потрібна для production logging?"
     referenceAnswers:
       junior: "Log service — це Angular service що абстрагує console.log і дозволяє контролювати рівні логування (debug, info, warn, error) та відключати logs в production."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "console.log() напряму у компонентах — не централізовано, неможливо вимкнути в prod"
       - "String concatenation в log messages (`'User ' + id + ' failed'`) замість structured objects"
     relatedQuestions: ["b20t4q2", "b20t3q5"]
-  - id: "b20t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке Core Web Vitals (LCP, CLS, INP) і як їх вимірювати в Angular додатку?"
     referenceAnswers:
       junior: "Core Web Vitals — це метрики Google для оцінки UX: LCP (час завантаження головного контенту), CLS (стрибки верстки), INP (час відповіді на interaction). Вимірюються через Lighthouse або PerformanceObserver API."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Вимірюють LCP/CLS тільки в Lighthouse (synthetic) — реальні users на повільних devices можуть мати набагато гірші результати"
       - "Не враховують що INP замінив FID з березня 2024 — старі метрики FID більше не в Core Web Vitals"
     relatedQuestions: ["b20t4q1", "b20t4q3"]
-  - id: "b20t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як логувати HTTP request timing в Angular через interceptors? Які метрики варто збирати?"
     referenceAnswers:
       junior: "HTTP interceptor може перехоплювати запити і відповіді. Можна використовувати performance.now() для вимірювання тривалості запитів."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Логують повний URL з dynamic params (`/api/users/123`) замість pattern (`/api/users/:id`) — cardinality explosion в monitoring"
       - "Логують request body без sanitization — PII і tokens в logs"
     relatedQuestions: ["b20t4q2", "b20t4q4"]
-  - id: "b20t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як Angular DevTools API допомагає відстежувати performance change detection cycles? Що таке ɵgetViewRef і як це використовується?"
     referenceAnswers:
       junior: "Angular DevTools — browser extension для debugging Angular apps. Показує component tree, change detection статистику, і profiler."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Використовують `ɵgetViewRef` та internal Angular APIs в production — unstable, може змінитись між versions"
       - "Профілюють тільки в DevTools (dev mode) — prod build може мати різне поведінку"
     relatedQuestions: ["b20t4q3", "b20t4q5"]
-  - id: "b20t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як інтегрувати Real User Monitoring (RUM) в Angular додаток? Яка різниця між RUM і Synthetic monitoring?"
     referenceAnswers:
       junior: "RUM — це вимірювання performance реальних користувачів, а не синтетичних тестів. Підключається через SDK (Datadog, New Relic) що збирає Web Vitals і errors від реальних сесій."

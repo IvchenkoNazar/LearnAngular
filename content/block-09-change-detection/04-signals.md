@@ -8,8 +8,7 @@ sinceVersion: "16"
 tags: ["signals", "signal", "computed", "effect", "WritableSignal", "toSignal", "toObservable", "reactivity"]
 relatedTopics: ["cd-mechanism", "onpush-strategy", "zoneless-angular", "signal-vs-observable", "rxjs-signal-interop"]
 interviewQuestions:
-  - id: "b9t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке Angular Signals і яку проблему вони вирішують?"
     referenceAnswers:
       junior: "Signals — це реактивні значення що автоматично оновлюють UI при зміні. Signal створюється через signal(initialValue), читається через mySignal(), оновлюється через mySignal.set(newValue) або mySignal.update(prev => newValue)."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Оновлюють signal в effect() без guard — нескінченний цикл: effect runs → signal changes → effect runs..."
       - "Використовують effect() для sync state derivation замість computed()"
     relatedQuestions: ["b9t4q2", "b9t4q3"]
-  - id: "b9t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між computed() і effect() і коли використовувати кожен?"
     referenceAnswers:
       junior: "computed() — для обчислення похідного значення з signals (синхронно, повертає значення). effect() — для side effects що повинні виконуватись при зміні signals (наприклад, логування або HTTP запит)."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "effect() без cleanup для subscriptions — memory leak"
       - "Оновлюють signal в effect без allowSignalWrites або без guard — infinite loop"
     relatedQuestions: ["b9t4q1", "b9t4q3"]
-  - id: "b9t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке input() і viewChild() signals і чим вони кращі за @Input() і @ViewChild()?"
     referenceAnswers:
       junior: "input() і viewChild() — це signal-based версії @Input() і @ViewChild() введені в Angular 17. Вони повертають Signal замість plain properties, що дозволяє реактивно відслідковувати зміни."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Намагаються встановити input() ззовні: component.items.set([]) — InputSignal read-only ззовні"
       - "Плутають model() з signal() — model() двосторонній, signal() тільки локальний"
     relatedQuestions: ["b9t4q2", "b9t4q4"]
-  - id: "b9t4q4"
-    level: "staff"
+  - level: "staff"
     question: "Як signals змінюють архітектуру state management порівняно з BehaviorSubject/Observable підходом?"
     referenceAnswers:
       junior: "Signals простіші у використанні ніж Observables — не потрібна підписка, читаються синхронно як звичайні змінні."

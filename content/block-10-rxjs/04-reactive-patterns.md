@@ -8,8 +8,7 @@ sinceVersion: "6"
 tags: ["reactive-patterns", "combineLatest", "shareReplay", "polling", "optimistic-updates", "reactive-forms", "debounce"]
 relatedTopics: ["higher-order-operators", "subject-types", "error-handling-rxjs", "service-behaviorsubject"]
 interviewQuestions:
-  - id: "b10t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке реактивний патерн в Angular і наведіть приклад?"
     referenceAnswers:
       junior: "Реактивний патерн — це підхід де дані описуються як Observable потоки і компоненти реагують на зміни автоматично. Наприклад, пошук де введення тексту автоматично запускає HTTP запит через switchMap."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Плутають реактивне і event-driven програмування — схожі але не те саме"
       - "Намагаються зробити все reactive коли простий Promise достатній"
     relatedQuestions: ["b10t4q2", "b10t4q3"]
-  - id: "b10t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати polling у Angular з RxJS? Як зупинити polling при navigate away?"
     referenceAnswers:
       junior: "Можна використати interval() з switchMap для HTTP запитів, і takeUntilDestroyed() щоб зупинити при знищенні компонента."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "interval без startWith — перший request через N секунд замість негайно"
       - "Не враховують що HTTP request може займати більше ніж interval"
     relatedQuestions: ["b10t4q1", "b10t5q1"]
-  - id: "b10t4q3"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати request deduplication та caching з shareReplay? Які підводні камені?"
     referenceAnswers:
       junior: "shareReplay(1) кешує останній результат і всі нові subscribers отримують його без нового HTTP запиту."
@@ -46,8 +43,7 @@ interviewQuestions:
       - "Не знають різниці shareReplay(1) vs shareReplay({bufferSize: 1, refCount: false})"
       - "Кешують мutable дані без invalidation strategy"
     relatedQuestions: ["b10t4q2", "b10t1q1"]
-  - id: "b10t4q4"
-    level: "mid"
+  - level: "mid"
     question: "Що таке optimistic updates і як їх реалізувати з RxJS у Angular?"
     referenceAnswers:
       junior: "Optimistic updates — це коли UI оновлюється відразу до отримання відповіді від сервера, а потім синхронізується або робиться rollback якщо запит провалився."
@@ -59,8 +55,7 @@ interviewQuestions:
       - "Не синхронізують state з server response після успіху (зберігають тільки optimistic)"
       - "Не показують user feedback при rollback"
     relatedQuestions: ["b10t4q3", "b10t5q1"]
-  - id: "b10t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроєктувати reactive data flow для складної форми з autocomplete, validation і server-side constraints?"
     referenceAnswers:
       junior: "Можна використати ReactiveFormsModule з valueChanges і switchMap для HTTP запитів на кожне поле."

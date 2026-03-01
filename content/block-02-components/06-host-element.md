@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["host-binding", "host-listener", "HostBinding", "HostListener", "hostDirectives", "attribute-directives", "directive-composition"]
 relatedTopics: ["component-metadata", "viewchild-contentchild", "content-projection", "lifecycle-hooks"]
 interviewQuestions:
-  - id: "b2t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке host element? Як використовувати @HostBinding і @HostListener?"
     referenceAnswers:
       junior: "@HostBinding дозволяє встановлювати властивості і атрибути на сам елемент компонента або директиви (host element). @HostListener — підписуватись на події host element. Наприклад, @HostBinding('class.active') isActive = true додає клас active на host."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що @HostBinding замінює template bindings — не розуміють що це для host element"
       - "Не знають про host: {} альтернативу в декораторі"
     relatedQuestions: ["b2t6q2", "b2t6q3"]
-  - id: "b2t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між @HostBinding/@HostListener і host property в @Component/@Directive? Що Angular рекомендує?"
     referenceAnswers:
       junior: "host property в декораторі — це альтернативний спосіб зробити те саме що @HostBinding/@HostListener але без декораторів на властивостях."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Думають що host: {} і @HostBinding мають різну runtime поведінку"
       - "Забувають що host: {} підтримує static attributes (без [] і ())"
     relatedQuestions: ["b2t6q1", "b2t6q3"]
-  - id: "b2t6q3"
-    level: "senior"
+  - level: "senior"
     question: "Що таке hostDirectives і як працює Directive Composition API (Angular v15+)? Коли це краще ніж inheritance?"
     referenceAnswers:
       junior: "hostDirectives дозволяє застосувати директиву до компонента автоматично без необхідності вказувати її в шаблоні."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що hostDirectives треба додавати до imports масиву — ні, тільки в hostDirectives"
       - "Забувають що inputs/outputs директиви не доступні ззовні без explicit forwarding"
     relatedQuestions: ["b2t6q2", "b2t6q4"]
-  - id: "b2t6q4"
-    level: "senior"
+  - level: "senior"
     question: "Як host element bindings взаємодіють з ViewEncapsulation? Які edge cases при використанні HostBinding з CSS класами?"
     referenceAnswers:
       junior: "ViewEncapsulation додає унікальний атрибут до елементів компонента для CSS isolation. Host element теж отримує цей атрибут."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Думають що @HostBinding('class.x') клас стилізується тільки component CSS — він visible для parent"
       - "Не розуміють відмінності :host vs :host-context в Emulated encapsulation"
     relatedQuestions: ["b2t6q3", "b2t6q5"]
-  - id: "b2t6q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроєктувати reusable behavior system для design system використовуючи hostDirectives і host: {} property? Які trade-offs між різними підходами?"
     referenceAnswers:
       junior: "Можна створити директиви з спільною поведінкою і застосовувати їх через hostDirectives до компонентів."

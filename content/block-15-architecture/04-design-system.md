@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["design system", "component library", "Storybook", "secondary entry points", "peer dependencies", "ng-packagr"]
 relatedTopics: ["project-structure", "monorepo-nx", "standalone-components"]
 interviewQuestions:
-  - id: "b15t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке publishable Angular library і чим вона відрізняється від звичайної Nx library?"
     referenceAnswers:
       junior: "Publishable library призначена для публікації у npm. Вона будується у окремий дистрибутивний формат який можна встановити через npm install."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Повна Ivy compilation (не partial) — lib несумісна між minor Angular versions"
       - "Не налаштовують `exports` field — tree-shaking не працює для secondary entries"
     relatedQuestions: ["b15t4q2", "b15t4q3"]
-  - id: "b15t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Що таке secondary entry points і навіщо вони потрібні у Angular component library?"
     referenceAnswers:
       junior: "Secondary entry points дозволяють імпортувати частини бібліотеки окремо, наприклад `@myorg/ui/button` замість імпорту всієї бібліотеки."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Secondary entry залежить від іншого secondary через primary — circular dep"
       - "Забувають `ng-package.json` у кожній secondary entry директорії"
     relatedQuestions: ["b15t4q1", "b15t4q3"]
-  - id: "b15t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як Storybook інтегрується з Angular і яку цінність він дає для design system?"
     referenceAnswers:
       junior: "Storybook — інструмент для розробки і документування UI компонентів в ізоляції. Кожен компонент має stories — файли що показують різні стани компонента."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "moduleMetadata у кожній story замість global decorators у preview.ts"
       - "Storybook не у CI — stories відстають від компонентів"
     relatedQuestions: ["b15t4q2", "b15t4q4"]
-  - id: "b15t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як організувати design tokens у Angular design system і як вони використовуються у компонентах?"
     referenceAnswers:
       junior: "Design tokens — це змінні CSS що містять design-specific значення (кольори, шрифти, відступи) і дозволяють легко змінювати тему."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Primitive tokens у компонентах (--blue-500) замість semantic (--color-primary)"
       - "Tokens у JavaScript змінних замість CSS Custom Properties — втрата cascade і theming"
     relatedQuestions: ["b15t4q3", "b15t4q5"]
-  - id: "b15t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спланувати versioning strategy для публічної Angular component library і як обробляти breaking changes?"
     referenceAnswers:
       junior: "Семантичне версіонування: major для breaking changes, minor для нових features, patch для bug fixes."

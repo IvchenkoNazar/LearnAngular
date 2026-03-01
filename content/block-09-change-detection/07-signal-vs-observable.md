@@ -8,8 +8,7 @@ sinceVersion: "16"
 tags: ["signals", "Observable", "RxJS", "toSignal", "toObservable", "reactive-patterns", "decision-framework"]
 relatedTopics: ["signals", "zoneless-angular", "rxjs-higher-order-operators", "rxjs-signal-interop"]
 interviewQuestions:
-  - id: "b9t7q1"
-    level: "junior"
+  - level: "junior"
     question: "Коли використовувати Signal, а коли Observable у Angular?"
     referenceAnswers:
       junior: "Signals для synchronous state що відображається в template. Observable для async operations (HTTP, WebSocket) де важливі RxJS operators (debounceTime, switchMap)."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Замінюють всі Observable на signals без розуміння що вони fundamentally different"
       - "Використовують signal для async data: signal(httpCall$) — stores Observable object, not response"
     relatedQuestions: ["b9t7q2", "b9t7q3"]
-  - id: "b9t7q2"
-    level: "mid"
+  - level: "mid"
     question: "Як toSignal() і toObservable() bridging functions працюють і коли їх використовувати?"
     referenceAnswers:
       junior: "toSignal() конвертує Observable до Signal для читання в template без async pipe. toObservable() конвертує Signal до Observable для використання з RxJS operators."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Викликають toSignal() поза injection context (в method, setTimeout) — кидає помилку"
       - "Не передають initialValue і отримують Signal<T | undefined> — undefined check в template"
     relatedQuestions: ["b9t7q1", "b9t7q3"]
-  - id: "b9t7q3"
-    level: "senior"
+  - level: "senior"
     question: "Які конкретні RxJS patterns неможливо або важко замінити signals?"
     referenceAnswers:
       junior: "switchMap для HTTP requests, debounceTime для search input, retry для HTTP errors — ці patterns дуже важко реалізувати тільки через signals."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Замінюють switchMap на effect() + signal — немає built-in cancellation попереднього request"
       - "Думають combineLatest можна замінити computed() — computed не має temporal/async semantics"
     relatedQuestions: ["b9t7q2", "b9t7q1"]
-  - id: "b9t7q4"
-    level: "staff"
+  - level: "staff"
     question: "Як Angular resource() API змінює підхід до server state і де він вписується між Signals і Observables?"
     referenceAnswers:
       junior: "resource() (Angular 18+) — це higher-level API для HTTP data fetching що автоматично обробляє loading, error і refresh стани."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["cli", "angular-json", "schematics", "builders", "esbuild", "webpack"]
 relatedTopics: ["bootstrapping", "standalone-components"]
 interviewQuestions:
-  - id: "b1t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Які основні команди Angular CLI ви використовуєте щодня? Що робить ng generate?"
     referenceAnswers:
       junior: "Основні команди: ng new (новий проєкт), ng serve (dev server), ng build (збірка), ng generate (генерація component, service тощо), ng test (тести). ng generate створює файли за шаблоном."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не використовують --dry-run перед generate"
       - "Ігнорують ng cache для прискорення builds"
     relatedQuestions: ["b1t4q2", "b1t4q3"]
-  - id: "b1t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як структурований angular.json? Що таке builders і як вони працюють?"
     referenceAnswers:
       junior: "angular.json — це конфігураційний файл Angular проєкту. Він містить налаштування для build, serve, test."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Hardcode environment values замість fileReplacements"
       - "Не налаштовують budgets — bundle grows unchecked"
     relatedQuestions: ["b1t4q1", "b1t4q3"]
-  - id: "b1t4q3"
-    level: "senior"
+  - level: "senior"
     question: "Порівняйте esbuild і webpack builders в Angular. Коли потрібен webpack?"
     referenceAnswers:
       junior: "esbuild — це новий швидший bundler в Angular. Webpack — старіший, але все ще підтримується."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не profiling builds — не знають де bottleneck"
       - "Custom webpack config без розуміння Angular build pipeline"
     relatedQuestions: ["b1t4q2", "b1t4q4"]
-  - id: "b1t4q4"
-    level: "staff"
+  - level: "staff"
     question: "Як ви організовуєте build pipeline та CI/CD для великого Angular monorepo?"
     referenceAnswers:
       junior: "В CI/CD зазвичай є ng build та ng test команди, які запускаються автоматично при pull request."

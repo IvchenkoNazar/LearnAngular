@@ -8,8 +8,7 @@ sinceVersion: "11.2"
 tags: ["tailwindcss", "postcss", "configuration", "JIT", "purge"]
 relatedTopics: ["tailwind-angular-components", "material-tailwind-together", "component-driven-approach"]
 interviewQuestions:
-  - id: "b14t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як додати Tailwind CSS до Angular-проєкту? Які кроки потрібні?"
     referenceAnswers:
       junior: "Потрібно встановити tailwindcss через npm і запустити npx tailwindcss init. Потім додати Tailwind directives (@tailwind base, components, utilities) в styles.css."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Забувають налаштувати content paths — CSS не генерується для template classes"
       - "Встановлюють Tailwind без PostCSS і Autoprefixer"
     relatedQuestions: ["b14t1q2", "b14t2q1"]
-  - id: "b14t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працює purge (content scanning) в Tailwind CSS і чому це критично для production?"
     referenceAnswers:
       junior: "Purge видаляє невикористані CSS класи для зменшення розміру файлу."
@@ -33,8 +31,7 @@ interviewQuestions:
       - "Не включають .ts файли в content — класи з class bindings губляться"
       - "Не моніторять CSS bundle size — можуть потрапити duplicate Tailwind styles"
     relatedQuestions: ["b14t1q1", "b14t1q3"]
-  - id: "b14t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як налаштувати Tailwind CSS в Angular monorepo з Nx? Які типові проблеми виникають?"
     referenceAnswers:
       junior: "В monorepo потрібно мати tailwind.config.js в кожному проєкті або один спільний."
@@ -45,8 +42,7 @@ interviewQuestions:
       - "Використовують абсолютні paths в content замість relative — ламається при зміні workspace root"
       - "Не враховують buildable vs non-buildable library різницю"
     relatedQuestions: ["b14t1q2", "b15t2q1"]
-  - id: "b14t1q4"
-    level: "mid"
+  - level: "mid"
     question: "Що таке JIT mode в Tailwind CSS і як він впливає на developer experience?"
     referenceAnswers:
       junior: "JIT mode генерує CSS на льоту замість генерації всього CSS наперед."
@@ -57,8 +53,7 @@ interviewQuestions:
       - "Думають що JIT — це runtime CSS generation (як CSS-in-JS) — насправді це build-time"
       - "Не розуміють що arbitrary values працюють лише з JIT (default з v3)"
     relatedQuestions: ["b14t1q1", "b14t1q2"]
-  - id: "b14t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроєктували Tailwind CSS infrastructure для enterprise Angular platform з десятками додатків?"
     referenceAnswers:
       junior: "Потрібно мати спільну конфігурацію Tailwind для всіх додатків."

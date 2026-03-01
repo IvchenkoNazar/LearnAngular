@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["auxiliary-routes", "named-outlets", "router-architecture", "secondary-outlet", "URL-serialization"]
 relatedTopics: ["router-fundamentals", "lazy-loading", "router-events", "preloading-strategies"]
 interviewQuestions:
-  - id: "b6t7q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке named outlet в Angular Router і як його оголосити в шаблоні?"
     referenceAnswers:
       junior: "Named outlet — це router-outlet з атрибутом name. Дозволяє відображати кілька незалежних router views одночасно. `<router-outlet name='sidebar'></router-outlet>`."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що named outlet = окремий router з власними guards — ні, guards спільні"
       - "Забувають що closing outlet потребує `router.navigate([{outlets: {name: null}}])` не просто navigate away"
     relatedQuestions: ["b6t7q2", "b6t7q3"]
-  - id: "b6t7q2"
-    level: "mid"
+  - level: "mid"
     question: "Як навігувати до named outlet і як виглядає URL з auxiliary routes?"
     referenceAnswers:
       junior: "Для navigation до named outlet використовуємо router.navigate з outlets object. URL виглядає з дужками: /path(outletName:routePath)."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Не знають що navigate без explicit outlet param зберігає existing outlet state"
       - "Намагаються navigateByUrl з outlets і не розуміють синтаксис URL serialization"
     relatedQuestions: ["b6t7q1", "b6t7q3"]
-  - id: "b6t7q3"
-    level: "senior"
+  - level: "senior"
     question: "Коли варто використовувати auxiliary routes і коли вони — antipattern?"
     referenceAnswers:
       junior: "Auxiliary routes корисні коли потрібно показати кілька компонентів одночасно незалежно, наприклад sidebar і main content."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують auxiliary routes для будь-якого overlay/modal без оцінки необхідності URL state"
       - "Не розуміють що 3+ outlets роблять URL illegible і maintenance nightmare"
     relatedQuestions: ["b6t7q2", "b6t7q4"]
-  - id: "b6t7q4"
-    level: "senior"
+  - level: "senior"
     question: "Що таке RouteReuseStrategy і як вона дозволяє зберігати стан компонентів при навігації?"
     referenceAnswers:
       junior: "RouteReuseStrategy дозволяє Angular зберігати (reuse) компоненти при навігації замість destroy+recreate. Це покращує performance."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Зберігають всі routes без max cache size — memory leak"
       - "Не detach ChangeDetector для stored components — CPU waste на background CD cycles"
     relatedQuestions: ["b6t7q3", "b6t7q5"]
-  - id: "b6t7q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроектувати routing architecture для enterprise SPA з 100+ routes, multi-tenant, і role-based access?"
     referenceAnswers:
       junior: "Для багатьох routes використовують lazy loading. Для ролей — route guards. Multi-tenant можна реалізувати через subdomain або URL prefix."

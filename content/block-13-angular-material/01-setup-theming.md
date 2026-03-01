@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Angular Material", "Material 3", "theming", "custom theme", "CSS variables", "mat-theme", "color system"]
 relatedTopics: ["key-components", "cdk", "tailwind-setup", "material-tailwind-together"]
 interviewQuestions:
-  - id: "b13t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як додати Angular Material до проєкту і що відбувається під час ng add @angular/material?"
     referenceAnswers:
       junior: "Треба запустити ng add @angular/material. Ця команда встановлює пакети, додає HammerJS якщо потрібно, налаштовує animations та імпортує теми в styles."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Використовують prebuilt theme для production продукту — неможливо кастомізувати під brand"
       - "Не розуміють різницю між Material 2 і Material 3 theming API"
     relatedQuestions: ["b13t1q2", "b13t1q3"]
-  - id: "b13t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як створити custom Angular Material theme з Material 3 і що таке color system в M3?"
     referenceAnswers:
       junior: "Треба створити SASS файл, використати mat.define-theme() і передати кольори. Потім включити тему в styles."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Застосовують all-component-themes глобально замість per-component для зменшення bundle"
       - "Не розуміють різницю між color roles (primary, on-primary, primary-container) і як вони використовуються компонентами"
     relatedQuestions: ["b13t1q1", "b13t1q3", "b13t1q4"]
-  - id: "b13t1q3"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати light/dark theme toggle в Angular Material без перезавантаження сторінки?"
     referenceAnswers:
       junior: "Можна мати два CSS класи для світлої і темної теми і перемикати їх через Angular."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не додають FOUT prevention — тема 'мигає' під час Angular bootstrap"
       - "Ігнорують prefers-color-scheme — не поважають системні налаштування користувача"
     relatedQuestions: ["b13t1q2", "b13t1q4"]
-  - id: "b13t1q4"
-    level: "senior"
+  - level: "senior"
     question: "Як кастомізувати типографію та density в Angular Material theme? Коли density configuration критична?"
     referenceAnswers:
       junior: "В mat.define-theme можна передати typography і density параметри для зміни шрифтів і розмірів компонентів."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не знають про per-component density — застосовують однаковий density скрізь"
       - "Завантажують Roboto через Google Fonts CDN в production без self-hosting — зовнішній SPOF"
     relatedQuestions: ["b13t1q2", "b13t1q3"]
-  - id: "b13t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як спроєктувати Angular Material theming infrastructure для enterprise з підтримкою кількох брендів і M2-to-M3 migration?"
     referenceAnswers:
       junior: "Потрібно мати окремий файл теми для кожного бренду і підключати потрібний."

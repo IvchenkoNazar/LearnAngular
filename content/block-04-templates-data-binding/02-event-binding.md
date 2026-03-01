@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["event-binding", "output", "EventEmitter", "custom-events", "host-listener", "two-way-binding"]
 relatedTopics: ["binding-types", "template-reference-variables", "component-metadata", "directives"]
 interviewQuestions:
-  - id: "b4t2q1"
-    level: "junior"
+  - level: "junior"
     question: "Як в Angular підписатись на DOM подію кнопки і викликати метод компоненту?"
     referenceAnswers:
       junior: "Використовуємо event binding синтаксис: `(click)=\"handleClick()\"`. Angular підписується на DOM подію і викликає метод компоненту при спрацюванні."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Викликають метод без дужок: `(click)=\"handleClick\"` — передає reference на функцію замість виклику"
       - "Не знають що `$event` — це native DOM Event, не Angular wrapper"
     relatedQuestions: ["b4t2q2", "b4t2q3"]
-  - id: "b4t2q2"
-    level: "mid"
+  - level: "mid"
     question: "Яка різниця між Output() EventEmitter і output() signal-based output в Angular 17+?"
     referenceAnswers:
       junior: "@Output() EventEmitter — старий спосіб. output() — новий сигнальний підхід. Обидва дозволяють emit events з child до parent."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Думають що output() — це Observable — насправді OutputRef, потрібен outputToObservable() для stream"
       - "Підписуються на EventEmitter напряму в parent замість template binding — порушує encapsulation"
     relatedQuestions: ["b4t2q1", "b4t2q3"]
-  - id: "b4t2q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке two-way binding і як Angular реалізує [(ngModel)] і [(value)] синтаксис?"
     referenceAnswers:
       junior: "Two-way binding `[(ngModel)]` дозволяє синхронізувати значення між template і компонентом. Зміна в input — оновлює модель, зміна моделі — оновлює input."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Не знають що [(x)] розгортається в [x] + (xChange) — називають Output eventName замість eventNameChange"
       - "Використовують ngModel в reactive forms — там потрібен formControl/formControlName"
     relatedQuestions: ["b4t2q2", "b4t2q4"]
-  - id: "b4t2q4"
-    level: "senior"
+  - level: "senior"
     question: "Як правильно обробляти event propagation і зупиняти bubbling в Angular templates?"
     referenceAnswers:
       junior: "Можна викликати `$event.stopPropagation()` в handler методі щоб зупинити bubbling."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Викликають stopPropagation() в async callback після event обробки — bubbling вже відбувся"
       - "Забувають що (click) на component не зупиняє bubbling автоматично — Angular компоненти прозорі для DOM events"
     relatedQuestions: ["b4t2q3", "b4t2q5"]
-  - id: "b4t2q5"
-    level: "staff"
+  - level: "staff"
     question: "Як би ви спроектували архітектуру event handling для high-performance таблиці з 10,000 rows?"
     referenceAnswers:
       junior: "Я б використовував Virtual Scroll щоб рендерити тільки видимі рядки і ставив (click) binding на кожен рядок."

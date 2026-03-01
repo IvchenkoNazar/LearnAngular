@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["BehaviorSubject", "service-state", "state-management", "reactive-service", "store-pattern", "lightweight-store"]
 relatedTopics: ["subject-types", "memory-leaks", "signals-intro", "ngrx"]
 interviewQuestions:
-  - id: "b12t1q1"
-    level: "junior"
+  - level: "junior"
     question: "Як реалізувати shared state між компонентами у Angular без NgRx?"
     referenceAnswers:
       junior: "Можна використати сервіс з BehaviorSubject. BehaviorSubject зберігає поточне значення і всі компоненти підписуються на нього щоб отримувати оновлення."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не використовують distinctUntilChanged для selectors — зайві re-renders"
       - "Множинні BehaviorSubjects замість одного state object — важко синхронізувати"
     relatedQuestions: ["b12t1q2", "b12t1q3"]
-  - id: "b12t1q2"
-    level: "mid"
+  - level: "mid"
     question: "Як організувати immutable state updates у service-based store?"
     referenceAnswers:
       junior: "Створити новий об'єкт замість мутації існуючого: spread operator або Object.assign."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Deep clone через JSON.parse(JSON.stringify()) — втрата Date, undefined, functions"
       - "Не знають Immer.js для складних nested updates"
     relatedQuestions: ["b12t1q1", "b12t1q3"]
-  - id: "b12t1q3"
-    level: "senior"
+  - level: "senior"
     question: "Як написати typed, safe service store з Error і Loading state?"
     referenceAnswers:
       junior: "Додати loading і error поля у state об'єкт і оновлювати їх при HTTP запитах."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Один loading boolean для кількох concurrent operations"
       - "Не використовують distinctUntilChanged для selectors — зайві re-renders"
     relatedQuestions: ["b12t1q2", "b12t1q4"]
-  - id: "b12t1q4"
-    level: "mid"
+  - level: "mid"
     question: "Коли service з BehaviorSubject достатній і коли потрібен NgRx?"
     referenceAnswers:
       junior: "Service достатній для маленьких features. NgRx потрібен для великих додатків з complex state."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Service для global cross-feature state — spaghetti dependencies"
       - "Не знають NgRx SignalStore як middle ground"
     relatedQuestions: ["b12t1q3", "b12t1q5"]
-  - id: "b12t1q5"
-    level: "staff"
+  - level: "staff"
     question: "Як мігрувати service з BehaviorSubject до Signal-based store поступово?"
     referenceAnswers:
       junior: "Замінити BehaviorSubject на signal() і видалити async pipe."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["spy service", "useValue", "overrideComponent", "jest.fn", "jasmine.createSpy", "NO_ERRORS_SCHEMA", "mock"]
 relatedTopics: ["unit-testing", "testing-services", "testing-components", "dependency-injection"]
 interviewQuestions:
-  - id: "b18t6q1"
-    level: "junior"
+  - level: "junior"
     question: "Як замінити реальний сервіс на mock в Angular тестах?"
     referenceAnswers:
       junior: "Через providers в TestBed.configureTestingModule: { provide: RealService, useValue: mockService }. Так Angular injector повертає mock замість реального."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "createSpyObj без всіх потрібних методів — TypeError при виклику незареєстрованого методу"
       - "Не configure return value для spy що повертає Observable — компонент отримує undefined.subscribe() error"
     relatedQuestions: ["b18t6q2", "b18t2q2"]
-  - id: "b18t6q2"
-    level: "mid"
+  - level: "mid"
     question: "Як використовувати TestBed.overrideComponent і TestBed.overrideProvider?"
     referenceAnswers:
       junior: "TestBed.overrideComponent дозволяє замінити template або providers конкретного компонента після configureTestingModule."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "overrideComponent після createComponent() — не діє"
       - "overrideProvider vs configureTestingModule provider — не розуміють різниці в DI scope"
     relatedQuestions: ["b18t6q1", "b18t6q3"]
-  - id: "b18t6q3"
-    level: "mid"
+  - level: "mid"
     question: "NO_ERRORS_SCHEMA vs stub components — коли що використовувати?"
     referenceAnswers:
       junior: "NO_ERRORS_SCHEMA ігнорує незнайомі HTML елементи і атрибути. Stub components — мінімальні fake компоненти. NO_ERRORS_SCHEMA простіший, stubs — безпечніший."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "NO_ERRORS_SCHEMA в critical integration tests — missing component entirely undetected"
       - "Stub components без @Input declarations — Angular still shows binding errors для Input-decorated props"
     relatedQuestions: ["b18t6q2", "b18t1q2"]
-  - id: "b18t6q4"
-    level: "senior"
+  - level: "senior"
     question: "Як тестувати з fake implementations (Fakes) замість stubs і коли це кращий вибір?"
     referenceAnswers:
       junior: "Fake — це повна але спрощена реалізація сервісу. Наприклад, InMemoryDatabase замість реальної бази даних."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Fake стає занадто складним — якщо fake складніший ніж stub, можливо краще stub"
       - "Fake не підтримується при зміні real service — fake diverges, tests pass but wrong behavior"
     relatedQuestions: ["b18t6q3", "b18t2q5"]
-  - id: "b18t6q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати mocking стратегію для великого Angular проєкту?"
     referenceAnswers:
       junior: "Спільні mock файли і helper functions для зменшення дублювання."

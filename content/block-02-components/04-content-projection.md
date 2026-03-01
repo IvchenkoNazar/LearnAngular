@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["ng-content", "content-projection", "select", "ngTemplateOutlet", "ng-template", "CDK-portal"]
 relatedTopics: ["component-metadata", "viewchild-contentchild", "host-element", "ng-template"]
 interviewQuestions:
-  - id: "b2t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке content projection і як працює ng-content?"
     referenceAnswers:
       junior: "Content projection дозволяє вставляти HTML контент всередину компонента. ng-content — це placeholder де з'явиться контент що передали між тегами компонента."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Не знають про multi-slot projection з select"
       - "Думають що ng-content має lazy rendering"
     relatedQuestions: ["b2t4q2", "b2t4q3"]
-  - id: "b2t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як працює multi-slot projection з select? Які CSS selectors підтримуються?"
     referenceAnswers:
       junior: "select атрибут на ng-content фільтрує який контент куди потрапляє. Можна вказати тег або клас."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Намагаються використати CSS combinators в select"
       - "Не знають про ngProjectAs"
     relatedQuestions: ["b2t4q1", "b2t4q3"]
-  - id: "b2t4q3"
-    level: "senior"
+  - level: "senior"
     question: "Яка різниця між ng-content і ngTemplateOutlet? Коли що використовувати?"
     referenceAnswers:
       junior: "ng-content вставляє контент як є, ngTemplateOutlet рендерить ng-template і може передати дані."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Використовують ng-content для conditional content (eager rendering)"
       - "Не передають context в ngTemplateOutlet"
     relatedQuestions: ["b2t4q1", "b2t4q4"]
-  - id: "b2t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати conditional projection і render-prop pattern в Angular?"
     referenceAnswers:
       junior: "Conditional projection — це коли контент показується або ховається за умовою."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Обгортають ng-content в @if і думають що контент conditional"
       - "Не типізують context для ngTemplateOutlet"
     relatedQuestions: ["b2t4q3", "b2t4q5"]
-  - id: "b2t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як CDK Portal працює і коли його використовувати замість ng-content/ngTemplateOutlet?"
     referenceAnswers:
       junior: "CDK Portal — це спосіб рендерити контент в іншому місці DOM дерева."

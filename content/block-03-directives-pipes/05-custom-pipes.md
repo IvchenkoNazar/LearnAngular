@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["custom-pipe", "PipeTransform", "pure", "impure", "memoization"]
 relatedTopics: ["built-in-pipes", "dependency-injection", "signal-and-async-patterns", "testing"]
 interviewQuestions:
-  - id: "b3t5q1"
-    level: "junior"
+  - level: "junior"
     question: "Як реалізувати PipeTransform інтерфейс? Покажи мінімальний приклад."
     referenceAnswers:
       junior: "Клас реалізує PipeTransform з методом transform(). Decorator @Pipe з name property. transform() приймає value і optional аргументи, повертає перетворене значення."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Роблять transform() async — вона синхронна, для async — async pipe або observable"
       - "Не вказують return type — TypeScript не може перевірити pipe chain types"
     relatedQuestions: ["b3t5q2", "b3t5q3"]
-  - id: "b3t5q2"
-    level: "mid"
+  - level: "mid"
     question: "Коли використовувати pipe, а коли метод компонента або computed property?"
     referenceAnswers:
       junior: "Pipe — для форматування даних в template. Метод компонента — якщо потрібна складна логіка. Computed property — якщо використовується кілька разів."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Використовують method в template для expensive operation — відбувається на кожен CD"
       - "Пишуть pipe для одноразової трансформації — overkill для simple cases"
     relatedQuestions: ["b3t5q1", "b3t5q4"]
-  - id: "b3t5q3"
-    level: "mid"
+  - level: "mid"
     question: "Як кешування в pure pipe допомагає з performance? Як реалізувати власний кеш?"
     referenceAnswers:
       junior: "Pure pipe не перераховується якщо input не змінився — це само по собі кеш. Angular зберігає результат."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Думають що pipe має shared cache між всіма bindings — кожне binding — окремий instance"
       - "Використовують Map без обмеження розміру — memory leak для великих inputs"
     relatedQuestions: ["b3t5q2", "b3t5q4"]
-  - id: "b3t5q4"
-    level: "senior"
+  - level: "senior"
     question: "Коли impure custom pipe виправданий? Назви конкретні use cases і підводні камені."
     referenceAnswers:
       junior: "Impure pipe потрібна коли дані змінюються без зміни reference — наприклад мутований масив."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Пишуть FilterPipe як impure бо 'array може змінитись' — краще computed() або immutable array"
       - "Не профілюють impure pipe в @for і дивуються чому app сповільнився"
     relatedQuestions: ["b3t5q3", "b3t5q5"]
-  - id: "b3t5q5"
-    level: "staff"
+  - level: "staff"
     question: "Як тестувати custom pipe ізольовано і в контексті компонента? Які тестові стратегії?"
     referenceAnswers:
       junior: "Pipe можна тестувати як звичайний JavaScript клас — new MyPipe().transform(input, ...args)."

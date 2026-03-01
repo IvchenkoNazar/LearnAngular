@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["prerendering", "SSG", "static generation", "routesFile", "platform detection", "ng build --prerender", "app-shell"]
 relatedTopics: ["angular-universal", "hydration", "routing", "service-workers-pwa"]
 interviewQuestions:
-  - id: "b17t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке prerendering (SSG) в Angular і чим він відрізняється від SSR?"
     referenceAnswers:
       junior: "Prerendering генерує HTML файли під час збірки, а не при кожному запиті. SSR генерує HTML на сервері при кожному запиті. Prerendering швидший бо файли просто відправляються з CDN."
@@ -20,8 +19,7 @@ interviewQuestions:
       - "Думають що SSG і SSR взаємовиключні — можна мати SSR для деяких routes і SSG для інших"
       - "Не розуміють що prerendering все одно потребує Angular Universal setup (рендеринг відбувається в Node.js)"
     relatedQuestions: ["b17t3q2", "b17t1q1"]
-  - id: "b17t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як налаштувати prerendering для dynamic routes в Angular?"
     referenceAnswers:
       junior: "Потрібно вказати список routes які треба prerender в конфігурації. Angular сам не знає які є параметри для dynamic routes."
@@ -32,8 +30,7 @@ interviewQuestions:
       - "Забувають налаштувати routesFile і дивуються що /products/123 повертає 404"
       - "Не враховують час збірки при великій кількості routes для prerendering"
     relatedQuestions: ["b17t3q1", "b17t3q3"]
-  - id: "b17t3q3"
-    level: "mid"
+  - level: "mid"
     question: "Що таке Angular App Shell і як він пов'язаний з PWA?"
     referenceAnswers:
       junior: "App Shell — це мінімальний HTML/CSS/JS що завантажується першим і показує skeleton UI поки завантажується основний контент."
@@ -44,8 +41,7 @@ interviewQuestions:
       - "Роблять App Shell занадто важким (з даними) — втрачається benefit миттєвого завантаження"
       - "Не налаштовують Service Worker для кешування shell — prerendering без SW = не повний App Shell pattern"
     relatedQuestions: ["b17t3q2", "b17t4q1"]
-  - id: "b17t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Коли вибирати SSG vs SSR vs CSR для Angular додатку?"
     referenceAnswers:
       junior: "SSG — для статичного контенту, SSR — для dynamic і SEO, CSR — для authenticated dashboards."
@@ -56,8 +52,7 @@ interviewQuestions:
       - "Застосовують SSR скрізь — там де SSG достатньо, SSR додає зайву складність"
       - "Ігнорують hybrid підхід — вважають що весь додаток повинен мати одну стратегію"
     relatedQuestions: ["b17t3q1", "b17t1q5"]
-  - id: "b17t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як prerendering впливає на CI/CD pipeline і deployment стратегію?"
     referenceAnswers:
       junior: "Prerendering додає час до збірки, бо треба рендерити HTML для кожної сторінки."

@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["design system", "component abstraction", "Tailwind", "reusable components", "@apply", "design tokens"]
 relatedTopics: ["tailwind-setup", "tailwind-angular-components", "material-tailwind-together", "setup-theming"]
 interviewQuestions:
-  - id: "b14t4q1"
-    level: "junior"
+  - level: "junior"
     question: "Коли варто виносити Tailwind класи в окремий Angular компонент замість того щоб писати їх прямо в template?"
     referenceAnswers:
       junior: "Варто виносити коли одні і ті ж класи повторюються в багатьох місцях. Якщо є лише одне використання — можна залишити inline."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Залишати complex interactive elements (buttons, forms) без encapsulation — сотні рядків дублювання"
       - "Компоненти без typed inputs — передають raw className string"
     relatedQuestions: ["b14t4q2", "b14t2q5"]
-  - id: "b14t4q2"
-    level: "mid"
+  - level: "mid"
     question: "Як @apply в Tailwind допомагає при component-level abstractions і коли його не варто використовувати?"
     referenceAnswers:
       junior: "@apply дозволяє писати Tailwind класи в CSS файлі замість в HTML. Це корисно коли є повторюваний набір класів."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "@apply замість Angular component для interactive elements — немає TypeScript, inputs, events"
       - "Не знають що @apply copies properties, не references class — різна specificity behavior"
     relatedQuestions: ["b14t4q1", "b14t4q3"]
-  - id: "b14t4q3"
-    level: "mid"
+  - level: "mid"
     question: "Як реалізувати design token підхід в Angular з Tailwind і CSS custom properties?"
     referenceAnswers:
       junior: "Design tokens — це змінні для кольорів, шрифтів, відступів. Можна визначити CSS variables і використовувати їх в Tailwind theme."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Плутають Global і Semantic tokens — все в одному рівні без ієрархії"
       - "Немає Figma → code sync — дизайнери і розробники розходяться у значеннях"
     relatedQuestions: ["b14t4q2", "b14t4q4"]
-  - id: "b14t4q4"
-    level: "senior"
+  - level: "senior"
     question: "Як збудувати Angular component library зі стилями на Tailwind CSS? Як consumer проєкт отримує стилі?"
     referenceAnswers:
       junior: "Треба опублікувати компоненти з npm. Consumer додає Tailwind до свого проєкту і включає library path в content scanning."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Compiled CSS без CSS variables API — consumer не може theme customize"
       - "Source distribution зі специфічним Tailwind config — consumer config override можливостей немає"
     relatedQuestions: ["b14t4q3", "b14t4q5"]
-  - id: "b14t4q5"
-    level: "staff"
+  - level: "staff"
     question: "Як оцінити performance implications component-driven vs utility-first підходу в Tailwind і коли який обирати?"
     referenceAnswers:
       junior: "Utility-first — більше класів в HTML але менше CSS. Component-driven — чистіший HTML але може дублювати CSS."

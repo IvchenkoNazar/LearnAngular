@@ -8,8 +8,7 @@ sinceVersion: "2"
 tags: ["Module Federation", "micro-frontend", "Webpack 5", "Angular Elements", "web components", "shell app", "remote"]
 relatedTopics: ["project-structure", "monorepo-nx", "standalone-components", "lazy-loading"]
 interviewQuestions:
-  - id: "b15t3q1"
-    level: "junior"
+  - level: "junior"
     question: "Що таке micro-frontend архітектура і в чому її основна ідея?"
     referenceAnswers:
       junior: "Micro-frontend — це підхід, де великий frontend додаток розбивається на менші незалежні частини, кожна з яких розробляється і деплоїться окремою командою."
@@ -21,8 +20,7 @@ interviewQuestions:
       - "Не розуміють різниці між build-time і runtime integration"
       - "Думають MFE автоматично вирішує performance проблеми"
     relatedQuestions: ["b15t3q2", "b15t3q3"]
-  - id: "b15t3q2"
-    level: "mid"
+  - level: "mid"
     question: "Як Module Federation працює у Webpack 5 і яка роль shell (host) та remote apps?"
     referenceAnswers:
       junior: "Shell app — головний додаток, remotes — окремі apps що завантажуються у shell. Module Federation дозволяє їм шерити код між собою."
@@ -34,8 +32,7 @@ interviewQuestions:
       - "Плутають remoteEntry.js (маніфест) і remote bundle (код)"
       - "Не розуміють що esbuild Angular CLI несумісний з Webpack Module Federation"
     relatedQuestions: ["b15t3q1", "b15t3q3"]
-  - id: "b15t3q3"
-    level: "senior"
+  - level: "senior"
     question: "Як шерити Angular dependencies між shell і remote apps у Module Federation, і що таке singleton mode?"
     referenceAnswers:
       junior: "У webpack.config.js є `shared` об'єкт де перераховуються залежності що шеряться між apps."
@@ -47,8 +44,7 @@ interviewQuestions:
       - "Не шерять RxJS — два примірники ламають Subject crosscommunication"
       - "strictVersion: false скрізь — MF тихо завантажить дублікат без попередження"
     relatedQuestions: ["b15t3q2", "b15t3q4"]
-  - id: "b15t3q4"
-    level: "senior"
+  - level: "senior"
     question: "Як реалізувати Angular Elements для micro-frontend інтеграції і в яких сценаріях це кращий вибір ніж Module Federation?"
     referenceAnswers:
       junior: "Angular Elements перетворює Angular компоненти на Web Components що можна використовувати у будь-якому HTML чи іншому фреймворку."
@@ -60,8 +56,7 @@ interviewQuestions:
       - "Не розуміють що кожен Angular Element = окремий Angular runtime (якщо без sharing)"
       - "Плутають Angular Elements (Web Components) і Module Federation (JS chunks)"
     relatedQuestions: ["b15t3q3", "b15t3q5"]
-  - id: "b15t3q5"
-    level: "staff"
+  - level: "staff"
     question: "Як організувати shared state між micro-frontend remotes і як вирішити проблему state isolation vs state sharing?"
     referenceAnswers:
       junior: "Можна використати localStorage або CustomEvents для комунікації між MFEs."
