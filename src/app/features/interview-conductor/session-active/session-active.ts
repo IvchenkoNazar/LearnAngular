@@ -65,15 +65,25 @@ export class SessionActive implements OnInit {
 
   askedIds = this.interviewService.askedQuestionIds;
 
+  // Questions related to ANY already-asked question, excluding those already asked
   relatedIds = computed(() => {
-    const expanded = this.expandedQuestionId();
-    if (!expanded) return new Set<string>();
-    return this.interviewService.getRelatedQuestionIds(expanded, this.questions());
+    const allQuestions = this.questions();
+    const askedIds = this.askedIds();
+    if (askedIds.size === 0) return new Set<string>();
+    const related = new Set<string>();
+    for (const id of askedIds) {
+      this.interviewService.getRelatedQuestionIds(id, allQuestions)
+        .forEach(rid => related.add(rid));
+    }
+    askedIds.forEach(id => related.delete(id)); // don't re-highlight asked ones
+    return related;
   });
 
-  uncoveredBlocks = computed(() =>
-    this.interviewService.getUncoveredBlocks(this.questions())
-  );
+  // Blocks with zero asked questions (only meaningful once session has started)
+  uncoveredBlocks = computed(() => {
+    if (this.askedIds().size === 0) return new Set<number>(); // nothing asked yet → no highlights
+    return this.interviewService.getUncoveredBlocks(this.questions());
+  });
 
   rows = computed((): QuestionRow[] => {
     let qs = this.questions();
