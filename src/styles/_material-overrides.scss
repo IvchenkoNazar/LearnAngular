@@ -238,6 +238,21 @@ html.light {
   em { font-style: italic; }
 }
 
+// ---------------------------------------------------------------
+// INTERVIEW BLOCK section — label fields on separate lines
+// ---------------------------------------------------------------
+// Markdown fields like **Signal being tested:** collapse into one <p>.
+// Scoped to .interview-block so other prose sections are unaffected.
+.prose.interview-block {
+  p > strong {
+    display: block;
+    margin-top: 0.75rem;
+    color: var(--color-accent-light);
+
+    &:first-child { margin-top: 0; }
+  }
+}
+
 // Light theme prose overrides
 html.light .prose {
   color: rgb(17 24 39); // dark text for light mode

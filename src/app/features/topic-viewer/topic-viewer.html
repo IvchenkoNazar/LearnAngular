@@ -38,7 +38,9 @@
     <mat-tab-group animationDuration="200ms" class="topic-tabs">
       @for (section of t.sections; track section.id) {
         <mat-tab [label]="section.title">
-          <div class="prose max-w-none p-6" [innerHTML]="section.htmlContent"></div>
+          <div class="prose max-w-none p-6"
+               [class.interview-block]="section.id === 'interview-block'"
+               [innerHTML]="section.htmlContent"></div>
         </mat-tab>
       }
     </mat-tab-group>
