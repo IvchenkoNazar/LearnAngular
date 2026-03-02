@@ -12,6 +12,10 @@
   --color-success: #00b894;
   --color-warning: #fdcb6e;
   --color-danger: #e17055;
+
+  /* Gray scale overrides for dark mode — Tailwind's defaults are too dark for dark backgrounds */
+  --color-gray-500: #9ca3af;  /* bumped up from #6b7280 (~4:1 on dark) to ~7:1 */
+  --color-gray-600: #6b7280;  /* bumped up from #4b5563 (~2.5:1 on dark) to ~4:1 */
 }
 
 /* Light theme overrides */
@@ -32,4 +36,6 @@ html.light {
   --color-gray-200: #1f2937;  /* ~15:1 on white */
   --color-gray-300: #374151;  /* ~10:1 on white */
   --color-gray-400: #4b5563;  /* ~7.5:1 on white */
+  --color-gray-500: #6b7280;  /* restore Tailwind default — fine on white */
+  --color-gray-600: #4b5563;  /* restore Tailwind default — fine on white */
 }

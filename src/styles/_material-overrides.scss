@@ -136,6 +136,20 @@ mat-sidenav {
 }
 
 // ---------------------------------------------------------------
+// SEMANTIC COLOR BUTTONS & CHIPS — light mode text inversion
+// ---------------------------------------------------------------
+// In dark mode: success/warning/danger are light colors → dark text (text-gray-900) has good contrast.
+// In light mode: these colors become dark shades → dark text on dark bg is unreadable.
+// Override to white text in light mode for all three semantic backgrounds.
+html.light {
+  .mat-mdc-raised-button, .mat-mdc-chip {
+    &.bg-success, &.bg-warning, &.bg-danger {
+      color: white !important;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
 // PROGRESS BAR
 // ---------------------------------------------------------------
 .mat-mdc-progress-bar {
