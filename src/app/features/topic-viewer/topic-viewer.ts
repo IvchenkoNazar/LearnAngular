@@ -64,7 +64,11 @@ export class TopicViewer {
       const topicData = await this.contentService.loadTopic(blockSlug, topicSlug);
       this.topic.set(topicData);
       this.block.set(this.contentService.getBlockBySlug(blockSlug) ?? null);
-      this.progressService.markTopicStatus(topicData.id, 'in-progress');
+      // Only mark in-progress if not already completed — never downgrade completed status on reload
+      const existing = this.progressService.getTopicProgress(topicData.id);
+      if (existing?.status !== 'completed') {
+        this.progressService.markTopicStatus(topicData.id, 'in-progress');
+      }
     } finally {
       this.loading.set(false);
     }
