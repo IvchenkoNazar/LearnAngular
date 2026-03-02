@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, input, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, input, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,7 @@ import { TopicContent, ContentBlock } from '../../shared/models';
   templateUrl: './topic-viewer.html',
   styleUrl: './topic-viewer.scss',
 })
-export class TopicViewer implements OnInit {
+export class TopicViewer {
   private contentService = inject(ContentService);
   private progressService = inject(ProgressService);
 
@@ -27,6 +27,13 @@ export class TopicViewer implements OnInit {
   topic = signal<TopicContent | null>(null);
   block = signal<ContentBlock | null>(null);
   loading = signal(true);
+
+  constructor() {
+    effect(() => {
+      // Runs on every blockSlug/topicSlug change — covers both initial load and prev/next navigation
+      this.loadTopic(this.blockSlug(), this.topicSlug());
+    });
+  }
 
   isCompleted = computed(() => {
     const t = this.topic();
@@ -51,15 +58,12 @@ export class TopicViewer implements OnInit {
     return idx >= 0 && idx < b.topics.length - 1 ? b.topics[idx + 1] : null;
   });
 
-  async ngOnInit() {
+  private async loadTopic(blockSlug: string, topicSlug: string) {
+    this.loading.set(true);
     try {
-      const [topicData] = await Promise.all([
-        this.contentService.loadTopic(this.blockSlug(), this.topicSlug()),
-      ]);
+      const topicData = await this.contentService.loadTopic(blockSlug, topicSlug);
       this.topic.set(topicData);
-      this.block.set(this.contentService.getBlockBySlug(this.blockSlug()) ?? null);
-
-      // Mark as visited
+      this.block.set(this.contentService.getBlockBySlug(blockSlug) ?? null);
       this.progressService.markTopicStatus(topicData.id, 'in-progress');
     } finally {
       this.loading.set(false);
